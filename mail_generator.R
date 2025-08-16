@@ -7,7 +7,7 @@ index <- 0
 
 for (indic in indics) {
   index <- index + 1
-  revision_table <- revision_list[[index]]   # TRUE/FALSE table
+  revision_table <- as.data.frame(revision_list[[index]])  # TRUE/FALSE table
   diff_table     <- as.data.frame(diff_list[[index]])    # numeric differences
   indic_colored <- as.data.frame(indic)   # copy for coloring
   
@@ -18,10 +18,18 @@ for (indic in indics) {
   # Loop rows & columns once
   for (r_index in seq_len(nrow(indic))) {
     for (c_index in 2:ncol(indic)) {   # skip ID column
-      if (revision_table[r_index, c_index]) {
+      
+      # Check if there is new data in this table
+      if (ncol(indic_colored) != ncol(diff_table) &
+          c_index == ncol(indic_colored)) {
+        indic_colored[r_index, c_index] <- sprintf(
+          "<span style='background-color:lightgreen;'>%s</span>",
+          indic_colored[r_index, c_index]
+        )
+      } else if (revision_table[r_index, c_index]) {
         # Add color
         indic_colored[r_index, c_index] <- sprintf(
-          "<span style='background-color:orange;'>%s</span>",
+          "<span style='background-color:#FFD580;'>%s</span>",
           indic_colored[r_index, c_index]
         )
         

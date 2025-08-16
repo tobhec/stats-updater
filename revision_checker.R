@@ -5,8 +5,16 @@ vintages <- list(indic1copy, indic2copy)
 
 # --- Calculate differences (new - old), preserve first column (Country/ID) ---
 calc_abs_diff <- function(new_table, old_table) {
-  # Get numeric columns only
-  num_cols <- names(new_table)[sapply(new_table, is.numeric)]
+  # Check that the tables have the same number of columns
+  if(ncol(new_table) == ncol(old_table))
+  {
+    # Get numeric columns only
+    num_cols <- names(new_table)[sapply(new_table, is.numeric)]
+  } else {
+    # Get numeric columns only and exclude the last column
+    num_cols <- names(new_table)[sapply(new_table, is.numeric)]
+    num_cols <- setdiff(num_cols, tail(names(new_table), 1))
+  }
   
   # Start diff table with the ID column from new_table
   diff_table <- data.table(ID = new_table[[1]])
@@ -20,7 +28,7 @@ calc_abs_diff <- function(new_table, old_table) {
   return(diff_table)
 }
 
-# Apply to each pair of tables in the lists
+# Make the calculation
 diff_list <- Map(calc_abs_diff, indics, vintages)
 
 
@@ -38,7 +46,7 @@ check_for_revisions <- function(dt) {
   return(revision_table)
 }
 
-# Apply function to each diff_table
+# Make the calculation
 revision_list <- Map(check_for_revisions, diff_list)
 
 
