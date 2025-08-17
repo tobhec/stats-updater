@@ -2,9 +2,16 @@ library(blastula)
 library(glue)
 library(knitr)
 
-body_text <- "## Daily Data Update "
-index <- 0
+body_text <- paste0(
+  "## Daily Data Update - ", format(Sys.Date(), "%B %d, %Y"), "\n",
+  
+  "Data was downloaded around 07 AM Brussels time.\n\n",
+  
+  "<span style='background-color:lightgreen;'>Green numbers represent new data releases.</span>\n",
+  "<span style='background-color:#FFD580;'>Orange numbers represent data revisions.</span>"
+)
 
+index <- 0
 for (indic in indics) {
   index <- index + 1
   revision_table <- as.data.frame(revision_list[[index]])  # TRUE/FALSE table
@@ -41,7 +48,7 @@ for (indic in indics) {
         revision_sentences <- paste0(
           revision_sentences,
           sprintf(
-            "%s, %s has been revised by %.2f.<br>",
+            "- For %s, %s has been revised by %.2f.<br>",
             row_label, col_label, value
           )
         )
