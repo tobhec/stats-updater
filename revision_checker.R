@@ -1,7 +1,9 @@
 indic1copy <- indic1
 indic2copy <- indic2
+indic3copy <- indic3
+indic4copy <- indic4
 
-vintages <- list(indic1copy, indic2copy)
+vintages <- list(indic1copy, indic2copy, indic3, indic4)
 
 # --- Calculate differences (new - old), preserve first column (Country/ID) ---
 calc_abs_diff <- function(new_table, old_table) {

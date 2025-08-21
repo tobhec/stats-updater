@@ -26,36 +26,43 @@ for (indic in indics) {
   for (r_index in seq_len(nrow(indic))) {
     for (c_index in 2:ncol(indic)) {   # skip ID column
       
-      # Check if there is new data in this table
-      if (ncol(indic_colored) != ncol(diff_table) &
-          c_index == ncol(indic_colored)) {
-        indic_colored[r_index, c_index] <- sprintf(
-          "<span style='background-color:lightgreen;'>%s</span>",
-          indic_colored[r_index, c_index]
-        )
-      } else if (revision_table[r_index, c_index]) {
-        # Add color
-        indic_colored[r_index, c_index] <- sprintf(
-          "<span style='background-color:#FFD580;'>%s</span>",
-          indic_colored[r_index, c_index]
-        )
-        
-        # Add sentence
-        row_label <- row_ids[r_index]
-        col_label <- col_names[c_index]
-        value     <- diff_table[r_index, c_index]
-        
-        revision_sentences <- paste0(
-          revision_sentences,
-          sprintf(
-            "- For %s, %s has been revised by %.2f.<br>",
-            row_label, col_label, value
+      if(!is.na(revision_table[r_index, c_index]))
+      {
+        # Check if there is new data in this table
+        if (ncol(indic_colored) != ncol(diff_table) &
+            c_index == ncol(indic_colored)) {
+          indic_colored[r_index, c_index] <- sprintf(
+            "<span style='background-color:lightgreen;'>%s</span>",
+            indic_colored[r_index, c_index]
           )
-        )
+        } else if (revision_table[r_index, c_index]) {
+          # Add color
+          indic_colored[r_index, c_index] <- sprintf(
+            "<span style='background-color:#FFD580;'>%s</span>",
+            indic_colored[r_index, c_index]
+          )
+          
+          # Add sentence
+          row_label <- row_ids[r_index]
+          col_label <- col_names[c_index]
+          value     <- diff_table[r_index, c_index]
+          
+          revision_sentences <- paste0(
+            revision_sentences,
+            sprintf(
+              "- For %s, %s has been revised by %.2f.<br>",
+              row_label, col_label, value
+            )
+          )
+        } else {
+          # Keep as string if not revised
+          #indic_colored[r_index, c_index] <- as.character(indic_colored[r_index, c_index])
+        }
       } else {
         # Keep as string if not revised
-        indic_colored[r_index, c_index] <- as.character(indic_colored[r_index, c_index])
+        #indic_colored[r_index, c_index] <- as.character(indic_colored[r_index, c_index])
       }
+  
     }
   }
   
