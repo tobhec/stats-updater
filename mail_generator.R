@@ -45,13 +45,15 @@ for (indic in indics) {
           # Add sentence
           row_label <- row_ids[r_index]
           col_label <- col_names[c_index]
-          value     <- diff_table[r_index, c_index]
+          old_value <- revision_table[r_index, c_index]
+          diff_percentage     <- diff_table[r_index, c_index]/old_value
+          
           
           revision_sentences <- paste0(
             revision_sentences,
             sprintf(
-              "- For %s, %s has been revised by %.2f.<br>",
-              row_label, col_label, value
+              "- For %s, %s has been revised by %.2f%% (from %s).<br>",
+              row_label, col_label, diff_percentage, old_value
             )
           )
         } else {

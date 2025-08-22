@@ -1,9 +1,17 @@
-indic1copy <- indic1
-indic2copy <- indic2
-indic3copy <- indic3
-indic4copy <- indic4
+# List all CSV files in directory
+vintage_names <- list.files("C:/Users/Tobia/raspberry_pi/stats-updater/vintages", full.names = TRUE)
 
-vintages <- list(indic1copy, indic2copy, indic3, indic4)
+# Read them all into a list of data.tables
+vintages <- lapply(vintage_names, function(f) fread(f, header = TRUE))
+names(vintages) <- basename(vintage_names)
+vintages <- vintages[names(indics)]
+
+#indic1copy <- indic1
+#indic2copy <- indic2
+#indic3copy <- indic3
+#indic4copy <- indic4
+
+#vintages <- list(indic1copy, indic2copy, indic3, indic4)
 
 # --- Calculate differences (new - old), preserve first column (Country/ID) ---
 calc_abs_diff <- function(new_table, old_table) {
