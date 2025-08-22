@@ -3,17 +3,14 @@ vintage_names <- list.files("C:/Users/Tobia/raspberry_pi/stats-updater/vintages"
 
 # Read them all into a list of data.tables
 vintages <- lapply(vintage_names, function(f) fread(f, header = TRUE))
-names(vintages) <- basename(vintage_names)
-vintages <- vintages[names(indics)]
+names(vintages) <- tools::file_path_sans_ext(basename(vintage_names))
 
-#indic1copy <- indic1
-#indic2copy <- indic2
-#indic3copy <- indic3
-#indic4copy <- indic4
+# Remove any newly added table from the vintage comparison
+shared_tables <- intersect(names(indics), names(vintages))
+indics_to_compare <- indics[shared_tables]
+vintages <- vintages[shared_tables]
 
-#vintages <- list(indic1copy, indic2copy, indic3, indic4)
-
-# --- Calculate differences (new - old), preserve first column (Country/ID) ---
+# Create function to calculate differences between each value in two tables
 calc_abs_diff <- function(new_table, old_table) {
   # Check that the tables have the same number of columns
   if(ncol(new_table) == ncol(old_table))
@@ -39,7 +36,7 @@ calc_abs_diff <- function(new_table, old_table) {
 }
 
 # Make the calculation
-diff_list <- Map(calc_abs_diff, indics, vintages)
+diff_list <- Map(calc_abs_diff, indics_to_compare, vintages)
 
 
 # --- Function to compare and flag revisions ---
