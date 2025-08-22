@@ -24,34 +24,34 @@ sdmx_code_2 <- "ESTAT/prc_hicp_aind/A.RCH_A_AVG.CP00."
 indic2 <- load_estat(sdmx_code_2, countries_2, start_2)
 
 start_3 <- "2020"
-countries_3 <- c("EU27_2020", "SE", "FR", "IS")
+countries_3 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
 sdmx_code_3 <- "ESTAT/nama_10_gdp/A.CLV_PCH_PRE.B1GQ."
 indic3 <- load_estat(sdmx_code_3, countries_3, start_3)
 
 
 start_4 <- "2024-01"
-countries_4 <- c("EU27_2020", "SE", "FR", "IS")
+countries_4 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
 sdmx_code_4 <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
 indic4 <- load_estat(sdmx_code_4, countries_4, start_4)
 
 
 start_5 <- "2025-05"
-countries_5 <- c("EU27_2020", "SE", "FR", "IS")
+countries_5 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
 sdmx_code_5 <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
 indic5 <- load_estat(sdmx_code_5, countries_5, start_5)
 
 start_6 <- "2024"
-countries_6 <- c("EU27_2020", "SE", "FR", "IS")
+countries_6 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
 sdmx_code_6 <- "ESTAT/une_rt_q/Q.SA.Y15-74.PC_ACT.T."
 indic6 <- load_estat(sdmx_code_6, countries_6, start_6)
 
 start_7 <- "2022"
-countries_7 <- c("EU27_2020", "SE", "FR", "IS")
+countries_7 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
 sdmx_code_7 <- "ESTAT/une_rt_a/A.Y15-74.PC_ACT.T."
 indic7 <- load_estat(sdmx_code_7, countries_7, start_7)
 
 start_8 <- "2019"
-countries_8 <- c("EU27_2020", "SE", "FR", "PL")
+countries_8 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
 sdmx_code_8 <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
 indic8 <- load_estat(sdmx_code_8, countries_8, start_8)
 

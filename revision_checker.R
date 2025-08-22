@@ -11,7 +11,7 @@ indics_to_compare <- indics[shared_tables]
 vintages <- vintages[shared_tables]
 
 # Calculate differences between new data and vintages
-diff_list <- Map(calc_abs_diff, indics_to_compare, vintages)
+diff_list <- Map(calc_diff, indics_to_compare, vintages)
 
 # Make binary checks if data cells have been revised or not
 revision_list <- Map(check_for_revisions, diff_list)

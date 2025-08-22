@@ -22,7 +22,7 @@ for (indic in indics) {
     vintage_table <- as.data.frame(vintages[[index]]) #vintages
     
     revision_sentences <- ""
-    row_ids <- indic[[1]]                      # first col = row IDs
+    row_ids <- indic$Country # first col = row IDs
     col_names <- names(indic)
     new_cols <- setdiff(names(indic), names(diff_table))
     
@@ -40,8 +40,7 @@ for (indic in indics) {
               indic_colored[r_index, c_index]
             )
             
-          } else if (!is.na(revision_table[r_index, c_index]) &&
-                     as.logical(revision_table[r_index, c_index])) {
+          } else if (isTRUE(as.logical(revision_table[r_index, c_index]))) {
             # mark revision yellow
             indic_colored[r_index, c_index] <- sprintf(
               "<span style='background-color:#FFD580;'>%s</span>",
