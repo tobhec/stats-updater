@@ -33,7 +33,7 @@ for (indic in indics) {
           col_label <- col_names[c_index]
           
           if (col_label %in% new_cols && 
-              !is.na(indic[r_index, c_index])) {
+              !is.na(indic[r_index, ..c_index])) {
             # mark new data green
             indic_colored[r_index, c_index] <- sprintf(
               "<span style='background-color:lightgreen;'>%s</span>",
@@ -72,7 +72,8 @@ for (indic in indics) {
   
   # Build email body
   part <- glue("
-  <span style='color:blue; font-weight:bold;'>{names(indics)[index]}</span>
+  <span style='color:blue; font-weight:bold;'>{names(indics)[index]}\n\n</span>
+  <span style='font-size:0.9em; color:black;'>({units[names(indics)[index]]})</span><br><br>
   {table}
   {revision_sentences}
   

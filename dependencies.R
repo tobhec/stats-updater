@@ -1,4 +1,4 @@
-
+# BUG NOW YOU CANT LOAD TOO FEW COUNTRIES AND YEARS.
 load_estat <- function(sdmx_code, countries, start, cc_dict) {
   # start need to be a date in string format, such as 2025 or 2025-01
   # countries need to be a vector/list of countries with the ISO-2 code
