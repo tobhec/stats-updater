@@ -6,8 +6,8 @@ vintages <- lapply(vintage_names, function(f) fread(f, header = TRUE))
 names(vintages) <- tools::file_path_sans_ext(basename(vintage_names))
 
 # Remove any newly added table from the vintage comparison
-shared_tables <- intersect(names(indics), names(vintages))
-indics_to_compare <- indics[shared_tables]
+shared_tables <- intersect(names(i_temp), names(vintages))
+indics_to_compare <- i_temp[shared_tables]
 vintages <- vintages[shared_tables]
 
 # Calculate differences between new data and vintages

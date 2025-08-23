@@ -11,29 +11,30 @@ body_text <- paste0(
   "<span style='background-color:#FFD580;'>Orange numbers represent data revisions.</span>"
 )
 
-index <- 0
-for (indic in indics) {
-  index <- index + 1
-  indic_colored <- as.data.frame(indic)   # copy for coloring
+#index <- 0
+for (indic in names(i_temp)) {
+  #index <- index + 1
+  indic_colored <- as.data.frame(i_temp[[indic]])   # copy for coloring
   
-  if(names(indics)[index] %in% names(revision_list)) {
-    revision_table <- as.data.frame(revision_list[[index]]) # TRUE/FALSE table
-    diff_table     <- as.data.frame(diff_list[[index]]) # numeric differences
-    vintage_table <- as.data.frame(vintages[[index]]) #vintages
+  if(indic %in% names(vintages)) {
+    revision_table <- as.data.frame(revision_list[[indic]]) # TRUE/FALSE table
+    diff_table     <- as.data.frame(diff_list[[indic]]) # numeric differences
+    vintage_table <- as.data.frame(vintages[[indic]]) #vintages
     
     revision_sentences <- ""
-    row_ids <- indic$Country # first col = row IDs
-    col_names <- names(indic)
-    new_cols <- setdiff(names(indic), names(diff_table))
+    row_ids <- i_temp[[indic]]$Country # first col = row IDs
+    col_names <- names(i_temp[[indic]])
+    new_cols <- setdiff(names(i_temp[[indic]])[-1], names(diff_table)[-1])
+    new_cols <- new_cols[as.numeric(new_cols) > max(as.numeric(names(diff_table)[-1]))]
     
     # Check each relevant cell if there has been new data or a revision
-    for (r_index in seq_len(nrow(indic))) {
-      for (c_index in 2:ncol(indic)) {   # skip ID column
+    for (r_index in seq_len(nrow(i_temp[[indic]]))) {
+      for (c_index in 2:ncol(i_temp[[indic]])) {   # skip ID column
         
           col_label <- col_names[c_index]
           
           if (col_label %in% new_cols && 
-              !is.na(indic[r_index, ..c_index])) {
+              !is.na(i_temp[[indic]][r_index, ..c_index])) {
             # mark new data green
             indic_colored[r_index, c_index] <- sprintf(
               "<span style='background-color:lightgreen;'>%s</span>",
@@ -71,12 +72,12 @@ for (indic in indics) {
   
   # Build email body
   part <- glue("
-  <span style='color:blue; font-weight:bold;'>{names(indics)[index]}\n\n</span>
-  <span style='font-size:0.9em; color:black;'>({units[names(indics)[index]]})</span><br><br>
+  <span style='color:blue; font-weight:bold;'>{indic}\n\n</span>
+  <span style='font-size:0.9em; color:black;'>({units[indic]})</span><br><br>
   {table}
   {revision_sentences}
   
-  [See full dataset here]({links[[index]]})
+  [See full dataset here]({links[[indic]]})
   
   --------------------------------------------------------
   ")
