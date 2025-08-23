@@ -55,6 +55,51 @@ countries_8 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
 sdmx_code_8 <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
 indic8 <- load_estat(sdmx_code_8, countries_8, start_8)
 
+start_9 <- "2024"
+countries_9 <- c("EU27_2020", "SE", "FR", "PL", "EL")
+sdmx_code_9 <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
+indic9 <- load_estat(sdmx_code_9, countries_9, start_9)
+
+start_10 <- "2019"
+countries_10 <- c("EU27_2020", "SE", "FR", "PL", "EL")
+sdmx_code_10 <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.B9."
+indic10 <- load_estat(sdmx_code_10, countries_10, start_10)
+
+start_11 <- "2024"
+countries_11 <- c("EU27_2020", "SE", "FR", "PL", "EL")
+sdmx_code_11 <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
+indic11 <- load_estat(sdmx_code_11, countries_11, start_11)
+
+start_12 <- "2019"
+countries_12 <- c("EU27_2020", "SE", "FR", "PL", "EL")
+sdmx_code_12 <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.GD."
+indic12 <- load_estat(sdmx_code_12, countries_12, start_12)
+
+start_13 <- "2024"
+countries_13 <- c("EU27_2020", "SE", "FR", "PL")
+sdmx_code_13 <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
+indic13 <- load_estat(sdmx_code_13, countries_13, start_13)
+
+start_14 <- "2024"
+countries_14 <- c("EU27_2020", "SE", "FR", "PL")
+sdmx_code_14 <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
+indic14 <- load_estat(sdmx_code_14, countries_14, start_14)
+
+start_15 <- "2024"
+countries_15 <- c("EU27_2020", "SE", "FR", "PL")
+sdmx_code_15 <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
+indic15 <- load_estat(sdmx_code_15, countries_15, start_15)
+
+start_16 <- "2019"
+countries_16 <- c("EU27_2020", "SE", "FR", "PL")
+sdmx_code_16 <- "ESTAT/prc_hpi_a/A.TOTAL.I15_A_AVG."
+indic16 <- load_estat(sdmx_code_16, countries_16, start_16)
+
+start_17 <- "2019"
+countries_17 <- c("EU27_2020", "SE", "FR", "PL")
+sdmx_code_17 <- "ESTAT/prc_hpi_a/A.TOTAL.RCH_A_AVG."
+indic17 <- load_estat(sdmx_code_17, countries_17, start_17)
+
 units <- list("Monthly year-on-year inflation" = "1-year % change", 
                "Yearly average inflation" = "Average 1-year % change",
                "GDP growth year-on-year" = "1-year % change",
@@ -62,7 +107,16 @@ units <- list("Monthly year-on-year inflation" = "1-year % change",
                "Monthly unemployment rate, seasonally adjusted" = "% of total labour force",
                "Quarterly unemployment rate, seasonally adjusted" = "% of labour force aged 15-74",
                "Annual unemployment rate" = "% of labour force aged 15-74",
-               "Export volume indices" = "Index (2021 = 100)")
+               "Export volume indices" = "Index (2021 = 100)",
+               "Quarterly general government deficit (Net lending/borrowing)" = "% of GDP",
+               "Annual general government deficit (Net lending/borrowing)" = "% of GDP",
+               "Quarterly general government gross debt" = "% of GDP",
+               "Annual general government gross debt" = "% of GDP",
+               "Quarterly house price index" = "Index (2015 = 100)",
+               "Quarterly house price change, quarter-on-quarter" = "1-quarter % change",
+               "Quarterly house price change, year-on-year" = "1-year % change",
+               "Annual house price index" = "Annual average index (2015 = 100)",
+               "Annual house price change" = "Annual average 1-year % change")
 
 links <- list("Monthly year-on-year inflation" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en", 
               "Yearly average inflation" = "https://ec.europa.eu/eurostat/databrowser/bookmark/687ce2e8-9c27-4660-aad0-896b206a973e?lang=en",
@@ -71,10 +125,19 @@ links <- list("Monthly year-on-year inflation" = "https://ec.europa.eu/eurostat/
               "Monthly unemployment rate, seasonally adjusted" = "https://ec.europa.eu/eurostat/databrowser/bookmark/66655435-d527-4e17-bee4-856b1aaabbd6?lang=en",
               "Quarterly unemployment rate, seasonally adjusted" = "https://ec.europa.eu/eurostat/databrowser/bookmark/618d95e1-8a21-4045-b659-d2d08175b96e?lang=en",
               "Annual unemployment rate" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2d502e6c-153a-4aac-af57-4dc623210dd8?lang=en",
-              "Export volume indices" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9e500c72-d144-4893-8fb7-c9e1a661bf06?lang=en")
+              "Export volume indices" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9e500c72-d144-4893-8fb7-c9e1a661bf06?lang=en",
+              "Quarterly general government deficit (Net lending/borrowing)" = "https://ec.europa.eu/eurostat/databrowser/bookmark/3f69307d-050e-47a1-9dc2-35aa3067fada?lang=en",
+              "Annual general government deficit (Net lending/borrowing)" = "https://ec.europa.eu/eurostat/databrowser/bookmark/7cb8900f-55ab-49c9-8605-5d311b05bf8b?lang=en",
+              "Quarterly general government gross debt" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e9385d-1d0d-4e45-9af8-58e1bd72bdee?lang=en",
+              "Annual general government gross debt" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00118295-e7f4-4dbe-878b-ba352d57fc68?lang=en",                "Quarterly house prices" = "Index (2015 = 100)",
+              "Quarterly house price index" = "https://ec.europa.eu/eurostat/databrowser/bookmark/45dc8bde-dd19-4c38-b039-f54b3b3ac756?lang=en",
+              "Quarterly house price change, quarter-on-quarter" = "https://ec.europa.eu/eurostat/databrowser/bookmark/70a5a23b-65b7-4441-a11e-bcb90898175d?lang=en",
+              "Quarterly house price change, year-on-year" = "https://ec.europa.eu/eurostat/databrowser/bookmark/433b3d4d-66ab-48d4-9df2-5d6ae20aec57?lang=en",
+              "Annual house price index" = "https://ec.europa.eu/eurostat/databrowser/bookmark/cc6cd7ce-27bb-4b25-b96f-689cc826eee7?lang=en",
+              "Annual house price change" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en")
 
-indic1[1,4][[1]] = 5.0
-indic2$test <- 2.0
+#indic1[1,4][[1]] = 5.0
+#indic2$test <- 2.0
 
 
 indics <- list("Monthly year-on-year inflation" = indic1, 
@@ -84,6 +147,16 @@ indics <- list("Monthly year-on-year inflation" = indic1,
                "Monthly unemployment rate, seasonally adjusted" = indic5,
                "Quarterly unemployment rate, seasonally adjusted" = indic6,
                "Annual unemployment rate" = indic7,
-               "Export volume indices" = indic8)
+               "Export volume indices" = indic8,
+               "Quarterly general government deficit (Net lending/borrowing)" = indic9,
+               "Annual general government deficit (Net lending/borrowing)" = indic10,
+               "Quarterly general government gross debt" = indic11,
+               "Annual general government gross debt" = indic12,
+               "Quarterly house price index" = indic13,
+               "Quarterly house price change, quarter-on-quarter" = indic14,
+               "Quarterly house price change, year-on-year" = indic15,
+               "Annual house price index" = indic16,
+               "Annual house price change" = indic17)
+
 
 
