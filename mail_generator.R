@@ -15,13 +15,14 @@ body_text <- paste0(
 for (indic in names(i_temp)) {
   #index <- index + 1
   indic_colored <- as.data.frame(i_temp[[indic]])   # copy for coloring
+  revision_sentences <- ""
   
-  if(indic %in% names(vintages)) {
+  if(length(vintages) > 0 &&
+     indic %in% names(vintages)) {
     revision_table <- as.data.frame(revision_list[[indic]]) # TRUE/FALSE table
     diff_table     <- as.data.frame(diff_list[[indic]]) # numeric differences
     vintage_table <- as.data.frame(vintages[[indic]]) #vintages
     
-    revision_sentences <- ""
     row_ids <- i_temp[[indic]]$Country # first col = row IDs
     col_names <- names(i_temp[[indic]])
     new_cols <- setdiff(names(i_temp[[indic]])[-1], names(diff_table)[-1])
