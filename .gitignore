@@ -1,0 +1,9 @@
+# RStudio / R files
+config.R
+email_sender.R
+
+# Folders
+vintages
+
+# Authentication
+gmail_creds
