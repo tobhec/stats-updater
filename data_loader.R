@@ -3,126 +3,80 @@
 #remotes::install_github('zeugner/MDstats') #XML #rsdmx
 library(MDstats)
 
-#start_1 <- "2025-04"
-#countries_1 <- c("SE", "FR")
-sdmx_code_1 <- "ESTAT/prc_hicp_manr/M.RCH_A.CP00."
-indic1 <- load_estat(sdmx_code_1)
+sdmx_code <- "ESTAT/prc_hicp_manr/M.RCH_A.CP00."
+indic1 <- load_estat(sdmx_code)
 
-#start_2 <- "2023"
-#countries_2 <- c("SE", "FR")
-sdmx_code_2 <- "ESTAT/prc_hicp_aind/A.RCH_A_AVG.CP00."
-indic2 <- load_estat(sdmx_code_2)
+sdmx_code <- "ESTAT/prc_hicp_aind/A.RCH_A_AVG.CP00."
+indic2 <- load_estat(sdmx_code)
 
-#start_3 <- "2020"
-#countries_3 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
-sdmx_code_3 <- "ESTAT/nama_10_gdp/A.CLV_PCH_PRE.B1GQ."
-indic3 <- load_estat(sdmx_code_3)
+sdmx_code <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
+indic3 <- load_estat(sdmx_code)
 
-#start_4 <- "2024-01"
-#countries_4 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
-sdmx_code_4 <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
-indic4 <- load_estat(sdmx_code_4)
+sdmx_code <- "ESTAT/nama_10_gdp/A.CLV_PCH_PRE.B1GQ."
+indic4 <- load_estat(sdmx_code)
 
-#start_5 <- "2025-05"
-#countries_5 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
-sdmx_code_5 <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
-indic5 <- load_estat(sdmx_code_5)
+sdmx_code <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
+indic5 <- load_estat(sdmx_code)
 
-#start_6 <- "2024"
-countries_6 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
-sdmx_code_6 <- "ESTAT/une_rt_q/Q.SA.Y15-74.PC_ACT.T."
-indic6 <- load_estat(sdmx_code_6)
+sdmx_code <- "ESTAT/une_rt_q/Q.SA.Y15-74.PC_ACT.T."
+indic6 <- load_estat(sdmx_code)
 
-#start_7 <- "2022"
-#countries_7 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
-sdmx_code_7 <- "ESTAT/une_rt_a/A.Y15-74.PC_ACT.T."
-indic7 <- load_estat(sdmx_code_7)
+sdmx_code <- "ESTAT/une_rt_a/A.Y15-74.PC_ACT.T."
+indic7 <- load_estat(sdmx_code)
 
-#start_8 <- "2019"
-#countries_8 <- c("EU27_2020", "SE", "FR", "PL", "EL", "IS")
-sdmx_code_8 <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
-indic8 <- load_estat(sdmx_code_8)
+sdmx_code <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
+indic8 <- load_estat(sdmx_code)
 
-#start_9 <- "2024"
-#countries_9 <- c("EU27_2020", "SE", "FR", "PL", "EL")
-sdmx_code_9 <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
-indic9 <- load_estat(sdmx_code_9)
+sdmx_code <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
+indic9 <- load_estat(sdmx_code)
 
-#start_10 <- "2019"
-#countries_10 <- c("EU27_2020", "SE", "FR", "PL", "EL")
-sdmx_code_10 <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.B9."
-indic10 <- load_estat(sdmx_code_10)
+sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.B9."
+indic10 <- load_estat(sdmx_code)
 
-#start_11 <- "2024"
-#countries_11 <- c("EU27_2020", "SE", "FR", "PL", "EL")
-sdmx_code_11 <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
-indic11 <- load_estat(sdmx_code_11)
+sdmx_code <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
+indic11 <- load_estat(sdmx_code)
 
-#start_12 <- "2019"
-countries_12 <- c("EU27_2020", "SE", "FR", "PL", "EL")
-sdmx_code_12 <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.GD."
-indic12 <- load_estat(sdmx_code_12)
+sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.GD."
+indic12 <- load_estat(sdmx_code)
 
-#start_13 <- "2024"
-#countries_13 <- c("EU27_2020", "SE", "FR", "PL")
-sdmx_code_13 <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
-indic13 <- load_estat(sdmx_code_13)
+sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
+indic13 <- load_estat(sdmx_code)
 
-#start_14 <- "2024"
-#countries_14 <- c("EU27_2020", "SE", "FR", "PL")
-sdmx_code_14 <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
-indic14 <- load_estat(sdmx_code_14)
+sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
+indic14 <- load_estat(sdmx_code)
 
-#start_15 <- "2024"
-#countries_15 <- c("EU27_2020", "SE", "FR", "PL")
-sdmx_code_15 <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
-indic15 <- load_estat(sdmx_code_15)
+sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
+indic15 <- load_estat(sdmx_code)
 
-#start_16 <- "2019"
-#countries_16 <- c("EU27_2020", "SE", "FR", "PL")
-sdmx_code_16 <- "ESTAT/prc_hpi_a/A.TOTAL.I15_A_AVG."
-indic16 <- load_estat(sdmx_code_16)
+sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.I15_A_AVG."
+indic16 <- load_estat(sdmx_code)
 
-#start_17 <- "2019"
-#countries_17 <- c("EU27_2020", "SE", "FR", "PL")
-sdmx_code_17 <- "ESTAT/prc_hpi_a/A.TOTAL.RCH_A_AVG."
-indic17 <- load_estat(sdmx_code_17)
+sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.RCH_A_AVG."
+indic17 <- load_estat(sdmx_code)
 
-#start_18 <- "2024"
-#countries_18 <- c("SE", "FR", "PL")
-sdmx_code_18 <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CA.BAL.WRL_REST."
-indic18 <- load_estat(sdmx_code_18)
+sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CA.BAL.WRL_REST."
+indic18 <- load_estat(sdmx_code)
 
-#start_19 <- "2020"
-#countries_19 <- c("SE", "FR", "PL")
-sdmx_code_19 <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CA.BAL.WRL_REST."
-indic19 <- load_estat(sdmx_code_19)
+sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CA.BAL.WRL_REST."
+indic19 <- load_estat(sdmx_code)
 
-#start_20 <- "2024"
-#countries_20 <- c("SE", "FR", "PL")
-sdmx_code_20 <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CKA.BAL.WRL_REST."
-indic20 <- load_estat(sdmx_code_20)
+sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CKA.BAL.WRL_REST."
+indic20 <- load_estat(sdmx_code)
 
-#start_21 <- "2020"
-#countries_21 <- c("SE", "FR", "PL")
-sdmx_code_21 <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CKA.BAL.WRL_REST."
-indic21 <- load_estat(sdmx_code_21)
+sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CKA.BAL.WRL_REST."
+indic21 <- load_estat(sdmx_code)
 
-#start_22 <- "2024"
-#countries_22 <- c("SE", "FR", "PL")
-sdmx_code_22 <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.FA.N_LE.WRL_REST."
-indic22 <- load_estat(sdmx_code_22)
+sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.FA.N_LE.WRL_REST."
+indic22 <- load_estat(sdmx_code)
 
-#start_23 <- "2020"
-#countries_23 <- c("SE", "FR", "PL")
-sdmx_code_23 <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
-indic23 <- load_estat(sdmx_code_23)
+sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
+indic23 <- load_estat(sdmx_code)
 
 
 units <- list("Monthly year-on-year inflation" = "1-year % change", 
                "Yearly average inflation" = "Average 1-year % change",
-               "GDP growth year-on-year" = "1-year % change",
                "GDP growth quarter-on-quarter, seasonally and calendar adjusted" = "1-quarter % change",
+               "GDP growth year-on-year" = "1-year % change",
                "Monthly unemployment rate, seasonally adjusted" = "% of total labour force",
                "Quarterly unemployment rate, seasonally adjusted" = "% of labour force aged 15-74",
                "Annual unemployment rate" = "% of labour force aged 15-74",
@@ -145,8 +99,8 @@ units <- list("Monthly year-on-year inflation" = "1-year % change",
 
 links <- list("Monthly year-on-year inflation" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en", 
               "Yearly average inflation" = "https://ec.europa.eu/eurostat/databrowser/bookmark/687ce2e8-9c27-4660-aad0-896b206a973e?lang=en",
-              "GDP growth year-on-year" ="https://ec.europa.eu/eurostat/databrowser/bookmark/06ebf0df-05f1-43be-80ba-ad2a53ccc467?lang=en",
               "GDP growth quarter-on-quarter, seasonally and calendar adjusted" = "https://ec.europa.eu/eurostat/databrowser/bookmark/91ae5dbe-4130-4f61-9e9c-ce09d467f910?lang=en",
+              "GDP growth year-on-year" ="https://ec.europa.eu/eurostat/databrowser/bookmark/06ebf0df-05f1-43be-80ba-ad2a53ccc467?lang=en",
               "Monthly unemployment rate, seasonally adjusted" = "https://ec.europa.eu/eurostat/databrowser/bookmark/66655435-d527-4e17-bee4-856b1aaabbd6?lang=en",
               "Quarterly unemployment rate, seasonally adjusted" = "https://ec.europa.eu/eurostat/databrowser/bookmark/618d95e1-8a21-4045-b659-d2d08175b96e?lang=en",
               "Annual unemployment rate" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2d502e6c-153a-4aac-af57-4dc623210dd8?lang=en",
@@ -173,8 +127,8 @@ links <- list("Monthly year-on-year inflation" = "https://ec.europa.eu/eurostat/
 
 indics <- list("Monthly year-on-year inflation" = indic1, 
                "Yearly average inflation" = indic2,
-               "GDP growth year-on-year" = indic3,
-               "GDP growth quarter-on-quarter, seasonally and calendar adjusted" = indic4,
+               "GDP growth quarter-on-quarter, seasonally and calendar adjusted" = indic3,
+               "GDP growth year-on-year" = indic4,
                "Monthly unemployment rate, seasonally adjusted" = indic5,
                "Quarterly unemployment rate, seasonally adjusted" = indic6,
                "Annual unemployment rate" = indic7,
