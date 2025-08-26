@@ -31,8 +31,8 @@ for (per in names(pref_list)) {
       
     },
     error = function(e) {
-      cat("Error generating mail for: ", per, "\n")
-      return(NA)  # Optional: default value
+      cat("Error generating mail for: ", per, "\n", e$message)
+      return(NA)
     }
   )
 

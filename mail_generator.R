@@ -17,8 +17,7 @@ for (indic in names(i_temp)) {
   indic_colored <- as.data.frame(i_temp[[indic]])   # copy for coloring
   revision_sentences <- ""
   
-  if(length(vintages) > 0 &&
-     indic %in% names(vintages)) {
+  if(indic %in% names(vintages)) {
     revision_table <- as.data.frame(revision_list[[indic]]) # TRUE/FALSE table
     diff_table     <- as.data.frame(diff_list[[indic]]) # numeric differences
     vintage_table <- as.data.frame(vintages[[indic]]) #vintages

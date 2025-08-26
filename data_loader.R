@@ -72,6 +72,246 @@ indic22 <- load_estat(sdmx_code)
 sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
 indic23 <- load_estat(sdmx_code)
 
+sdmx_code <- "ECB/EXR/D.SEK.EUR.SP00.A"
+indic24 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.USD.EUR.SP00.A"
+indic25 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.PLN.EUR.SP00.A"
+indic26 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.CZK.EUR.SP00.A"
+indic27 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.HUF.EUR.SP00.A"
+indic28 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.JPY.EUR.SP00.A"
+indic29 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.CNY.EUR.SP00.A"
+indic30 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.GBP.EUR.SP00.A"
+indic31 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.DKK.EUR.SP00.A"
+indic32 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+sdmx_code <- "ECB/EXR/D.RON.EUR.SP00.A"
+indic33 <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+
+
+
+indic_list <- list(
+    "Exchange rates" = list(
+      
+
+    ),
+    "Inflation" = list(
+        "Monthly year-on-year inflation" = 
+            list("data" = indic1,
+              "unit" = "1-year % change",
+              "source" = "Eurostat",
+              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
+              "geo" = c("DE", "SE")
+              ),
+        "Yearly average inflation" = 
+                list("data" = indic2,
+                     "unit" = "Average 1-year % change",
+                     "source" = "Eurostat",
+                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/687ce2e8-9c27-4660-aad0-896b206a973e?lang=en",
+                     "geo" = c("DE", "SE")
+                    )
+    ),
+    "Economic growth" = list(
+      "GDP growth quarter-on-quarter, seasonally and calendar adjusted" =
+                               list("data" = "",
+                                    "unit" = "1-quarter % change",
+                                    "source" = "Eurostat",
+                                    "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/91ae5dbe-4130-4f61-9e9c-ce09d467f910?lang=en",
+                                    "geo" = c("SE", "DK")
+                               ),
+      "GDP growth year-on-year" =
+        list("data" = "",
+             "unit" = "1-year % change",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/06ebf0df-05f1-43be-80ba-ad2a53ccc467?lang=en",
+             "geo" = c("SE", "DK")
+        )
+      
+    ),
+    "Housing" = list(
+              "House price index, quarterly data" =
+                list("data" = "",
+                     "unit" = "Index (2015 = 100)",
+                     "source" = "Eurostat",
+                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/45dc8bde-dd19-4c38-b039-f54b3b3ac756?lang=en",
+                     "geo" = c("SE", "DK")
+                ),
+              "House price quarter-on-quarter change, quarterly data" =
+                list("data" = "",
+                     "unit" = "1-quarter % change",
+                     "source" = "Eurostat",
+                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/70a5a23b-65b7-4441-a11e-bcb90898175d?lang=en",
+                     "geo" = c("SE", "DK")
+                ),
+              "House price year-on-year change, quarterly data" =
+                list("data" = "",
+                     "unit" = "1-year % change",
+                     "source" = "Eurostat",
+                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/433b3d4d-66ab-48d4-9df2-5d6ae20aec57?lang=en",
+                     "geo" = c("SE", "DK")
+                ),
+              "House price index, annual data" =
+                list("data" = "",
+                     "unit" = "Annual average 1-year % change",
+                     "source" = "Eurostat",
+                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en",
+                     "geo" = c("SE", "DK")
+                ),
+              "Average year-on-year house price change, annual data" =
+                list("data" = "",
+                     "unit" = "Annual average 1-year % change",
+                     "source" = "Eurostat",
+                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en",
+                     "geo" = c("SE", "DK")
+                )
+    ),
+    "External sector" = list(
+      "Export volume indices" =
+        list("data" = "",
+             "unit" = "Index (2021 = 100)",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9e500c72-d144-4893-8fb7-c9e1a661bf06?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Quarterly current account" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/75003669-fae2-4159-91d1-01e515a32f3e?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Annual current account" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/60ebe3ec-c221-4667-a21a-842435014fd2?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Quarterly net-lending borrowing (current plus capital account)" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/a7d1b4d6-d971-4192-b290-d5bb996613e1?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Annual net-lending borrowing (current plus capital account)" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/79d46cda-841d-41a3-8bfc-a0ff830bac3e?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Quarterly net international investment position" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9c646860-3784-480a-a1d9-547574404130?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Annual net international investment position" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/c1d541a1-1806-4d03-b090-6329061ad1b7?lang=en",
+             "geo" = c("SE", "DK")
+        )
+    ),
+    "Fiscal" = list(
+      "Quarterly general government deficit (Net lending-borrowing)" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/3f69307d-050e-47a1-9dc2-35aa3067fada?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Annual general government deficit (Net lending-borrowing)" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/7cb8900f-55ab-49c9-8605-5d311b05bf8b?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Quarterly general government gross debt" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e9385d-1d0d-4e45-9af8-58e1bd72bdee?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Annual general government gross debt" =
+        list("data" = "",
+             "unit" = "% of GDP",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00118295-e7f4-4dbe-878b-ba352d57fc68?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+    ),
+    "Financial markets" = list(
+
+    ),
+    "Labour market" = list(
+      "Monthly unemployment rate, seasonally adjusted" =
+        list("data" = "",
+             "unit" = "% of total labour force",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/66655435-d527-4e17-bee4-856b1aaabbd6?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Quarterly unemployment rate, seasonally adjusted" =
+        list("data" = "",
+             "unit" = "% of labour force aged 15-74",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/618d95e1-8a21-4045-b659-d2d08175b96e?lang=en",
+             "geo" = c("SE", "DK")
+        ),
+      "Annual unemployment rate" =
+        list("data" = "",
+             "unit" = "% of labour force aged 15-74",
+             "source" = "Eurostat",
+             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2d502e6c-153a-4aac-af57-4dc623210dd8?lang=en",
+             "geo" = c("SE", "DK")
+        )
+
+    ),
+    "Poverty and inequality" = list(
+
+    ),
+    "Macroeconomic imbalance procedure indicators" = list(
+
+    )
+    
+)
+
+# How to nest through the new structure
+#themes <- names(indic_list)
+#for(theme in themes) {
+#  indicators <- names(indic_list[[theme]])
+#  print(names(indic_list[[theme]]))
+#  
+#  for(indic in indicators){
+#    properties <- names(indic_list[[theme]][[indic]])
+#    
+#    for(prop in properties) {
+#      print(indic_list[[theme]][[indic]][[prop]])
+#      
+#    }
+#    
+#  }
+#}
 
 units <- list("Monthly year-on-year inflation" = "1-year % change", 
                "Yearly average inflation" = "Average 1-year % change",
@@ -108,7 +348,7 @@ links <- list("Monthly year-on-year inflation" = "https://ec.europa.eu/eurostat/
               "Quarterly general government deficit (Net lending-borrowing)" = "https://ec.europa.eu/eurostat/databrowser/bookmark/3f69307d-050e-47a1-9dc2-35aa3067fada?lang=en",
               "Annual general government deficit (Net lending-borrowing)" = "https://ec.europa.eu/eurostat/databrowser/bookmark/7cb8900f-55ab-49c9-8605-5d311b05bf8b?lang=en",
               "Quarterly general government gross debt" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e9385d-1d0d-4e45-9af8-58e1bd72bdee?lang=en",
-              "Annual general government gross debt" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00118295-e7f4-4dbe-878b-ba352d57fc68?lang=en",                "Quarterly house prices" = "Index (2015 = 100)",
+              "Annual general government gross debt" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00118295-e7f4-4dbe-878b-ba352d57fc68?lang=en",
               "House price index, quarterly data" = "https://ec.europa.eu/eurostat/databrowser/bookmark/45dc8bde-dd19-4c38-b039-f54b3b3ac756?lang=en",
               "House price quarter-on-quarter change, quarterly data" = "https://ec.europa.eu/eurostat/databrowser/bookmark/70a5a23b-65b7-4441-a11e-bcb90898175d?lang=en",
               "House price year-on-year change, quarterly data" = "https://ec.europa.eu/eurostat/databrowser/bookmark/433b3d4d-66ab-48d4-9df2-5d6ae20aec57?lang=en",
@@ -150,4 +390,12 @@ indics <- list("Monthly year-on-year inflation" = indic1,
                "Annual net international investment position" = indic23)
 
 
+#as.data.table(mds("WB/WDI/A.SI_POV_GAPS.SWE+USA")) # REF_AREA instead of geo
+#SI_POV_GAPS
+#SI_POV_GAP2
+#SI_POV_NAGP
+
+#SI_POV_DDAY
+#SI_POV_2DAY
+#SI_POV_NAHC
 
