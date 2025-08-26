@@ -13,9 +13,9 @@ for (per in names(pref_list)) {
       i_names <- names(i_selection)
       
       # Filter for the selections
-      i_temp <- indics[names(indics) %in% i_names]
-      links_temp <- links[names(links) %in% i_names]
-      units_temp <- units[names(units) %in% i_names]
+      i_temp <- tables_list[names(tables_list) %in% i_names]
+      links_temp <- links_list[names(links_list) %in% i_names]
+      units_temp <- units_list[names(units_list) %in% i_names]
       
       for (indicator in names(i_selection)) {
         countries <- i_selection[[indicator]]$Country
