@@ -15,7 +15,6 @@ if (!dir.exists(paste0("./vintages_test/", per))) {
   dir.create(paste0("./vintages_test/", per), recursive = TRUE)
 }
 
-# INSTEAD OF SAVING names(i_temp)[index] I SHOULD SAVE UNIQUE CODES, SO THAT I CAN SAME THEIR NAMES IF I WANT
 index <- 0
 for(i in i_temp) {
   index <- index + 1

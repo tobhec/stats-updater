@@ -22,10 +22,7 @@ for(theme in themes) {
    {
      # Add title for the given theme
      theme_part <- glue("
-       
-  <span style='font-size:1.4em; color:black; font-weight:bold;text-decoration: underline'>{theme}\n\n</span>
-  
-  --------------------------------------------------------
+  <span style='font-size:1.4em; color:black; font-weight:bold'>{theme}\n\n</span>
   ")
      
      body_text <- paste0(body_text, "\n\n", theme_part)
@@ -33,7 +30,7 @@ for(theme in themes) {
    
    for (indic in names(indics_by_theme)) {
        # Check that the indicator is part of the selections
-       if(indic %in% i_names) {
+       if(indic %in% i_codes) {
          
          # Make a copy in which to add colour codes
          indic_colored <- as.data.frame(i_temp[[indic]])
@@ -95,15 +92,13 @@ for(theme in themes) {
          
          # Add mail graphics for the indicator
          indic_part <- glue("
-  <span style='color:blue; font-weight:bold;'>{indic}\n\n</span>
+  <span style='color:blue; font-weight:bold;'>{titles_temp[indic]} - {sources_list[indic]}\n\n</span>
   <span style='font-size:0.9em; color:black;'>({units_temp[indic]})</span><br><br>
   {table}
   {revision_sentences}
   
-  [See full dataset here]({links[[indic]]})
-  
-  --------------------------------------------------------
-  
+  [See full dataset here]({links_temp[[indic]]})
+  <hr>
   ")
          
          body_text <- paste0(body_text, "\n\n", indic_part)
@@ -111,6 +106,8 @@ for(theme in themes) {
        }
    }
 }
+
+nchar(body_text)
 
 email <- compose_email(body = md(body_text))
 email
