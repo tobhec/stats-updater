@@ -45,8 +45,8 @@ calc_diff <- function(new_table, old_table, id_col = "Country") {
 check_for_revisions <- function(dt) {
   id_col <- names(dt)[1]
   
-  # Boolean table: TRUE if abs(diff) > 0.5
-  diff_flags <- abs(dt[, -1, with = FALSE]) > 0.5
+  # Boolean table: TRUE if abs(diff) > 0
+  diff_flags <- abs(dt[, -1, with = FALSE]) > 0
   
   # Put ID column back in front
   revision_table <- as.data.frame(cbind(dt[[1]], diff_flags))
@@ -54,5 +54,3 @@ check_for_revisions <- function(dt) {
   
   return(revision_table)
 }
-
-

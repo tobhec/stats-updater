@@ -1,6 +1,5 @@
-# THIS SHOULD READ THEM AS UNIQUE CODES INSTED OF THE NAMES, SO THAT I CAN CHANGE THE NAMES IF I WANT
 # List all CSV files in directory
-vintage_names <- list.files(paste0("C:/Users/Tobia/raspberry_pi/stats-updater/vintages_test/", per, "/"), full.names = TRUE)
+vintage_names <- list.files(paste0("C:/Users/Tobia/raspberry_pi/stats-updater/vintages/", per, "/"), full.names = TRUE)
 
 # Read them all into a list of data.tables
 vintages <- lapply(vintage_names, function(f) fread(f, header = TRUE))
