@@ -147,7 +147,7 @@ raw_data_list <- list(
     "exr_eurpln_d_ecb" = 
       list("title" = "Polish Zloty per Euro",
            "data" = exr_eurpln_d_ecb,
-           "unit" = "",
+           "unit" = "PLN per EUR",
            "source" = "ECB",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
            "contains_geo" = FALSE

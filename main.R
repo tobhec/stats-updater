@@ -8,18 +8,16 @@ for (per in names(pref_list)) {
   
   tryCatch(
     {
-      
-      #### CHANGE i_names TO i_codes
+      # Extract the selections by the subscriber
       i_selection <- pref_list[[per]]$indics
       i_codes <- names(i_selection)
       
-      
-      ##### FILTER ON i_codes INSTEAD, AND ALSO DO A title_temp
       # Filter for the selections
-      i_temp <- tables_list[names(tables_list) %in% i_codes]
-      titles_temp <- titles_list[names(titles_list) %in% i_codes]
-      units_temp <- units_list[names(units_list) %in% i_codes]
-      links_temp <- links_list[names(links_list) %in% i_codes]
+      #i_temp <- tables_list[names(tables_list) %in% i_codes]
+      i_temp <- lapply(tables_list[names(tables_list) %in% i_codes], copy)
+      titles_temp <- lapply(titles_list[names(titles_list) %in% i_codes], copy)
+      units_temp <- lapply(units_list[names(units_list) %in% i_codes], copy)
+      links_temp <- lapply(links_list[names(links_list) %in% i_codes], copy)
       
       for (code in i_codes) {
         countries <- i_selection[[code]]$Country

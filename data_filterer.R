@@ -20,3 +20,16 @@ if(con_geos_list[[code]])
   i_temp[[code]] <- dcast(i_temp[[code]], rowid(Time) ~ Time, value.var = "Value")
   i_temp[[code]] <- i_temp[[code]][, Time := NULL]
 }
+#} if(row_type == "geo") {
+#   column_1 <- "Country"
+#   dict <- cc_ditc
+#  } else if (row_type == "CURRENCY")
+#  {
+#    column_1 <- "Currency"
+#    dict <- curr_dict
+#  }
+
+#  setnames(i_temp[[code]], old = c("TIME", "obs_value"), new = c("Time", "Value"))
+#  i_temp[[code]] <- dcast(i_temp[[code]], rowid(Time) ~ Time, value.var = "Value")
+#  i_temp[[code]] <- i_temp[[code]][, Time := NULL]
+#}
