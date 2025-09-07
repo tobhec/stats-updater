@@ -6,30 +6,29 @@ if("obs_conf" %in% names(i_temp[[code]])) {
   i_temp[[code]] <- i_temp[[code]][, obs_conf := NULL]
 }
 
-if(con_geos_list[[code]])
-{
-  i_temp[[code]] <- i_temp[[code]][geo %in% countries & TIME >= as.numeric(period)]
+if(dropdowns_list[[code]] == "geo") {
   
-  # Change the country code to the real name
+  # Filter out for the subscriber choices
+  i_temp[[code]] <- i_temp[[code]][geo %in% cross_section_filters & TIME >= as.numeric(period)]
+  
+  # Change the country code to the real name 
   i_temp[[code]] <- cc_dict[i_temp[[code]], on = "geo"]
   i_temp[[code]][, geo := NULL]
+  
+  # Make the column name more clean
   setnames(i_temp[[code]], old = c("Country", "TIME", "obs_value"), new = c("Country", "Time", "Value"))
   i_temp[[code]] <- dcast(i_temp[[code]], Country ~ Time, value.var = "Value")
-} else {
-  setnames(i_temp[[code]], old = c("TIME", "obs_value"), new = c("Time", "Value"))
-  i_temp[[code]] <- dcast(i_temp[[code]], rowid(Time) ~ Time, value.var = "Value")
-  i_temp[[code]] <- i_temp[[code]][, Time := NULL]
+  
+  } else if (dropdowns_list[[code]] == "CURRENCY") {
+    
+    # Filter out for the subscriber choices
+    i_temp[[code]] <- i_temp[[code]][CURRENCY %in% cross_section_filters & TIME >= as.numeric(period)]
+    
+    # Make the column name more clean
+    setnames(i_temp[[code]], old = c("CURRENCY", "TIME", "obs_value"), new = c("Currency", "Time", "Value"))
+    i_temp[[code]] <- dcast(i_temp[[code]], Currency ~ Time, value.var = "Value")
+    
 }
-#} if(row_type == "geo") {
-#   column_1 <- "Country"
-#   dict <- cc_ditc
-#  } else if (row_type == "CURRENCY")
-#  {
-#    column_1 <- "Currency"
-#    dict <- curr_dict
-#  }
 
-#  setnames(i_temp[[code]], old = c("TIME", "obs_value"), new = c("Time", "Value"))
-#  i_temp[[code]] <- dcast(i_temp[[code]], rowid(Time) ~ Time, value.var = "Value")
-#  i_temp[[code]] <- i_temp[[code]][, Time := NULL]
-#}
+
+

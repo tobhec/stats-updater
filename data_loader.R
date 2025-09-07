@@ -72,108 +72,18 @@ niip_q_estat <- load_estat(sdmx_code)
 sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
 niip_a_estat <- load_estat(sdmx_code)
 
-sdmx_code <- "ECB/EXR/D.SEK.EUR.SP00.A"
-exr_eursek_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.USD.EUR.SP00.A"
-exr_eurusd_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.PLN.EUR.SP00.A"
-exr_eurpln_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.CZK.EUR.SP00.A"
-exr_eurczk_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.HUF.EUR.SP00.A"
-exr_eurhuf_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.JPY.EUR.SP00.A"
-exr_eurjpy_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.CNY.EUR.SP00.A"
-exr_eurcny_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.GBP.EUR.SP00.A"
-exr_eurgbp_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.DKK.EUR.SP00.A"
-exr_eurdkk_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
-
-sdmx_code <- "ECB/EXR/D.RON.EUR.SP00.A"
-exr_eurron_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 5))
+sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
+exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 15))
 
 raw_data_list <- list(
   "Exchange rates" = list(
-    "exr_eurusd_d_ecb" = 
-      list("title" = "US dollar per Euro",
-           "data" = exr_eurusd_d_ecb,
-           "unit" = "USD per EUR",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-           "contains_geo" = FALSE
-      ),
-    "exr_eurjpy_d_ecb" = 
-      list("title" = "Japanese yen per Euro",
-           "data" = exr_eurjpy_d_ecb,
-           "unit" = "",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-           "contains_geo" = FALSE
-      ),
-    "exr_eurgbp_d_ecb" = 
-      list("title" = "Brittish pound per Euro",
-           "data" = exr_eurgbp_d_ecb,
-           "unit" = "",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-           "contains_geo" = FALSE
-      ),
-    "exr_eursek_d_ecb" = 
-      list("title" = "Swedish crown per Euro",
-           "data" = exr_eursek_d_ecb,
-           "unit" = "",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-           "contains_geo" = FALSE
-      ),
-    "exr_eurdkk_d_ecb" = 
-      list("title" = "Danish crown per Euro",
-           "data" = exr_eurdkk_d_ecb,
-           "unit" = "",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-           "contains_geo" = FALSE
-      ),
-    "exr_eurpln_d_ecb" = 
-      list("title" = "Polish Zloty per Euro",
-           "data" = exr_eurpln_d_ecb,
-           "unit" = "PLN per EUR",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-           "contains_geo" = FALSE
-      ),
-    "exr_eurcny_d_ecb" = 
-      list("title" = "Czech koruna per Euro",
-           "data" = exr_eurcny_d_ecb,
-           "unit" = "",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-           "contains_geo" = FALSE
-      ),
-    "exr_eurhuf_d_ecb" = 
-      list("title" = "Hungarian forint per Euro",
-           "data" = exr_eurhuf_d_ecb,
-           "unit" = "",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-           "contains_geo" = FALSE
-      ),
-    "exr_eurron_d_ecb" = 
-      list("title" = "Romanian leu per Euro",
-           "data" = exr_eurron_d_ecb,
-           "unit" = "",
-           "source" = "ECB",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
+    "exreur_d_ecb" = 
+      list("title" = "Daily exchange rates in Euro",
+           "data" = exreur_d_ecb,
+           "unit" = "Currency per Euro",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/main-figures/ecb-interest-rates-and-exchange-rates/exchange-rates",
+           "dropdown" = "CURRENCY",
            "contains_geo" = FALSE
       )
   ),
@@ -185,6 +95,7 @@ raw_data_list <- list(
                  "source" = "Eurostat",
                  "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
                  "geo" = c("DE", "SE"),
+                 "dropdown" = "geo",
                  "contains_geo" = TRUE
                  ),
         "infl_a_estat" = 
@@ -194,6 +105,7 @@ raw_data_list <- list(
                      "source" = "Eurostat",
                      "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/687ce2e8-9c27-4660-aad0-896b206a973e?lang=en",
                      "geo" = c("DE", "SE"),
+                     "dropdown" = "geo",
                      "contains_geo" = TRUE
                     )
     ),
@@ -205,6 +117,7 @@ raw_data_list <- list(
                      "source" = "Eurostat",
                      "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/91ae5dbe-4130-4f61-9e9c-ce09d467f910?lang=en",
                      "geo" = c("SE", "DK"),
+                     "dropdown" = "geo",
                      "contains_geo" = TRUE
                                ),
       "gdp_a_estat" =
@@ -214,6 +127,7 @@ raw_data_list <- list(
                      "source" = "Eurostat",
                      "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/06ebf0df-05f1-43be-80ba-ad2a53ccc467?lang=en",
                      "geo" = c("SE", "DK"),
+                     "dropdown" = "geo",
                      "contains_geo" = TRUE
                 )
       
@@ -226,6 +140,7 @@ raw_data_list <- list(
                      "source" = "Eurostat",
                      "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/45dc8bde-dd19-4c38-b039-f54b3b3ac756?lang=en",
                      "geo" = c("SE", "DK"),
+                     "dropdown" = "geo",
                      "contains_geo" = TRUE
                 ),
               "hpc_q_estat" =
@@ -235,6 +150,7 @@ raw_data_list <- list(
                      "source" = "Eurostat",
                      "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/70a5a23b-65b7-4441-a11e-bcb90898175d?lang=en",
                      "geo" = c("SE", "DK"),
+                     "dropdown" = "geo",
                      "contains_geo" = TRUE
                 ),
               "hpca_q_estat" =
@@ -244,6 +160,7 @@ raw_data_list <- list(
                      "source" = "Eurostat",
                      "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/433b3d4d-66ab-48d4-9df2-5d6ae20aec57?lang=en",
                      "geo" = c("SE", "DK"),
+                     "dropdown" = "geo",
                      "contains_geo" = TRUE
                 ),
               "hpi_a_estat" =
@@ -253,6 +170,7 @@ raw_data_list <- list(
                      "source" = "Eurostat",
                      "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en",
                      "geo" = c("SE", "DK"),
+                     "dropdown" = "geo",
                      "contains_geo" = TRUE
                 ),
               "hpc_a_estat" =
@@ -262,6 +180,7 @@ raw_data_list <- list(
                      "source" = "Eurostat",
                      "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en",
                      "geo" = c("SE", "DK"),
+                     "dropdown" = "geo",
                      "contains_geo" = TRUE
                 )
     ),
@@ -273,6 +192,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9e500c72-d144-4893-8fb7-c9e1a661bf06?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "ca_q_estat" =
@@ -282,6 +202,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/75003669-fae2-4159-91d1-01e515a32f3e?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "ca_a_estat" =
@@ -291,6 +212,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/60ebe3ec-c221-4667-a21a-842435014fd2?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "nlb_q_estat" =
@@ -300,6 +222,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/a7d1b4d6-d971-4192-b290-d5bb996613e1?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "nlb_a_estat" =
@@ -309,6 +232,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/79d46cda-841d-41a3-8bfc-a0ff830bac3e?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "niip_q_estat" =
@@ -318,6 +242,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9c646860-3784-480a-a1d9-547574404130?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "niip_a_estat" =
@@ -327,6 +252,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/c1d541a1-1806-4d03-b090-6329061ad1b7?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         )
     ),
@@ -338,6 +264,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/3f69307d-050e-47a1-9dc2-35aa3067fada?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "ggdef_a_estat" =
@@ -347,6 +274,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/7cb8900f-55ab-49c9-8605-5d311b05bf8b?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "ggdeb_q_estat" =
@@ -356,6 +284,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e9385d-1d0d-4e45-9af8-58e1bd72bdee?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "ggdeb_a_estat" =
@@ -365,6 +294,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00118295-e7f4-4dbe-878b-ba352d57fc68?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         )
     ),
@@ -376,6 +306,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/66655435-d527-4e17-bee4-856b1aaabbd6?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "une_q_estat" =
@@ -385,6 +316,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/618d95e1-8a21-4045-b659-d2d08175b96e?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         ),
       "une_a_estat" =
@@ -394,6 +326,7 @@ raw_data_list <- list(
              "source" = "Eurostat",
              "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2d502e6c-153a-4aac-af57-4dc623210dd8?lang=en",
              "geo" = c("SE", "DK"),
+             "dropdown" = "geo",
              "contains_geo" = TRUE
         )
 
@@ -457,6 +390,15 @@ themes_and_con_geos_list <- lapply(raw_data_list, function(theme) {
 })
 con_geos_list <- unlist(themes_and_con_geos_list, recursive = FALSE)
 names(con_geos_list) <- sub(".*\\.", "", names(con_geos_list))
+
+# Create a list of which dropdown the indicators have
+themes_and_dropdowns_list <- lapply(raw_data_list, function(theme) {
+  lapply(theme, function(indicator) {
+    indicator[["dropdown"]]
+  })
+})
+dropdowns_list <- unlist(themes_and_dropdowns_list, recursive = FALSE)
+names(dropdowns_list) <- sub(".*\\.", "", names(dropdowns_list))
 
 
 

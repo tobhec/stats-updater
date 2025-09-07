@@ -1,21 +1,14 @@
-# BUG NOW YOU CANT LOAD TOO FEW COUNTRIES AND YEARS.
-load_estat <- function(sdmx_code) {
-  # start need to be a date in string format, such as 2025 or 2025-01
-  # countries need to be a vector/list of countries with the ISO-2 code
-  # sdmx_code need to include the data provider, the data flow, and the dimensions 
-  # excluding year and country
+# Function to calculate the differences between the cells 
+# in two corresponding tables
+calc_diff <- function(new_table, old_table) {
   
-  #country_str <- paste(countries, collapse = "+")
-  #sdmx_code <- paste0(sdmx_code, country_str)
-  indic <- as.data.table(mds(sdmx_code))
-  #indic <- dcast(indic, Country ~ Time, value.var = "Value")
-  return(indic)
-}
-
-
-calc_diff <- function(new_table, old_table, id_col = "Country") {
+  # Extract the ID column
+  id_col = names(new_table)[1]
+  
+  # Create copies of the tables
   new_dt <- new_table
   old_dt <- old_table
+  
   # Find shared rows (based on id_col)
   shared_rows <- intersect(new_dt[[id_col]], old_dt[[id_col]])
   new_dt <- new_dt[get(id_col) %in% shared_rows]
@@ -38,8 +31,6 @@ calc_diff <- function(new_table, old_table, id_col = "Country") {
   
   return(diff_dt)
 }
-
-
 
 # Function to compare and flag revisions
 check_for_revisions <- function(dt) {
