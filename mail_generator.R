@@ -44,10 +44,11 @@ for(theme in themes) {
            diff_table     <- as.data.frame(diff_list[[indic]]) # numeric differences
            vintage_table <- as.data.frame(vintages[[indic]]) #vintages
            
+           # Extract new columns
            row_ids <- i_temp[[indic]]$Country # first col = row IDs
            col_names <- names(i_temp[[indic]])
-           new_cols <- setdiff(names(i_temp[[indic]])[-1], names(diff_table)[-1])
-           new_cols <- new_cols[as.numeric(new_cols) > max(as.numeric(names(diff_table)[-1]))]
+           new_cols <- setdiff(names(i_temp[[indic]])[-1], names(vintage_table)[-1])
+           new_cols <- new_cols[new_cols > max(names(vintage_table)[-1])]
            
            # Check each relevant cell if there has been new data or a revision
            for (r_index in seq_len(nrow(i_temp[[indic]]))) {
