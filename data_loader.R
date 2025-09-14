@@ -4,76 +4,86 @@
 library(MDstats)
 
 sdmx_code <- "ESTAT/prc_hicp_manr/M.RCH_A.CP00."
-infl_m_estat <- load_estat(sdmx_code)
+infl_m_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/prc_hicp_aind/A.RCH_A_AVG.CP00."
-infl_a_estat <- load_estat(sdmx_code)
+infl_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
-gdp_q_estat <- load_estat(sdmx_code)
+gdp_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/nama_10_gdp/A.CLV_PCH_PRE.B1GQ."
-gdp_a_estat <- load_estat(sdmx_code)
+gdp_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
-une_m_estat <- load_estat(sdmx_code)
+une_m_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/une_rt_q/Q.SA.Y15-74.PC_ACT.T."
-une_q_estat <- load_estat(sdmx_code)
+une_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/une_rt_a/A.Y15-74.PC_ACT.T."
-une_a_estat <- load_estat(sdmx_code)
+une_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
-expi_a_estat <- load_estat(sdmx_code)
+expi_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
-ggdef_q_estat <- load_estat(sdmx_code)
+ggdef_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.B9."
-ggdef_a_estat <- load_estat(sdmx_code)
+ggdef_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
-ggdeb_q_estat <- load_estat(sdmx_code)
+ggdeb_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.GD."
-ggdeb_a_estat <- load_estat(sdmx_code)
+ggdeb_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
-hpi_q_estat <- load_estat(sdmx_code)
+hpi_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
-hpc_q_estat <- load_estat(sdmx_code)
+hpc_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
-hpca_q_estat <- load_estat(sdmx_code)
+hpca_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.I15_A_AVG."
-hpi_a_estat <- load_estat(sdmx_code)
+hpi_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.RCH_A_AVG."
-hpc_a_estat <- load_estat(sdmx_code)
+hpc_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CA.BAL.WRL_REST."
-ca_q_estat <- load_estat(sdmx_code)
+ca_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CA.BAL.WRL_REST."
-ca_a_estat <- load_estat(sdmx_code)
+ca_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CKA.BAL.WRL_REST."
-nlb_q_estat <- load_estat(sdmx_code)
+nlb_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CKA.BAL.WRL_REST."
-nlb_a_estat <- load_estat(sdmx_code)
+nlb_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.FA.N_LE.WRL_REST."
-niip_q_estat <- load_estat(sdmx_code)
+niip_q_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
-niip_a_estat <- load_estat(sdmx_code)
+niip_a_estat <- as.data.table(mds(sdmx_code))
 
 sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
 exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 15))
+
+sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
+gnpls_a_estat <- as.data.table(mds("ESTAT/TIPSBD10/A.PC."))
+
+sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
+t1cr_a_estat <- as.data.table(mds("ESTAT/TIPSBD30/A.PC_RWA."))
+
+sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
+roeb_a_estat <- as.data.table(mds("ESTAT/TIPSBD40/A.PC."))
+
 
 raw_data_list <- list(
   "Exchange rates" = list(
@@ -330,7 +340,41 @@ raw_data_list <- list(
              "contains_geo" = TRUE
         )
 
-    )
+    ),
+  "MIP Auxiliary indicators" = list(
+    "gnpls_a_estat" =
+      list("title" = "Gross non-performing loans, domestic and foreign entities",
+           "data" = gnpls_a_estat,
+           "unit" = "% of gross loans",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = c("SE", "DK"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "t1cr_a_estat" =
+      list("title" = "Gross non-performing loans, domestic and foreign entities",
+           "data" = t1cr_a_estat,
+           "unit" = "% of risk-weighted assets",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/4bf52ccb-7ee2-4ae2-a682-ae3ae4e23370?lang=en&createdAt=2025-09-14T09:48:47Z",
+           "geo" = c("SE", "DK"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "roeb_a_estat" =
+      list("title" = "Gross non-performing loans, domestic and foreign entities",
+           "data" = roeb_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = c("SE", "DK"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      )
+
+    
+  )
     
 )
 
