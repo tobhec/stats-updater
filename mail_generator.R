@@ -75,13 +75,23 @@ for(theme in themes) {
                  old_value <- vintage_table[r_index, c_index]
                  diff_percentage <- diff_table[r_index, c_index] / old_value
                  
-                 revision_sentences <- paste0(
-                   revision_sentences,
-                   sprintf("- For %s, %s has been revised by %.2f%% (from %s).<br>",
-                           row_label, col_label,
-                           100 * diff_percentage,   # scale to %
-                           formatC(old_value, format = "f", digits = 2))
-                 )
+                 if(is.infinite(diff_percentage))
+                 {
+                   revision_sentences <- paste0(
+                     revision_sentences,
+                     sprintf("- For %s, %s has been revised (from %s).<br>",
+                             row_label, col_label,
+                             formatC(old_value, format = "f", digits = 2))
+                   )
+                 } else {
+                   revision_sentences <- paste0(
+                     revision_sentences,
+                     sprintf("- For %s, %s has been revised by %.2f%% (from %s).<br>",
+                             row_label, col_label,
+                             100 * diff_percentage,   # scale to %
+                             formatC(old_value, format = "f", digits = 2))
+                   )
+                 }
                }
              }
            }
