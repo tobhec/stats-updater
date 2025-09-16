@@ -194,6 +194,18 @@ raw_data_list <- list(
                      "contains_geo" = TRUE
                 )
     ),
+#  "Financial sector" = list(
+#    "hpi_q_estat" =
+#      list("title" = "XXXXXXXXXXXXXXXXX",
+#           "data" = hpi_q_estat,
+#           "unit" = "Index (2015 = 100)",
+#           "source" = "Eurostat",
+#           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/45dc8bde-dd19-4c38-b039-f54b3b3ac756?lang=en",
+#           "geo" = c("SE", "DK"),
+#           "dropdown" = "geo",
+#           "contains_geo" = TRUE
+#      )
+#  ),
     "External sector" = list(
       "expi_a_estat" =
         list("title" = "Export volume indices",
