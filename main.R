@@ -68,7 +68,7 @@ for (per in names(pref_list)) {
   tryCatch(
     {
       # Send the mail
-      #source("./email_sender.R")
+      source("./email_sender.R")
       source("./vintage_saver.R")
     },
     error = function(e) {

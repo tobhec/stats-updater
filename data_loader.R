@@ -75,14 +75,36 @@ niip_a_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
 exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 15))
 
-sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
-gnpls_a_estat <- as.data.table(mds("ESTAT/TIPSBD10/A.PC."))
+sdmx_code <- "ESTAT/TIPSBD10/A.PC."
+gnpls_a_estat <- as.data.table(mds(sdmx_code))
 
-sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
-t1cr_a_estat <- as.data.table(mds("ESTAT/TIPSBD30/A.PC_RWA."))
+sdmx_code <- "ESTAT/TIPSBD30/A.PC_RWA."
+t1cr_a_estat <- as.data.table(mds(sdmx_code))
 
-sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
-roeb_a_estat <- as.data.table(mds("ESTAT/TIPSBD40/A.PC."))
+sdmx_code <- "ESTAT/TIPSBD40/A.PC."
+roeb_a_estat <- as.data.table(mds(sdmx_code))
+
+sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.F.I3632._Z._Z._Z._Z._Z._Z.PC"
+gnpls_a_ecb <- as.data.table(mds(sdmx_code))
+setnames(gnpls_a_ecb, "REF_AREA", "geo")
+
+sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I4002._Z._Z._Z._Z._Z._Z.PC"
+t1cr_a_ecb <- as.data.table(mds(sdmx_code))
+setnames(t1cr_a_ecb, "REF_AREA", "geo")
+
+sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I2003._Z._Z._Z._Z._Z._Z.PC"
+roeb_a_ecb <- as.data.table(mds(sdmx_code))
+setnames(roeb_a_ecb, "REF_AREA", "geo")
+
+sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I3400._Z._Z._Z._Z._Z._Z.PN"
+cbl_a_ecb <- as.data.table(mds(sdmx_code))
+setnames(cbl_a_ecb, "REF_AREA", "geo")
+
+
+
+#EU B0 57
+#EA U2 47
+
 
 
 raw_data_list <- list(
@@ -365,7 +387,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "t1cr_a_estat" =
-      list("title" = "Gross non-performing loans, domestic and foreign entities",
+      list("title" = "Tier-1 capital ratio banking sector",
            "data" = t1cr_a_estat,
            "unit" = "% of risk-weighted assets",
            "source" = "Eurostat",
@@ -375,7 +397,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "roeb_a_estat" =
-      list("title" = "Gross non-performing loans, domestic and foreign entities",
+      list("title" = "Return on equity of banks",
            "data" = roeb_a_estat,
            "unit" = "%",
            "source" = "Eurostat",
@@ -386,7 +408,49 @@ raw_data_list <- list(
       )
 
     
-  )
+  ),
+  "Consolidated banking data" = list(
+    "gnpls_a_ecb" =
+      list("title" = "Gross non-performing loans, domestic and foreign entities",
+           "data" = gnpls_a_ecb,
+           "unit" = "% of gross loans",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+           "geo" = c("SE", "DK"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+    ),
+    "t1cr_a_ecb" =
+      list("title" = "Tier-1 capital ratio banking sector",
+           "data" = t1cr_a_ecb,
+           "unit" = "% of risk-weighted assets",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+           "geo" = c("SE", "DK"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "roeb_a_ecb" =
+      list("title" = "Return on equity of banks",
+           "data" = roeb_a_ecb,
+           "unit" = "%",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+           "geo" = c("SE", "DK"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "cbl_a_ecb" =
+      list("title" = "Consolidated banking leverage, domestic and foreign entities (asset-to-equity multiple)",
+           "data" = cbl_a_ecb,
+           "unit" = "% of GDP",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+           "geo" = c("SE", "DK"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      )
+)
     
 )
 
