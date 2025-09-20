@@ -3,103 +3,247 @@
 #remotes::install_github('zeugner/MDstats') #XML #rsdmx
 library(MDstats)
 
+### Eurostat ###
+
+# Monthly year-on-year inflation
 sdmx_code <- "ESTAT/prc_hicp_manr/M.RCH_A.CP00."
 infl_m_estat <- as.data.table(mds(sdmx_code))
 
+# Yearly average inflation
 sdmx_code <- "ESTAT/prc_hicp_aind/A.RCH_A_AVG.CP00."
 infl_a_estat <- as.data.table(mds(sdmx_code))
 
+# GDP growth quarter-on-quarter, seasonally and calendar adjusted
 sdmx_code <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
 gdp_q_estat <- as.data.table(mds(sdmx_code))
 
+# GDP growth year-on-year
 sdmx_code <- "ESTAT/nama_10_gdp/A.CLV_PCH_PRE.B1GQ."
 gdp_a_estat <- as.data.table(mds(sdmx_code))
 
+# Monthly unemployment rate, seasonally adjusted
 sdmx_code <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
 une_m_estat <- as.data.table(mds(sdmx_code))
 
+# Quarterly unemployment rate, seasonally adjusted
 sdmx_code <- "ESTAT/une_rt_q/Q.SA.Y15-74.PC_ACT.T."
 une_q_estat <- as.data.table(mds(sdmx_code))
 
+# Annual unemployment rate
 sdmx_code <- "ESTAT/une_rt_a/A.Y15-74.PC_ACT.T."
 une_a_estat <- as.data.table(mds(sdmx_code))
 
+# Export volume indices
 sdmx_code <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
 expi_a_estat <- as.data.table(mds(sdmx_code))
 
+# Quarterly general government deficit
 sdmx_code <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
 ggdef_q_estat <- as.data.table(mds(sdmx_code))
 
+# Annual general government deficit
 sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.B9."
 ggdef_a_estat <- as.data.table(mds(sdmx_code))
 
+# Quarterly general government debt
 sdmx_code <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
 ggdeb_q_estat <- as.data.table(mds(sdmx_code))
 
+# Annual general government debt
 sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.GD."
 ggdeb_a_estat <- as.data.table(mds(sdmx_code))
 
+# House price index, quarterly data
 sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
 hpi_q_estat <- as.data.table(mds(sdmx_code))
 
+# House price quarter-on-quarter change, quarterly data
 sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
 hpc_q_estat <- as.data.table(mds(sdmx_code))
 
+# House price year-on-year change, quarterly data
 sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
 hpca_q_estat <- as.data.table(mds(sdmx_code))
 
+# House price index, annual data
 sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.I15_A_AVG."
 hpi_a_estat <- as.data.table(mds(sdmx_code))
 
+# Average year-on-year house price change, annual data
 sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.RCH_A_AVG."
 hpc_a_estat <- as.data.table(mds(sdmx_code))
 
+# Quarterly current account
 sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CA.BAL.WRL_REST."
 ca_q_estat <- as.data.table(mds(sdmx_code))
 
+# Annual current account
 sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CA.BAL.WRL_REST."
 ca_a_estat <- as.data.table(mds(sdmx_code))
 
+# Quarterly net lending-borrowing (CA+KA)
 sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CKA.BAL.WRL_REST."
 nlb_q_estat <- as.data.table(mds(sdmx_code))
 
+# Annual net lending-borrowing (CA+KA)
 sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CKA.BAL.WRL_REST."
 nlb_a_estat <- as.data.table(mds(sdmx_code))
 
+# Quarterly net international investment position
 sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.FA.N_LE.WRL_REST."
 niip_q_estat <- as.data.table(mds(sdmx_code))
 
+# Annual net international investment position
 sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
 niip_a_estat <- as.data.table(mds(sdmx_code))
 
-sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
-exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 15))
+# Daily exchange rates in Euro
+#sdmx_code <- "ESTAT/ert_bil_eur_d/D.AVG.NAC.ALL"
+#exr_d_estat <- as.data.table(mds(sdmx_code))
 
+# Monthly real effective exchange rate
+sdmx_code <- "ESTAT/ert_eff_ic_m/M.REER_IC42_CPI.I15."
+reer_m_estat <- as.data.table(mds(sdmx_code))
+
+# Quarterly real effective exchange rate
+sdmx_code <- "ESTAT/ert_eff_ic_q/Q.REER_IC42_CPI.I15."
+reer_q_estat <- as.data.table(mds(sdmx_code))
+
+# Annual real effective exchange rate
+sdmx_code <- "ESTAT/ert_eff_ic_a/A.REER_IC42_CPI.I15."
+reer_a_estat <- as.data.table(mds(sdmx_code))
+
+# Government bond yields - 10 year maturity, monthly data
+sdmx_code <- "ESTAT/irt_lt_gby10_m/M.Y10."
+gby_m_estat <- as.data.table(mds(sdmx_code))
+
+# Government bond yields - 10 year maturity, annual data
+sdmx_code <- "ESTAT/irt_lt_gby10_a/A.Y10."
+gby_a_estat <- as.data.table(mds(sdmx_code))
+
+# Government bond yields (EMU convergence data) - 10 year maturity, monthly data
+sdmx_code <- "ESTAT/irt_lt_mcby_m/M.MCBY."
+gbyemu_m_estat <- as.data.table(mds(sdmx_code))
+
+# Government bond yields (EMU convergence data) - 10 year maturity, quarterly data
+sdmx_code <- "ESTAT/irt_lt_mcby_q/Q.MCBY."
+gbyemu_q_estat <- as.data.table(mds(sdmx_code))
+
+# Government bond yields (EMU convergence data) - 10 year maturity, annual data
+sdmx_code <- "ESTAT/irt_lt_mcby_a/A.MCBY."
+gbyemu_a_estat <- as.data.table(mds(sdmx_code))
+
+# Money market interest rates (3-month rate), monthly data
+sdmx_code <- "ESTAT/irt_st_m/M.IRT_M3."
+mmir_m_estat <- as.data.table(mds(sdmx_code))
+
+# Money market interest rates (3-month rate), quarterly data
+sdmx_code <- "ESTAT/irt_st_q/Q.IRT_M3."
+mmir_q_estat <- as.data.table(mds(sdmx_code))
+
+# Money market interest rates (3-month rate), annual data
+sdmx_code <- "ESTAT/irt_st_a/A.IRT_M3."
+mmir_a_estat <- as.data.table(mds(sdmx_code))
+
+# Gross non-performing loans
 sdmx_code <- "ESTAT/TIPSBD10/A.PC."
 gnpls_a_estat <- as.data.table(mds(sdmx_code))
 
+# Tier-1 capital ratio
 sdmx_code <- "ESTAT/TIPSBD30/A.PC_RWA."
 t1cr_a_estat <- as.data.table(mds(sdmx_code))
 
+# Return on equity of banks
 sdmx_code <- "ESTAT/TIPSBD40/A.PC."
 roeb_a_estat <- as.data.table(mds(sdmx_code))
 
+### European Central Bank ###
+
+# Daily exchange rates in Euro
+sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
+exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 15))
+
+# Gross non-performing loans
 sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.F.I3632._Z._Z._Z._Z._Z._Z.PC"
 gnpls_a_ecb <- as.data.table(mds(sdmx_code))
 setnames(gnpls_a_ecb, "REF_AREA", "geo")
 
+# Tier-1 capital ratio
 sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I4002._Z._Z._Z._Z._Z._Z.PC"
 t1cr_a_ecb <- as.data.table(mds(sdmx_code))
 setnames(t1cr_a_ecb, "REF_AREA", "geo")
 
+# Return on equity of banks
 sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I2003._Z._Z._Z._Z._Z._Z.PC"
 roeb_a_ecb <- as.data.table(mds(sdmx_code))
 setnames(roeb_a_ecb, "REF_AREA", "geo")
 
+# Consolidated banking leverage
 sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I3400._Z._Z._Z._Z._Z._Z.PN"
 cbl_a_ecb <- as.data.table(mds(sdmx_code))
 setnames(cbl_a_ecb, "REF_AREA", "geo")
 
+### International Monetary Fund ###
+
+# Annual inflation https://www.imf.org/external/datamapper/PCPIPCH@WEO/OEMDC/ADVEC/WEOWORLD
+sdmx_code <- "IMFWEO/WEO/.PCPIPCH"
+infl_a_imf <- as.data.table(mds(sdmx_code))
+setnames(infl_a_imf, "COUNTRY", "geo")
+
+# 
+sdmx_code <- "IMFWEO/WEO/.TM_RPCH"
+imgs_a_imf <- as.data.table(mds(sdmx_code)) # IMPORT VOLUME GS
+setnames(imgs_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.TMG_RPCH"
+img_a_imf <- as.data.table(mds(sdmx_code)) # im VOLUME G
+setnames(img_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.TX_RPCH"
+exgs_a_imf <- as.data.table(mds(sdmx_code)) #  ex VOLUME GS
+setnames(exgs_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.TXG_RPCH"
+exg_a_imf <- as.data.table(mds(sdmx_code)) #  EXPORT VOLUME G
+setnames(exg_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.GGR_NGDP"
+ggr_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT REVENUE
+setnames(ggr_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.GGX_NGDP"
+ggx_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT TOTAL EXPENDITURE
+setnames(ggx_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.GGXCNL_NGDP"
+ggdef_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT DEFICIT (NLB)
+setnames(ggdef_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.GGSB_NPGDP"
+ggsb_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT STRUCTUAL BALANCE
+setnames(ggsb_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.GGXONLB_NGDP"
+ggpd_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT PRIMARY DEFICIT
+setnames(ggpd_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.GGXWDN_NGDP"
+ggnd_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT NET DEBT
+setnames(ggnd_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.GGXWDG_NGDP"
+ggdeb_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT GROSS DEBT
+setnames(ggdeb_a_imf, "COUNTRY", "geo")
+
+sdmx_code <- "IMFWEO/WEO/.BCA_NGDPD"
+ca_a_imf <- as.data.table(mds(sdmx_code)) # CURRENT ACCOUNT
+setnames(ca_a_imf, "COUNTRY", "geo")
+
+### United Nations Statistics Division ###
+
+### World Bank ###
+
+### Organisation for economic cooperation and development ###
 
 
 #EU B0 57
@@ -117,6 +261,33 @@ raw_data_list <- list(
            "link" = "https://data.ecb.europa.eu/main-figures/ecb-interest-rates-and-exchange-rates/exchange-rates",
            "dropdown" = "CURRENCY",
            "contains_geo" = FALSE
+      ),
+    "reer_m_estat" = 
+      list("title" = "Monthly real effective exchange rate (against 42 advanced economies)",
+           "data" = reer_m_estat,
+           "unit" = "Index (2015 = 100)",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/fb5e56f3-4f7f-4dfe-814d-48187454cf32?lang=en&createdAt=2025-09-20T16:45:27Z",
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "reer_q_estat" = 
+      list("title" = "Quarterly real effective exchange rate (against 42 advanced economies)",
+           "data" = reer_q_estat,
+           "unit" = "Index (2015 = 100)",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/6c1750ba-2925-4452-9ffe-1d60f55b9091?lang=en&createdAt=2025-09-20T16:46:16Z",
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "reer_a_estat" = 
+      list("title" = "Annual real effective exchange rate (against 42 advanced economies)",
+           "data" = reer_a_estat,
+           "unit" = "Index (2015 = 100)",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/20c37485-03d6-4339-ae12-bb1805c02fcb?lang=en&createdAt=2025-09-20T16:46:30Z",
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
       )
   ),
     "Inflation" = list(
@@ -141,6 +312,88 @@ raw_data_list <- list(
                      "contains_geo" = TRUE
                     )
     ),
+  "Interest rates" = list(
+    "gbyemu_m_estat" = 
+      list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, monthly data",
+           "data" = gbyemu_m_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/01876f4f-3864-40b3-81b9-969322c79f1e?lang=en&createdAt=2025-09-20T18:36:47Z",
+           "geo" = c("DE", "SE"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gbyemu_q_estat" = 
+      list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, quarterly data",
+           "data" = gbyemu_q_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00f03944-a9d9-44d0-9bc7-7ed26a0b794b?lang=en&createdAt=2025-09-20T18:46:12Z",
+           "geo" = c("DE", "SE"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gbyemu_a_estat" = 
+      list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, annual data",
+           "data" = gbyemu_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/44fa70dd-8e5f-4399-a73c-d632184b6c7d?lang=en&createdAt=2025-09-20T18:46:47Z",
+           "geo" = c("DE", "SE"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gby_m_estat" = 
+      list("title" = "Government bond yields - 10 year maturity, monthly data",
+           "data" = gby_m_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/0dfa32d1-b1c7-493f-a6cd-f4f053064ac2?lang=en&createdAt=2025-09-20T18:47:45Z",
+           "geo" = c("DE", "SE"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gby_a_estat" = 
+      list("title" = "Government bond yields - 10 year maturity, annual data",
+           "data" = gby_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2261e407-acd5-4522-b940-7d74561bd54c?lang=en&createdAt=2025-09-20T18:48:28Z",
+           "geo" = c("DE", "SE"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "mmir_m_estat" = 
+      list("title" = "Money market interest rates (3-month rate), monthly data",
+           "data" = mmir_m_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/ebf6838e-54f9-4a8e-9449-1164bde795bc?lang=en&createdAt=2025-09-20T18:49:35Z",
+           "geo" = c("DE", "SE"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "mmir_q_estat" = 
+      list("title" = "Money market interest rates (3-month rate), quarterly data",
+           "data" = mmir_q_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/548dfeea-49ac-4f02-ae03-7f722c75e2f5?lang=en&createdAt=2025-09-20T18:50:17Z",
+           "geo" = c("DE", "SE"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "mmir_a_estat" = 
+      list("title" = "Money market interest rates (3-month rate), annual data",
+           "data" = mmir_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e31c03-b227-4d24-9167-d6a8bd762b68?lang=en&createdAt=2025-09-20T18:50:34Z",
+           "geo" = c("DE", "SE"),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      )
+  ),
     "Economic growth" = list(
       "gdp_q_estat" =
                 list("title" = "GDP growth quarter-on-quarter, seasonally and calendar adjusted",
