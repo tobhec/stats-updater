@@ -2,17 +2,10 @@ library(blastula)
 library(glue)
 library(knitr)
 
-#body_text <- paste0(
-#  "## Daily Data Update - ", format(Sys.Date(), "%B %d, %Y"), "\n",
-#  
-#  "Data was downloaded around 07 AM Brussels time.\n\n",
-#  
-#  "<span style='background-color:lightgreen;'>Green numbers represent new data releases.</span>\n",
-#  "<span style='background-color:#FFD580;'>Orange numbers represent data revisions.</span>"
-#)
-
 body_text <- paste0(
   "## Daily Data Update - ", format(Sys.Date(), "%B %d, %Y"), "\n",
+  
+  #  "Data was downloaded around 07 AM Brussels time.\n\n",
   
   "<span style='background-color:lightgreen;'>Green numbers represent new data releases.</span>\n",
   "<span style='background-color:#FFD580;'>Orange numbers represent data revisions.</span>"
