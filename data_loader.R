@@ -252,223 +252,238 @@ setnames(ca_a_imf, "COUNTRY", "geo")
 
 
 raw_data_list <- list(
+  
   "Exchange rates" = list(
-    "exreur_d_ecb" = 
-      list("title" = "Daily exchange rates in Euro",
-           "data" = exreur_d_ecb,
-           "unit" = "Currency per Euro",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/main-figures/ecb-interest-rates-and-exchange-rates/exchange-rates",
-           "dropdown" = "CURRENCY",
-           "contains_geo" = FALSE
-      ),
-    "reer_m_estat" = 
-      list("title" = "Monthly real effective exchange rate (against 42 advanced economies)",
-           "data" = reer_m_estat,
-           "unit" = "Index (2015 = 100)",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/fb5e56f3-4f7f-4dfe-814d-48187454cf32?lang=en&createdAt=2025-09-20T16:45:27Z",
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "reer_q_estat" = 
-      list("title" = "Quarterly real effective exchange rate (against 42 advanced economies)",
-           "data" = reer_q_estat,
-           "unit" = "Index (2015 = 100)",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/6c1750ba-2925-4452-9ffe-1d60f55b9091?lang=en&createdAt=2025-09-20T16:46:16Z",
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "reer_a_estat" = 
-      list("title" = "Annual real effective exchange rate (against 42 advanced economies)",
-           "data" = reer_a_estat,
-           "unit" = "Index (2015 = 100)",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/20c37485-03d6-4339-ae12-bb1805c02fcb?lang=en&createdAt=2025-09-20T16:46:30Z",
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      )
+    
+      "exreur_d_ecb" = 
+          list("title" = "Daily exchange rates in Euro",
+               "data" = exreur_d_ecb,
+               "unit" = "Currency per Euro",
+               "source" = "European Central Bank",
+               "link" = "https://data.ecb.europa.eu/main-figures/ecb-interest-rates-and-exchange-rates/exchange-rates",
+               "currency" = unique(exreur_d_ecb$CURRENCY),
+               "dropdown" = "CURRENCY",
+               "contains_geo" = FALSE
+               ),
+      "reer_m_estat" = 
+          list("title" = "Monthly real effective exchange rate (against 42 advanced economies)",
+               "data" = reer_m_estat,
+               "unit" = "Index (2015 = 100)",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/fb5e56f3-4f7f-4dfe-814d-48187454cf32?lang=en&createdAt=2025-09-20T16:45:27Z",
+               "geo" = unique(reer_m_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "reer_q_estat" = 
+          list("title" = "Quarterly real effective exchange rate (against 42 advanced economies)",
+               "data" = reer_q_estat,
+               "unit" = "Index (2015 = 100)",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/6c1750ba-2925-4452-9ffe-1d60f55b9091?lang=en&createdAt=2025-09-20T16:46:16Z",
+               "geo" = unique(reer_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "reer_a_estat" = 
+          list("title" = "Annual real effective exchange rate (against 42 advanced economies)",
+               "data" = reer_a_estat,
+               "unit" = "Index (2015 = 100)",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/20c37485-03d6-4339-ae12-bb1805c02fcb?lang=en&createdAt=2025-09-20T16:46:30Z",
+               "geo" = unique(reer_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
   ),
-    "Inflation" = list(
-        "infl_m_estat" = 
-            list("title" = "Monthly year-on-year inflation",
-                 "data" = infl_m_estat,
-                 "unit" = "1-year % change",
-                 "source" = "Eurostat",
-                 "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
-                 "geo" = c("DE", "SE"),
-                 "dropdown" = "geo",
-                 "contains_geo" = TRUE
-                 ),
-        "infl_a_estat" = 
-                list("title" = "Yearly average inflation",
-                     "data" = infl_a_estat,
-                     "unit" = "Average 1-year % change",
-                     "source" = "Eurostat",
-                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/687ce2e8-9c27-4660-aad0-896b206a973e?lang=en",
-                     "geo" = c("DE", "SE"),
-                     "dropdown" = "geo",
-                     "contains_geo" = TRUE
-                    )
-    ),
-  "Interest rates" = list(
-    "gbyemu_m_estat" = 
-      list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, monthly data",
-           "data" = gbyemu_m_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/01876f4f-3864-40b3-81b9-969322c79f1e?lang=en&createdAt=2025-09-20T18:36:47Z",
-           "geo" = c("DE", "SE"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "gbyemu_q_estat" = 
-      list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, quarterly data",
-           "data" = gbyemu_q_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00f03944-a9d9-44d0-9bc7-7ed26a0b794b?lang=en&createdAt=2025-09-20T18:46:12Z",
-           "geo" = c("DE", "SE"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "gbyemu_a_estat" = 
-      list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, annual data",
-           "data" = gbyemu_a_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/44fa70dd-8e5f-4399-a73c-d632184b6c7d?lang=en&createdAt=2025-09-20T18:46:47Z",
-           "geo" = c("DE", "SE"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "gby_m_estat" = 
-      list("title" = "Government bond yields - 10 year maturity, monthly data",
-           "data" = gby_m_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/0dfa32d1-b1c7-493f-a6cd-f4f053064ac2?lang=en&createdAt=2025-09-20T18:47:45Z",
-           "geo" = c("DE", "SE"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "gby_a_estat" = 
-      list("title" = "Government bond yields - 10 year maturity, annual data",
-           "data" = gby_a_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2261e407-acd5-4522-b940-7d74561bd54c?lang=en&createdAt=2025-09-20T18:48:28Z",
-           "geo" = c("DE", "SE"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "mmir_m_estat" = 
-      list("title" = "Money market interest rates (3-month rate), monthly data",
-           "data" = mmir_m_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/ebf6838e-54f9-4a8e-9449-1164bde795bc?lang=en&createdAt=2025-09-20T18:49:35Z",
-           "geo" = c("DE", "SE"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "mmir_q_estat" = 
-      list("title" = "Money market interest rates (3-month rate), quarterly data",
-           "data" = mmir_q_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/548dfeea-49ac-4f02-ae03-7f722c75e2f5?lang=en&createdAt=2025-09-20T18:50:17Z",
-           "geo" = c("DE", "SE"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "mmir_a_estat" = 
-      list("title" = "Money market interest rates (3-month rate), annual data",
-           "data" = mmir_a_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e31c03-b227-4d24-9167-d6a8bd762b68?lang=en&createdAt=2025-09-20T18:50:34Z",
-           "geo" = c("DE", "SE"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      )
-  ),
-    "Economic growth" = list(
-      "gdp_q_estat" =
-                list("title" = "GDP growth quarter-on-quarter, seasonally and calendar adjusted",
-                     "data" = gdp_q_estat,
-                     "unit" = "1-quarter % change",
-                     "source" = "Eurostat",
-                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/91ae5dbe-4130-4f61-9e9c-ce09d467f910?lang=en",
-                     "geo" = c("SE", "DK"),
-                     "dropdown" = "geo",
-                     "contains_geo" = TRUE
-                               ),
-      "gdp_a_estat" =
-                list("title" = "GDP growth year-on-year",
-                     "data" = gdp_a_estat,
-                     "unit" = "1-year % change",
-                     "source" = "Eurostat",
-                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/06ebf0df-05f1-43be-80ba-ad2a53ccc467?lang=en",
-                     "geo" = c("SE", "DK"),
-                     "dropdown" = "geo",
-                     "contains_geo" = TRUE
-                )
+  
+  "Inflation" = list(
       
-    ),
-    "Housing" = list(
-              "hpi_q_estat" =
-                list("title" = "House price index, quarterly data",
-                     "data" = hpi_q_estat,
-                     "unit" = "Index (2015 = 100)",
-                     "source" = "Eurostat",
-                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/45dc8bde-dd19-4c38-b039-f54b3b3ac756?lang=en",
-                     "geo" = c("SE", "DK"),
-                     "dropdown" = "geo",
-                     "contains_geo" = TRUE
-                ),
-              "hpc_q_estat" =
-                list("title" = "House price quarter-on-quarter change, quarterly data",
-                     "data" = hpc_q_estat,
-                     "unit" = "1-quarter % change",
-                     "source" = "Eurostat",
-                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/70a5a23b-65b7-4441-a11e-bcb90898175d?lang=en",
-                     "geo" = c("SE", "DK"),
-                     "dropdown" = "geo",
-                     "contains_geo" = TRUE
-                ),
-              "hpca_q_estat" =
-                list("title" = "House price year-on-year change, quarterly data",
-                     "data" = hpca_q_estat,
-                     "unit" = "1-year % change",
-                     "source" = "Eurostat",
-                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/433b3d4d-66ab-48d4-9df2-5d6ae20aec57?lang=en",
-                     "geo" = c("SE", "DK"),
-                     "dropdown" = "geo",
-                     "contains_geo" = TRUE
-                ),
-              "hpi_a_estat" =
-                list("title" = "House price index, annual data",
-                     "data" = hpi_a_estat,
-                     "unit" = "Annual average 1-year % change",
-                     "source" = "Eurostat",
-                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en",
-                     "geo" = c("SE", "DK"),
-                     "dropdown" = "geo",
-                     "contains_geo" = TRUE
-                ),
-              "hpc_a_estat" =
-                list("title" = "Average year-on-year house price change, annual data",
-                     "data" = hpc_a_estat,
-                     "unit" = "Annual average 1-year % change",
-                     "source" = "Eurostat",
-                     "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en",
-                     "geo" = c("SE", "DK"),
-                     "dropdown" = "geo",
-                     "contains_geo" = TRUE
-                )
-    ),
+      "infl_m_estat" = 
+          list("title" = "Monthly year-on-year inflation",
+               "data" = infl_m_estat,
+               "unit" = "1-year % change",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/aa1f3956-7570-4484-943d-848293a1c413?lang=en",
+               "geo" = unique(infl_m_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "infl_a_estat" = 
+          list("title" = "Yearly average inflation",
+               "data" = infl_a_estat,
+               "unit" = "Average 1-year % change",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/687ce2e8-9c27-4660-aad0-896b206a973e?lang=en",
+               "geo" = unique(infl_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
+  ),
+  
+  "Interest rates" = list(
+    
+      "gbyemu_m_estat" = 
+          list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, monthly data",
+               "data" = gbyemu_m_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/01876f4f-3864-40b3-81b9-969322c79f1e?lang=en&createdAt=2025-09-20T18:36:47Z",
+               "geo" = unique(gbyemu_m_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "gbyemu_q_estat" = 
+          list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, quarterly data",
+               "data" = gbyemu_q_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00f03944-a9d9-44d0-9bc7-7ed26a0b794b?lang=en&createdAt=2025-09-20T18:46:12Z",
+               "geo" = unique(gbyemu_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "gbyemu_a_estat" = 
+          list("title" = "Government bond yields (EMU convergence data) - 10 year maturity, annual data",
+               "data" = gbyemu_a_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/44fa70dd-8e5f-4399-a73c-d632184b6c7d?lang=en&createdAt=2025-09-20T18:46:47Z",
+               "geo" = unique(gbyemu_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "gby_m_estat" = 
+          list("title" = "Government bond yields - 10 year maturity, monthly data",
+               "data" = gby_m_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/0dfa32d1-b1c7-493f-a6cd-f4f053064ac2?lang=en&createdAt=2025-09-20T18:47:45Z",
+               "geo" = unique(gby_m_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "gby_a_estat" = 
+          list("title" = "Government bond yields - 10 year maturity, annual data",
+               "data" = gby_a_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2261e407-acd5-4522-b940-7d74561bd54c?lang=en&createdAt=2025-09-20T18:48:28Z",
+               "geo" = unique(gby_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "mmir_m_estat" = 
+          list("title" = "Money market interest rates (3-month rate), monthly data",
+               "data" = mmir_m_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/ebf6838e-54f9-4a8e-9449-1164bde795bc?lang=en&createdAt=2025-09-20T18:49:35Z",
+               "geo" = unique(mmir_m_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "mmir_q_estat" = 
+          list("title" = "Money market interest rates (3-month rate), quarterly data",
+               "data" = mmir_q_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/548dfeea-49ac-4f02-ae03-7f722c75e2f5?lang=en&createdAt=2025-09-20T18:50:17Z",
+               "geo" = unique(mmir_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "mmir_a_estat" = 
+          list("title" = "Money market interest rates (3-month rate), annual data",
+               "data" = mmir_a_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e31c03-b227-4d24-9167-d6a8bd762b68?lang=en&createdAt=2025-09-20T18:50:34Z",
+               "geo" = unique(mmir_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
+  ),
+  
+  "Economic growth" = list(
+    
+      "gdp_q_estat" =
+          list("title" = "GDP growth quarter-on-quarter, seasonally and calendar adjusted",
+               "data" = gdp_q_estat,
+               "unit" = "1-quarter % change",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/91ae5dbe-4130-4f61-9e9c-ce09d467f910?lang=en",
+               "geo" = unique(gdp_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "gdp_a_estat" =
+          list("title" = "GDP growth year-on-year",
+               "data" = gdp_a_estat,
+               "unit" = "1-year % change",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/06ebf0df-05f1-43be-80ba-ad2a53ccc467?lang=en",
+               "geo" = unique(gdp_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
+      
+  ),
+  
+  "Housing" = list(
+    
+      "hpi_q_estat" =
+          list("title" = "House price index, quarterly data",
+               "data" = hpi_q_estat,
+               "unit" = "Index (2015 = 100)",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/45dc8bde-dd19-4c38-b039-f54b3b3ac756?lang=en",
+               "geo" = unique(hpi_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "hpc_q_estat" =
+          list("title" = "House price quarter-on-quarter change, quarterly data",
+               "data" = hpc_q_estat,
+               "unit" = "1-quarter % change",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/70a5a23b-65b7-4441-a11e-bcb90898175d?lang=en",
+               "geo" = unique(hpc_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "hpca_q_estat" =
+          list("title" = "House price year-on-year change, quarterly data",
+               "data" = hpca_q_estat,
+               "unit" = "1-year % change",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/433b3d4d-66ab-48d4-9df2-5d6ae20aec57?lang=en",
+               "geo" = unique(hpca_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "hpi_a_estat" =
+          list("title" = "House price index, annual data",
+               "data" = hpi_a_estat,
+               "unit" = "Annual average 1-year % change",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en",
+               "geo" = unique(hpi_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "hpc_a_estat" =
+          list("title" = "Average year-on-year house price change, annual data",
+               "data" = hpc_a_estat,
+               "unit" = "Annual average 1-year % change",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9828f72e-b10e-44a4-8b97-b753298fc9a6?lang=en",
+               "geo" = unique(hpc_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
+  ),
+  
 #  "Financial sector" = list(
 #    "hpi_q_estat" =
 #      list("title" = "XXXXXXXXXXXXXXXXX",
@@ -481,229 +496,237 @@ raw_data_list <- list(
 #           "contains_geo" = TRUE
 #      )
 #  ),
-    "External sector" = list(
+
+  "External sector" = list(
+    
       "expi_a_estat" =
-        list("title" = "Export volume indices",
-             "data" = expi_a_estat,
-             "unit" = "Index (2021 = 100)",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9e500c72-d144-4893-8fb7-c9e1a661bf06?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Export volume indices",
+               "data" = expi_a_estat,
+               "unit" = "Index (2021 = 100)",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9e500c72-d144-4893-8fb7-c9e1a661bf06?lang=en",
+               "geo" = unique(expi_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "ca_q_estat" =
-        list("title" = "Quarterly current account",
-             "data" = ca_q_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/75003669-fae2-4159-91d1-01e515a32f3e?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Quarterly current account",
+               "data" = ca_q_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/75003669-fae2-4159-91d1-01e515a32f3e?lang=en",
+               "geo" = unique(ca_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "ca_a_estat" =
-        list("title" = "Annual current account",
-             "data" = ca_a_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/60ebe3ec-c221-4667-a21a-842435014fd2?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Annual current account",
+               "data" = ca_a_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/60ebe3ec-c221-4667-a21a-842435014fd2?lang=en",
+               "geo" = unique(ca_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "nlb_q_estat" =
-        list("title" = "Quarterly net-lending borrowing (current plus capital account)",
-             "data" = nlb_q_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/a7d1b4d6-d971-4192-b290-d5bb996613e1?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Quarterly net-lending borrowing (current plus capital account)",
+               "data" = nlb_q_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/a7d1b4d6-d971-4192-b290-d5bb996613e1?lang=en",
+               "geo" = unique(nlb_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "nlb_a_estat" =
-        list("title" = "Annual net-lending borrowing (current plus capital account)",
-             "data" = nlb_a_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/79d46cda-841d-41a3-8bfc-a0ff830bac3e?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Annual net-lending borrowing (current plus capital account)",
+               "data" = nlb_a_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/79d46cda-841d-41a3-8bfc-a0ff830bac3e?lang=en",
+               "geo" = unique(nlb_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "niip_q_estat" =
-        list("title" = "Quarterly net international investment position",
-             "data" = niip_q_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9c646860-3784-480a-a1d9-547574404130?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Quarterly net international investment position",
+               "data" = niip_q_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/9c646860-3784-480a-a1d9-547574404130?lang=en",
+               "geo" = unique(niip_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "niip_a_estat" =
-        list("title" = "Annual net international investment position",
-             "data" = niip_a_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/c1d541a1-1806-4d03-b090-6329061ad1b7?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        )
-    ),
-    "Fiscal" = list(
+          list("title" = "Annual net international investment position",
+               "data" = niip_a_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/c1d541a1-1806-4d03-b090-6329061ad1b7?lang=en",
+               "geo" = unique(niip_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
+  ),
+
+  "Fiscal" = list(
+    
       "ggdef_q_estat" =
-        list("title" = "Quarterly general government deficit (Net lending-borrowing)",
-             "data" = ggdef_q_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/3f69307d-050e-47a1-9dc2-35aa3067fada?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Quarterly general government deficit (Net lending-borrowing)",
+               "data" = ggdef_q_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/3f69307d-050e-47a1-9dc2-35aa3067fada?lang=en",
+               "geo" = unique(ggdef_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "ggdef_a_estat" =
-        list("title" = "Annual general government deficit (Net lending-borrowing)",
-             "data" = ggdef_a_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/7cb8900f-55ab-49c9-8605-5d311b05bf8b?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Annual general government deficit (Net lending-borrowing)",
+               "data" = ggdef_a_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/7cb8900f-55ab-49c9-8605-5d311b05bf8b?lang=en",
+               "geo" = unique(ggdef_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "ggdeb_q_estat" =
-        list("title" = "Quarterly general government gross debt",
-             "data" = ggdeb_q_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e9385d-1d0d-4e45-9af8-58e1bd72bdee?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Quarterly general government gross debt",
+               "data" = ggdeb_q_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/84e9385d-1d0d-4e45-9af8-58e1bd72bdee?lang=en",
+               "geo" = unique(ggdeb_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "ggdeb_a_estat" =
-        list("title" = "Annual general government gross debt",
-             "data" = ggdeb_a_estat,
-             "unit" = "% of GDP",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00118295-e7f4-4dbe-878b-ba352d57fc68?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        )
+          list("title" = "Annual general government gross debt",
+               "data" = ggdeb_a_estat,
+               "unit" = "% of GDP",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/00118295-e7f4-4dbe-878b-ba352d57fc68?lang=en",
+               "geo" = unique(ggdeb_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
     ),
     "Labour market" = list(
-      "une_m_estat" =
-        list("title" = "Monthly unemployment rate, seasonally adjusted",
-             "data" = une_m_estat,
-             "unit" = "% of total labour force",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/66655435-d527-4e17-bee4-856b1aaabbd6?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+        "une_m_estat" =
+          list("title" = "Monthly unemployment rate, seasonally adjusted",
+               "data" = une_m_estat,
+               "unit" = "% of total labour force",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/66655435-d527-4e17-bee4-856b1aaabbd6?lang=en",
+               "geo" = unique(une_m_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "une_q_estat" =
-        list("title" = "Quarterly unemployment rate, seasonally adjusted",
-             "data" = une_q_estat,
-             "unit" = "% of labour force aged 15-74",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/618d95e1-8a21-4045-b659-d2d08175b96e?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        ),
+          list("title" = "Quarterly unemployment rate, seasonally adjusted",
+               "data" = une_q_estat,
+               "unit" = "% of labour force aged 15-74",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/618d95e1-8a21-4045-b659-d2d08175b96e?lang=en",
+               "geo" = unique(une_q_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
       "une_a_estat" =
-        list("title" = "Annual unemployment rate",
-             "data" = une_a_estat,
-             "unit" = "% of labour force aged 15-74",
-             "source" = "Eurostat",
-             "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2d502e6c-153a-4aac-af57-4dc623210dd8?lang=en",
-             "geo" = c("SE", "DK"),
-             "dropdown" = "geo",
-             "contains_geo" = TRUE
-        )
+          list("title" = "Annual unemployment rate",
+               "data" = une_a_estat,
+               "unit" = "% of labour force aged 15-74",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/2d502e6c-153a-4aac-af57-4dc623210dd8?lang=en",
+               "geo" = unique(une_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
 
-    ),
+  ),
+
   "MIP Auxiliary indicators" = list(
-    "gnpls_a_estat" =
-      list("title" = "Gross non-performing loans, domestic and foreign entities",
-           "data" = gnpls_a_estat,
-           "unit" = "% of gross loans",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
-           "geo" = c("SE", "DK"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "t1cr_a_estat" =
-      list("title" = "Tier-1 capital ratio banking sector",
-           "data" = t1cr_a_estat,
-           "unit" = "% of risk-weighted assets",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/4bf52ccb-7ee2-4ae2-a682-ae3ae4e23370?lang=en&createdAt=2025-09-14T09:48:47Z",
-           "geo" = c("SE", "DK"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "roeb_a_estat" =
-      list("title" = "Return on equity of banks",
-           "data" = roeb_a_estat,
-           "unit" = "%",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
-           "geo" = c("SE", "DK"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      )
+    
+      "gnpls_a_estat" =
+          list("title" = "Gross non-performing loans, domestic and foreign entities",
+               "data" = gnpls_a_estat,
+               "unit" = "% of gross loans",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+               "geo" = unique(gnpls_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "t1cr_a_estat" =
+          list("title" = "Tier-1 capital ratio banking sector",
+               "data" = t1cr_a_estat,
+               "unit" = "% of risk-weighted assets",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/4bf52ccb-7ee2-4ae2-a682-ae3ae4e23370?lang=en&createdAt=2025-09-14T09:48:47Z",
+               "geo" = unique(t1cr_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "roeb_a_estat" =
+          list("title" = "Return on equity of banks",
+               "data" = roeb_a_estat,
+               "unit" = "%",
+               "source" = "Eurostat",
+               "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+               "geo" = unique(roeb_a_estat$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
 
     
   ),
+
   "Consolidated banking data" = list(
-    "gnpls_a_ecb" =
-      list("title" = "Gross non-performing loans, domestic and foreign entities",
-           "data" = gnpls_a_ecb,
-           "unit" = "% of gross loans",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
-           "geo" = c("SE", "DK"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-    ),
-    "t1cr_a_ecb" =
-      list("title" = "Tier-1 capital ratio banking sector",
-           "data" = t1cr_a_ecb,
-           "unit" = "% of risk-weighted assets",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
-           "geo" = c("SE", "DK"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "roeb_a_ecb" =
-      list("title" = "Return on equity of banks",
-           "data" = roeb_a_ecb,
-           "unit" = "%",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
-           "geo" = c("SE", "DK"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "cbl_a_ecb" =
-      list("title" = "Consolidated banking leverage, domestic and foreign entities (asset-to-equity multiple)",
-           "data" = cbl_a_ecb,
-           "unit" = "% of GDP",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
-           "geo" = c("SE", "DK"),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      )
-)
+    
+      "gnpls_a_ecb" =
+          list("title" = "Gross non-performing loans, domestic and foreign entities",
+               "data" = gnpls_a_ecb,
+               "unit" = "% of gross loans",
+               "source" = "European Central Bank",
+               "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+               "geo" = unique(gnpls_a_ecb$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "t1cr_a_ecb" =
+          list("title" = "Tier-1 capital ratio banking sector",
+               "data" = t1cr_a_ecb,
+               "unit" = "% of risk-weighted assets",
+               "source" = "European Central Bank",
+               "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+               "geo" = unique(t1cr_a_ecb$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "roeb_a_ecb" =
+          list("title" = "Return on equity of banks",
+               "data" = roeb_a_ecb,
+               "unit" = "%",
+               "source" = "European Central Bank",
+               "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+               "geo" = unique(roeb_a_ecb$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               ),
+      "cbl_a_ecb" =
+          list("title" = "Consolidated banking leverage, domestic and foreign entities (asset-to-equity multiple)",
+               "data" = cbl_a_ecb,
+               "unit" = "% of GDP",
+               "source" = "European Central Bank",
+               "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+               "geo" = unique(cbl_a_ecb$geo),
+               "dropdown" = "geo",
+               "contains_geo" = TRUE
+               )
+  )
     
 )
 
