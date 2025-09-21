@@ -12,11 +12,10 @@ if(dropdowns_list[[code]] == "geo") {
   i_temp[[code]] <- i_temp[[code]][geo %in% cross_section_filters & TIME >= as.numeric(period)]
   
   # Change the country code to the real name 
-  i_temp[[code]] <- cc_dict[i_temp[[code]], on = "geo"]
-  i_temp[[code]][, geo := NULL]
+  i_temp[[code]]$geo <- ccode(i_temp[[code]]$geo, "iso2c", "name.en")
   
   # Make the column name more clean
-  setnames(i_temp[[code]], old = c("Country", "TIME", "obs_value"), new = c("Country", "Time", "Value"))
+  setnames(i_temp[[code]], old = c("geo", "TIME", "obs_value"), new = c("Country", "Time", "Value"))
   i_temp[[code]] <- dcast(i_temp[[code]], Country ~ Time, value.var = "Value")
   
   } else if (dropdowns_list[[code]] == "CURRENCY") {
