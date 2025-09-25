@@ -64,7 +64,7 @@ for(theme in themes) {
             
             if (c_label %in% new_cols && 
                 !is.na(i_temp[[indic]][r_index, ..c_index])) {
-              # mark new data green
+              # Mark new data green
               indic_colored[r_index, c_index] <- sprintf(
                 "<span style='background-color:lightgreen;'>%s</span>",
                 indic_colored[r_index, c_index]
@@ -77,7 +77,7 @@ for(theme in themes) {
             for (c_index in 2:ncol(revision_table)) {
                 
               if (isTRUE(as.logical(revision_table[revision_table$Country == r_label, c_index]))) {
-                # mark revision yellow
+                # Mark revision yellow
                 indic_colored[indic_colored$Country == r_label, c_index] <- sprintf(
                   "<span style='background-color:#FFD580;'>%s</span>",
                   indic_colored[indic_colored$Country == r_label, c_index]
