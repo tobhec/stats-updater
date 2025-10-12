@@ -12,7 +12,7 @@ body_text <- paste0(
 )
 
 
-
+# NOW IT CHECKS FOR NEW COLUMNS AS NEW DATA, BUT THERE COULD BE NEW DATA FOR A DIFFERENT COUNTRY BUT THE SAME COLUMN
 for(theme in themes) {
   # Extract the indicators for the given theme
   indics_by_theme <- raw_data_list[[theme]]
@@ -57,6 +57,7 @@ for(theme in themes) {
         new_cols <- new_cols[new_cols > max(names(vintage_table)[-1])]
         
         # Check each relevant cell if there has been new data or a revision
+        # 1. Check for new releases (new columns)
         for (r_index in seq_len(nrow(i_temp[[indic]]))) {
           for (c_index in 2:ncol(i_temp[[indic]])) {   # skip ID column
             
@@ -72,7 +73,9 @@ for(theme in themes) {
               
               }
             }
-          }
+        }
+        
+        # 2. Check for revisions and new releases (of pre-existing columns)
           for (r_label in row_labels_rev) {
             for (c_index in 2:ncol(revision_table)) {
                 
@@ -105,6 +108,16 @@ for(theme in themes) {
                             formatC(old_value, format = "f", digits = 2))
                     )
                   }
+              }
+                # If there is no revision, check if it is a new release
+                else if (is.na(vintage_table[vintage_table$Country == r_label, c_index]) &&
+                         !is.na(indic_colored[indic_colored$Country == r_label, c_index]))
+                {
+                  # Mark new data green (outside of new columns)
+                  indic_colored[indic_colored$Country == r_label, c_index] <- sprintf(
+                    "<span style='background-color:lightgreen;'>%s</span>",
+                    indic_colored[indic_colored$Country == r_label, c_index]
+                  )
                 }
               }
           }
