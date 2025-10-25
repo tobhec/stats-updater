@@ -12,7 +12,6 @@ body_text <- paste0(
 )
 
 
-# NOW IT CHECKS FOR NEW COLUMNS AS NEW DATA, BUT THERE COULD BE NEW DATA FOR A DIFFERENT COUNTRY BUT THE SAME COLUMN
 for(theme in themes) {
   # Extract the indicators for the given theme
   indics_by_theme <- raw_data_list[[theme]]
@@ -45,51 +44,44 @@ for(theme in themes) {
         vintage_table <- as.data.frame(vintages[[indic]]) #vintages
         
         # Extract rows
-        row_labels <- i_temp[[indic]]$Country
-        row_indexes <- seq_along(row_labels)
-        names(row_indexes) <- row_labels
+        row_labels <- indic_colored$Country
         row_labels_rev <- revision_table$Country
-        row_indexes <- row_indexes[row_labels_rev]
         
         # Extract new columns
-        col_names <- names(i_temp[[indic]])
-        new_cols <- setdiff(names(i_temp[[indic]])[-1], names(vintage_table)[-1])
+        col_names <- names(indic_colored)
+        new_cols <- setdiff(names(indic_colored[-1]), names(vintage_table)[-1])
         new_cols <- new_cols[new_cols > max(names(vintage_table)[-1])]
         
         # Check each relevant cell if there has been new data or a revision
         # 1. Check for new releases (new columns)
-        for (r_index in seq_len(nrow(i_temp[[indic]]))) {
-          for (c_index in 2:ncol(i_temp[[indic]])) {   # skip ID column
-            
-            c_label <- col_names[c_index]
+        for (row_label in row_labels) {
+          for (c_label in col_names[-1]) {   # skip ID column
             
             if (c_label %in% new_cols && 
-                !is.na(i_temp[[indic]][r_index, ..c_index])) {
+                !is.na(i_temp[[indic]][row_label, c_label])) {
               # Mark new data green
-              indic_colored[r_index, c_index] <- sprintf(
+              indic_colored[row_label, c_label] <- sprintf(
                 "<span style='background-color:lightgreen;'>%s</span>",
-                indic_colored[r_index, c_index]
+                indic_colored[row_label, c_label]
               )
-              
               }
             }
         }
         
         # 2. Check for revisions and new releases (of pre-existing columns)
           for (r_label in row_labels_rev) {
-            for (c_index in 2:ncol(revision_table)) {
+            for (c_label in names(revision_table)[-1]) {
                 
-              if (isTRUE(as.logical(revision_table[revision_table$Country == r_label, c_index]))) {
+              if (isTRUE(as.logical(revision_table[revision_table$Country == r_label, c_label]))) {
                 # Mark revision yellow
-                indic_colored[indic_colored$Country == r_label, c_index] <- sprintf(
+                indic_colored[indic_colored$Country == r_label, c_label] <- sprintf(
                   "<span style='background-color:#FFD580;'>%s</span>",
-                  indic_colored[indic_colored$Country == r_label, c_index]
+                  indic_colored[indic_colored$Country == r_label, c_label]
                 )
               
                 # Add sentence
-                old_value <- vintage_table[vintage_table$Country == r_label, c_index]
-                diff_percentage <- diff_table[diff_table$Country == r_label, c_index] / old_value
-                c_label <- col_names[c_index]
+                old_value <- vintage_table[vintage_table$Country == r_label, c_label]
+                diff_percentage <- diff_table[diff_table$Country == r_label, c_label] / old_value
                 
                 if(is.infinite(diff_percentage))
                 {
@@ -110,13 +102,13 @@ for(theme in themes) {
                   }
               }
                 # If there is no revision, check if it is a new release
-                else if (is.na(vintage_table[vintage_table$Country == r_label, c_index]) &&
-                         !is.na(indic_colored[indic_colored$Country == r_label, c_index]))
+                else if (is.na(vintage_table[vintage_table$Country == r_label, c_label]) &&
+                         !is.na(indic_colored[indic_colored$Country == r_label, c_label]))
                 {
                   # Mark new data green (outside of new columns)
-                  indic_colored[indic_colored$Country == r_label, c_index] <- sprintf(
+                  indic_colored[indic_colored$Country == r_label, c_label] <- sprintf(
                     "<span style='background-color:lightgreen;'>%s</span>",
-                    indic_colored[indic_colored$Country == r_label, c_index]
+                    indic_colored[indic_colored$Country == r_label, c_label]
                   )
                 }
               }
@@ -138,7 +130,6 @@ for(theme in themes) {
   ")
       
       body_text <- paste0(body_text, "\n\n", indic_part)
-      
     }
   }
 }

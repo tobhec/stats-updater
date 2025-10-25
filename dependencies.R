@@ -2,12 +2,12 @@
 # in two corresponding tables
 calc_diff <- function(new_table, old_table) {
   
-  # Extract the ID column
-  id_col = names(new_table)[1]
-  
   # Create copies of the tables
   new_dt <- new_table
   old_dt <- old_table
+  
+  # Extract the ID column
+  id_col = names(new_dt)[1]
   
   # Find shared rows (based on id_col)
   shared_rows <- intersect(new_dt[[id_col]], old_dt[[id_col]])
