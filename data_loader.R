@@ -145,6 +145,46 @@ mmir_q_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/irt_st_a/A.IRT_M3."
 mmir_a_estat <- as.data.table(mds(sdmx_code))
 
+# NENDI
+sdmx_code <- "ESTAT/TIPSII50/A.PC_GDP.NSA.FA__NENDI.N_LE.WRL_REST."
+nendi_a_estat <- as.data.table(mds(sdmx_code))
+
+# NLB
+sdmx_code <- "ESTAT/TIPSBP70/A.PC_GDP.CKA.S1.S1.BAL.WRL_REST.NSA."
+nlb_a_estat <- as.data.table(mds(sdmx_code))
+
+# Net trade balance in energy
+sdmx_code <- "ESTAT/TIPSEN10/A.MIO_BAL_VAL.SITC3.WORLD."
+ntbe_a_estat <- as.data.table(mds(sdmx_code))
+
+# Real GDP per capita
+sdmx_code <- "ESTAT/TIPSNA40/A.CLV15_EUR_HAB.B1GQ."
+gdpcap_a_estat <- as.data.table(mds(sdmx_code))
+
+# GFCF
+sdmx_code <- "ESTAT/TIPSNA20/A.P51G.PC_GDP."
+gfcf_a_estat <- as.data.table(mds(sdmx_code))
+
+# GERD
+sdmx_code <- "ESTAT/TIPSST10/A.TOTAL.PC_GDP."
+gerd_a_estat <- as.data.table(mds(sdmx_code))
+
+# Export market shares
+sdmx_code <- "ESTAT/TIPSEX10/A.PCH_WRL_3Y.GS.CRE.WRL_REST."
+ems_a_estat <- as.data.table(mds(sdmx_code))
+
+# Labour productivity
+sdmx_code <- "ESTAT/TIPSNA70/A.RLPR_HW.PCH_PRE."
+lpr_a_estat <- as.data.table(mds(sdmx_code))
+
+# Inflation diff
+sdmx_code <- "ESTAT/TIPSCP10/A.TOT_X_NRG_FOOD.CID_EA."
+infdiff_a_estat <- as.data.table(mds(sdmx_code))
+
+# HH debt GDI
+sdmx_code <- "ESTAT/TIPSPD40/A.PC_GADI.CO.S14_S15.LIAB.F3_F4."
+hhdgdi_a_estat <- as.data.table(mds(sdmx_code))
+
 # Gross non-performing loans
 sdmx_code <- "ESTAT/TIPSBD10/A.PC."
 gnpls_a_estat <- as.data.table(mds(sdmx_code))
@@ -156,6 +196,46 @@ t1cr_a_estat <- as.data.table(mds(sdmx_code))
 # Return on equity of banks
 sdmx_code <- "ESTAT/TIPSBD40/A.PC."
 roeb_a_estat <- as.data.table(mds(sdmx_code))
+
+# PTI ratio
+sdmx_code <- "ESTAT/TIPSHO60/A.PTIR_LT_AVG."
+ptimip_a_estat <- as.data.table(mds(sdmx_code))
+
+# Building permits
+sdmx_code <- "ESTAT/TIPSHO50/A.NSA.M2_THAB.BPRM_SQM.CPA_F41001."
+buildp_a_estat <- as.data.table(mds(sdmx_code))
+
+# Long-term unemployment rate
+sdmx_code <- "ESTAT/TIPSLM70/A.T.Y15-74.PC_ACT."
+ltunem_a_estat <- as.data.table(mds(sdmx_code))
+
+# Youth unemployment rate
+sdmx_code <- "ESTAT/TIPSLM80/A.Y15-24.T.PC_ACT."
+yunem_a_estat <- as.data.table(mds(sdmx_code))
+
+# Employment rate
+sdmx_code <- "ESTAT/TIPSLM100/A.EMP_LFS.T.Y20-64.PC_POP."
+emp_a_estat <- as.data.table(mds(sdmx_code))
+
+# NEET
+sdmx_code <- "ESTAT/TIPSLM90/A.T.Y15-29.PC_POP."
+neet_a_estat <- as.data.table(mds(sdmx_code))
+
+# AROPE
+sdmx_code <- "ESTAT/TIPSLC10/A.T.PC.TOTAL."
+arope_a_estat <- as.data.table(mds(sdmx_code))
+
+# AROPE 1
+sdmx_code <- "ESTAT/TIPSLC20/A.T.PC.LI_R_MD60.TOTAL."
+arope1_a_estat <- as.data.table(mds(sdmx_code))
+
+# AROPE 2
+sdmx_code <- "ESTAT/TIPSLC30/A.T.PC.TOTAL."
+arope2_a_estat <- as.data.table(mds(sdmx_code))
+
+# AROPE 3
+sdmx_code <- "ESTAT/TIPSLC40/A.T.Y_LT65.PC."
+arope3_a_estat <- as.data.table(mds(sdmx_code))
 
 # Current account balance 3 year average (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/f91d993f-81ca-44c1-a860-9b31a01fa0ad?lang=en&createdAt=2025-09-21T16:09:06Z
 sdmx_code <- "ESTAT/TIPSBP10/A.PC_GDP_3Y.NSA.CA.BAL.WRL_REST."
@@ -907,6 +987,116 @@ raw_data_list <- list(
   
   "MIP Auxiliary indicators" = list(
     
+    "nendi_a_estat" =
+      list("title" = "NENDI",
+           "data" = nendi_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(nendi_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "nlb_a_estat" =
+      list("title" = "NLB",
+           "data" = nlb_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(nlb_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "ntbe_a_estat" =
+      list("title" = "Net trade balance in energy",
+           "data" = ntbe_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(ntbe_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "gdpcap_a_estat" =
+      list("title" = "Real GDP per capita",
+           "data" = gdpcap_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(gdpcap_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "gfcf_a_estat" =
+      list("title" = "GFCF",
+           "data" = gfcf_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(gfcf_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "gerd_a_estat" =
+      list("title" = "GERD",
+           "data" = gerd_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(gerd_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "ems_a_estat" =
+      list("title" = "Export market shares",
+           "data" = ems_a_estat,
+           "unit" = "3 year % change",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(ems_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "lpr_a_estat" =
+      list("title" = "Labour productivity",
+           "data" = lpr_a_estat,
+           "unit" = "1 year % change",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(lpr_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "infdiff_a_estat" =
+      list("title" = "Inflation differential",
+           "data" = infdiff_a_estat,
+           "unit" = "pps",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(infdiff_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "hhdgdi_a_estat" =
+      list("title" = "Household debt GDI",
+           "data" = hhdgdi_a_estat,
+           "unit" = "% of GDI",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(hhdgdi_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
     "gnpls_a_estat" =
       list("title" = "Gross non-performing loans, domestic and foreign entities",
            "data" = gnpls_a_estat,
@@ -934,6 +1124,106 @@ raw_data_list <- list(
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(roeb_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "ptimip_a_estat" =
+      list("title" = "PTI ratio",
+           "data" = ptimip_a_estat,
+           "unit" = "% deviation from long term average",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(ptimip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "buildp_a_estat" =
+      list("title" = "Building permits",
+           "data" = buildp_a_estat,
+           "unit" = "m2 per 1000 inh",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(buildp_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "ltunem_a_estat" =
+      list("title" = "Long-term unemployment rate",
+           "data" = ltunem_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(ltunem_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "yunem_a_estat" =
+      list("title" = "Youth unemployment rate",
+           "data" = yunem_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(yunem_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "emp_a_estat" =
+      list("title" = "Employment rate",
+           "data" = emp_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(emp_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "neet_a_estat" =
+      list("title" = "NEET",
+           "data" = neet_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(neet_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "arope_a_estat" =
+      list("title" = "AROPE",
+           "data" = arope_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(arope_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "arope1_a_estat" =
+      list("title" = "AROPE1",
+           "data" = arope1_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(arope1_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "arope2_a_estat" =
+      list("title" = "AROPE2",
+           "data" = arope2_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(arope2_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "arope3_a_estat" =
+      list("title" = "AROPE3",
+           "data" = arope3_a_estat,
+           "unit" = "%",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(arope3_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
       )
