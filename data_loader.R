@@ -145,11 +145,11 @@ mmir_q_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/irt_st_a/A.IRT_M3."
 mmir_a_estat <- as.data.table(mds(sdmx_code))
 
-# NENDI
+# Net international investment position excluding non-defaultable instruments
 sdmx_code <- "ESTAT/TIPSII50/A.PC_GDP.NSA.FA__NENDI.N_LE.WRL_REST."
 nendi_a_estat <- as.data.table(mds(sdmx_code))
 
-# NLB
+# Net lending-borrowing (current plus capital account)
 sdmx_code <- "ESTAT/TIPSBP70/A.PC_GDP.CKA.S1.S1.BAL.WRL_REST.NSA."
 nlb_a_estat <- as.data.table(mds(sdmx_code))
 
@@ -161,11 +161,11 @@ ntbe_a_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/TIPSNA40/A.CLV15_EUR_HAB.B1GQ."
 gdpcap_a_estat <- as.data.table(mds(sdmx_code))
 
-# GFCF
+# Gross fixed capital formation
 sdmx_code <- "ESTAT/TIPSNA20/A.P51G.PC_GDP."
 gfcf_a_estat <- as.data.table(mds(sdmx_code))
 
-# GERD
+# Gross expenditure on research and development
 sdmx_code <- "ESTAT/TIPSST10/A.TOTAL.PC_GDP."
 gerd_a_estat <- as.data.table(mds(sdmx_code))
 
@@ -177,11 +177,11 @@ ems_a_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/TIPSNA70/A.RLPR_HW.PCH_PRE."
 lpr_a_estat <- as.data.table(mds(sdmx_code))
 
-# Inflation diff
+# Core inflation differential vis-à-vis the euro area
 sdmx_code <- "ESTAT/TIPSCP10/A.TOT_X_NRG_FOOD.CID_EA."
 infdiff_a_estat <- as.data.table(mds(sdmx_code))
 
-# HH debt GDI
+# Household debt (including non-profit institutions serving households)
 sdmx_code <- "ESTAT/TIPSPD40/A.PC_GADI.CO.S14_S15.LIAB.F3_F4."
 hhdgdi_a_estat <- as.data.table(mds(sdmx_code))
 
@@ -197,7 +197,7 @@ t1cr_a_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/TIPSBD40/A.PC."
 roeb_a_estat <- as.data.table(mds(sdmx_code))
 
-# PTI ratio
+# Standardised house price-to-income ratio
 sdmx_code <- "ESTAT/TIPSHO60/A.PTIR_LT_AVG."
 ptimip_a_estat <- as.data.table(mds(sdmx_code))
 
@@ -217,23 +217,23 @@ yunem_a_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/TIPSLM100/A.EMP_LFS.T.Y20-64.PC_POP."
 emp_a_estat <- as.data.table(mds(sdmx_code))
 
-# NEET
+# Young people neither in education or employment
 sdmx_code <- "ESTAT/TIPSLM90/A.T.Y15-29.PC_POP."
 neet_a_estat <- as.data.table(mds(sdmx_code))
 
-# AROPE
+# People at risk of poverty or social exclusion
 sdmx_code <- "ESTAT/TIPSLC10/A.T.PC.TOTAL."
 arope_a_estat <- as.data.table(mds(sdmx_code))
 
-# AROPE 1
+# People at risk of poverty after social transfers
 sdmx_code <- "ESTAT/TIPSLC20/A.T.PC.LI_R_MD60.TOTAL."
 arope1_a_estat <- as.data.table(mds(sdmx_code))
 
-# AROPE 2
+# Severely materially and socially deprived people
 sdmx_code <- "ESTAT/TIPSLC30/A.T.PC.TOTAL."
 arope2_a_estat <- as.data.table(mds(sdmx_code))
 
-# AROPE 3
+# People living in households with very low work intensity
 sdmx_code <- "ESTAT/TIPSLC40/A.T.Y_LT65.PC."
 arope3_a_estat <- as.data.table(mds(sdmx_code))
 
@@ -976,7 +976,7 @@ raw_data_list <- list(
     "lfprmip_a_estat" =
       list("title" = "Labour force participation rate",
            "data" = lfprmip_a_estat,
-           "unit" = "3-year % change",
+           "unit" = "3-year % change - % of total population aged 15-64",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/b3f002f5-16c7-49cd-8b8e-18ab4610abb1?lang=en&createdAt=2025-09-21T16:43:31Z",
            "geo" = unique(lfprmip_a_estat$geo),
@@ -988,7 +988,7 @@ raw_data_list <- list(
   "MIP Auxiliary indicators" = list(
     
     "nendi_a_estat" =
-      list("title" = "NENDI",
+      list("title" = "Net international investment position excluding non-defaultable instruments",
            "data" = nendi_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -999,7 +999,7 @@ raw_data_list <- list(
       ),
     
     "nlb_a_estat" =
-      list("title" = "NLB",
+      list("title" = "Net lending-borrowing (current plus capital account)",
            "data" = nlb_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1023,7 +1023,7 @@ raw_data_list <- list(
     "gdpcap_a_estat" =
       list("title" = "Real GDP per capita",
            "data" = gdpcap_a_estat,
-           "unit" = "% of GDP",
+           "unit" = "EUR",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
            "geo" = unique(gdpcap_a_estat$geo),
@@ -1032,7 +1032,7 @@ raw_data_list <- list(
       ),
     
     "gfcf_a_estat" =
-      list("title" = "GFCF",
+      list("title" = "Gross fixed capital formation",
            "data" = gfcf_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1043,7 +1043,7 @@ raw_data_list <- list(
       ),
     
     "gerd_a_estat" =
-      list("title" = "GERD",
+      list("title" = "Gross expenditure on research and development",
            "data" = gerd_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1076,7 +1076,7 @@ raw_data_list <- list(
       ),
     
     "infdiff_a_estat" =
-      list("title" = "Inflation differential",
+      list("title" = "Core inflation differential vis-à-vis the euro area",
            "data" = infdiff_a_estat,
            "unit" = "pps",
            "source" = "Eurostat",
@@ -1087,7 +1087,7 @@ raw_data_list <- list(
       ),
     
     "hhdgdi_a_estat" =
-      list("title" = "Household debt GDI",
+      list("title" = "Household debt (including non-profit institutions serving households)",
            "data" = hhdgdi_a_estat,
            "unit" = "% of GDI",
            "source" = "Eurostat",
@@ -1128,7 +1128,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ptimip_a_estat" =
-      list("title" = "PTI ratio",
+      list("title" = "Standardised house price-to-income ratio",
            "data" = ptimip_a_estat,
            "unit" = "% deviation from long term average",
            "source" = "Eurostat",
@@ -1150,7 +1150,7 @@ raw_data_list <- list(
     "ltunem_a_estat" =
       list("title" = "Long-term unemployment rate",
            "data" = ltunem_a_estat,
-           "unit" = "%",
+           "unit" = "% of total population aged 15-74",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(ltunem_a_estat$geo),
@@ -1160,7 +1160,7 @@ raw_data_list <- list(
     "yunem_a_estat" =
       list("title" = "Youth unemployment rate",
            "data" = yunem_a_estat,
-           "unit" = "%",
+           "unit" = "% of total population aged 15-24",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(yunem_a_estat$geo),
@@ -1170,17 +1170,18 @@ raw_data_list <- list(
     "emp_a_estat" =
       list("title" = "Employment rate",
            "data" = emp_a_estat,
-           "unit" = "%",
+           "unit" = "% of total population aged 20-64",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(emp_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
       ),
+    
     "neet_a_estat" =
-      list("title" = "NEET",
+      list("title" = "Young people neither in employment nor in education or training",
            "data" = neet_a_estat,
-           "unit" = "%",
+           "unit" = "% of total population aged 15-29",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(neet_a_estat$geo),
@@ -1188,9 +1189,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope_a_estat" =
-      list("title" = "AROPE",
+      list("title" = "People at risk of poverty or social exclusion",
            "data" = arope_a_estat,
-           "unit" = "%",
+           "unit" = "% of total population",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(arope_a_estat$geo),
@@ -1198,9 +1199,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope1_a_estat" =
-      list("title" = "AROPE1",
+      list("title" = "People at risk of poverty after social transfers",
            "data" = arope1_a_estat,
-           "unit" = "%",
+           "unit" = "% of total population",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(arope1_a_estat$geo),
@@ -1208,9 +1209,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope2_a_estat" =
-      list("title" = "AROPE2",
+      list("title" = "Severely materially and socially deprived people",
            "data" = arope2_a_estat,
-           "unit" = "%",
+           "unit" = "% of total population",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(arope2_a_estat$geo),
@@ -1218,9 +1219,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope3_a_estat" =
-      list("title" = "AROPE3",
+      list("title" = "People living in households with very low work intensity",
            "data" = arope3_a_estat,
-           "unit" = "%",
+           "unit" = "% of total population aged 0-64",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
            "geo" = unique(arope3_a_estat$geo),
