@@ -217,7 +217,7 @@ yunem_a_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/TIPSLM100/A.EMP_LFS.T.Y20-64.PC_POP."
 emp_a_estat <- as.data.table(mds(sdmx_code))
 
-# Young people neither in education or employment
+# Young people neither in employment nor in education or training
 sdmx_code <- "ESTAT/TIPSLM90/A.T.Y15-29.PC_POP."
 neet_a_estat <- as.data.table(mds(sdmx_code))
 
