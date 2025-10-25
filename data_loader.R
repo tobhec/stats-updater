@@ -145,6 +145,10 @@ mmir_q_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/irt_st_a/A.IRT_M3."
 mmir_a_estat <- as.data.table(mds(sdmx_code))
 
+# Total financial sector liabilites (non-consolidated)
+sdmx_code <- "ESTAT/nasa_10_f_bs/A.PC_GDP.NCO.S12.LIAB.F."
+tfsl_a_estat <- as.data.table(mds(sdmx_code))
+
 # Net international investment position excluding non-defaultable instruments
 sdmx_code <- "ESTAT/TIPSII50/A.PC_GDP.NSA.FA__NENDI.N_LE.WRL_REST."
 nendi_a_estat <- as.data.table(mds(sdmx_code))
@@ -376,6 +380,10 @@ setnames(cbl_a_ecb, "REF_AREA", "geo")
 ### World Bank ###
 
 ### Organisation for economic cooperation and development ###
+# Government debt
+# Government deficit
+# Inflation
+# GDP growth
 
 
 #EU B0 57
@@ -636,18 +644,59 @@ raw_data_list <- list(
       )
   ),
   
-  #  "Financial sector" = list(
-  #    "hpi_q_estat" =
-  #      list("title" = "XXXXXXXXXXXXXXXXX",
-  #           "data" = hpi_q_estat,
-  #           "unit" = "Index (2015 = 100)",
-  #           "source" = "Eurostat",
-  #           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/45dc8bde-dd19-4c38-b039-f54b3b3ac756?lang=en",
-  #           "geo" = c("SE", "DK"),
-  #           "dropdown" = "geo",
-  #           "contains_geo" = TRUE
-  #      )
-  #  ),
+  "Financial sector" = list(
+    
+    "tfsl_a_estat" =
+      list("title" = "Total financial sector liabilites (non-consolidated)",
+           "data" = tfsl_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/ff0226c0-6449-4b61-89a4-e982bc85993a?lang=en&createdAt=2025-10-25T17:53:59Z",
+           "geo" = unique(tfsl_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gnpls_a_ecb" =
+      list("title" = "Gross non-performing loans, domestic and foreign entities",
+           "data" = gnpls_a_ecb,
+           "unit" = "% of gross loans",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+           "geo" = unique(gnpls_a_ecb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "t1cr_a_ecb" =
+      list("title" = "Tier-1 capital ratio banking sector",
+           "data" = t1cr_a_ecb,
+           "unit" = "% of risk-weighted assets",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+           "geo" = unique(t1cr_a_ecb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "roeb_a_ecb" =
+      list("title" = "Return on equity of banks",
+           "data" = roeb_a_ecb,
+           "unit" = "%",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+           "geo" = unique(roeb_a_ecb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "cbl_a_ecb" =
+      list("title" = "Consolidated banking leverage, domestic and foreign entities (asset-to-equity multiple)",
+           "data" = cbl_a_ecb,
+           "unit" = "% of GDP",
+           "source" = "European Central Bank",
+           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
+           "geo" = unique(cbl_a_ecb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      )
+  ),
   
   "External sector" = list(
     
@@ -1228,52 +1277,7 @@ raw_data_list <- list(
            "dropdown" = "geo",
            "contains_geo" = TRUE
       )
-  ),
-  
-  "Consolidated banking data" = list(
-    
-    "gnpls_a_ecb" =
-      list("title" = "Gross non-performing loans, domestic and foreign entities",
-           "data" = gnpls_a_ecb,
-           "unit" = "% of gross loans",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
-           "geo" = unique(gnpls_a_ecb$geo),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "t1cr_a_ecb" =
-      list("title" = "Tier-1 capital ratio banking sector",
-           "data" = t1cr_a_ecb,
-           "unit" = "% of risk-weighted assets",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
-           "geo" = unique(t1cr_a_ecb$geo),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "roeb_a_ecb" =
-      list("title" = "Return on equity of banks",
-           "data" = roeb_a_ecb,
-           "unit" = "%",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
-           "geo" = unique(roeb_a_ecb$geo),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "cbl_a_ecb" =
-      list("title" = "Consolidated banking leverage, domestic and foreign entities (asset-to-equity multiple)",
-           "data" = cbl_a_ecb,
-           "unit" = "% of GDP",
-           "source" = "European Central Bank",
-           "link" = "https://data.ecb.europa.eu/data/datasets/CBD2?dataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29&advFilterDataset%5B0%5D=Consolidated%20Banking%20data%20%28CBD2%29",
-           "geo" = unique(cbl_a_ecb$geo),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      )
   )
-  
 )
 
 # Create a vector with the themes
