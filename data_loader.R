@@ -1931,34 +1931,3 @@ names(dropdowns_list) <- sub(".*\\.", "", names(dropdowns_list))
 #    
 #  }
 #}
-
-
-#indic1[1,4][[1]] = 5.0
-#indic2$test <- 2.0
-
-
-
-#as.data.table(mds("WB/WDI/A.SI_POV_GAPS.SWE+USA")) # REF_AREA instead of geo
-#SI_POV_GAPS
-#SI_POV_GAP2
-#SI_POV_NAGP
-
-#SI_POV_DDAY
-#SI_POV_2DAY
-#SI_POV_NAHC
-
-
-#"Exchange rates" = list(
-#  
-#  
-#),
-#"Financial markets" = list(
-#  
-#),
-#"Poverty and inequality" = list(
-#  
-#),
-#"Macroeconomic imbalance procedure indicators" = list(
-#  
-#)
-
