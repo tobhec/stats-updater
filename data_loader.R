@@ -293,6 +293,7 @@ unemip_a_estat <- as.data.table(mds(sdmx_code))
 sdmx_code <- "ESTAT/TIPSLM60/A.PPCH_3Y.Y15-64.T."
 lfprmip_a_estat <- as.data.table(mds(sdmx_code))
 
+
 ### European Central Bank ###
 
 # Daily exchange rates in Euro
@@ -379,6 +380,108 @@ setnames(cbl_a_ecb, "REF_AREA", "geo")
 
 ### World Bank ###
 
+# Annual inflation
+sdmx_code <- "WB/WDI/A.FP_CPI_TOTL_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+infl_a_wb <- as.data.table(mds(sdmx_code))
+setnames(infl_a_wb, "REF_AREA", "geo")
+
+# Current account as percentage of GDP
+sdmx_code <- "WB/WDI/A.BN_CAB_XOKA_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+ca_a_wb <- as.data.table(mds(sdmx_code))
+setnames(ca_a_wb, "REF_AREA", "geo")
+
+# Exports of goods and services as percentage of GDP
+sdmx_code <- "WB/WDI/A.NE_EXP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+exp_a_wb <- as.data.table(mds(sdmx_code))
+setnames(exp_a_wb, "REF_AREA", "geo")
+
+# Imports of goods and services as percentage of GDP
+sdmx_code <- "WB/WDI/A.NE_IMP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+imp_a_wb <- as.data.table(mds(sdmx_code))
+setnames(imp_a_wb, "REF_AREA", "geo")
+
+# Net inflows of FDI as percentage of GDP
+sdmx_code <- "WB/WDI/A.BX_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+fdiin_a_wb <- as.data.table(mds(sdmx_code))
+setnames(fdiin_a_wb, "REF_AREA", "geo")
+
+# Net outflows of FDI as percentage of GDP
+sdmx_code <- "WB/WDI/A.BM_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+fdiout_a_wb <- as.data.table(mds(sdmx_code))
+setnames(fdiout_a_wb, "REF_AREA", "geo")
+
+# Real GDP growth (constant 2015 prices)
+sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+gdpg_a_wb <- as.data.table(mds(sdmx_code))
+setnames(gdpg_a_wb, "REF_AREA", "geo")
+
+# Real GDP per capita growth (constant 2015 prices)
+sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+gdpcg_a_wb <- as.data.table(mds(sdmx_code))
+setnames(gdpcg_a_wb, "REF_AREA", "geo")
+
+# Real GDP per capita (constant 2015 prices)
+sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+gdpc_a_wb <- as.data.table(mds(sdmx_code))
+setnames(gdpc_a_wb, "REF_AREA", "geo")
+
+# Real GDP (constant 2015 prices)
+sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+gdp_a_wb <- as.data.table(mds(sdmx_code))
+setnames(gdp_a_wb, "REF_AREA", "geo")
+
+# Income share held by top 10 %
+sdmx_code <- "WB/WDI/A.SI_DST_10TH_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+ist10_a_wb <- as.data.table(mds(sdmx_code))
+setnames(ist10_a_wb, "REF_AREA", "geo")
+
+# Income share held by top 20 %
+sdmx_code <- "WB/WDI/A.SI_DST_05TH_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+ist20_a_wb <- as.data.table(mds(sdmx_code))
+setnames(ist20_a_wb, "REF_AREA", "geo")
+
+# Income share held by lowest 10 %
+sdmx_code <- "WB/WDI/A.SI_DST_FRST_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+isl10_a_wb <- as.data.table(mds(sdmx_code))
+setnames(isl10_a_wb, "REF_AREA", "geo")
+
+# Income share held by lowest 20 %
+sdmx_code <- "WB/WDI/A.SI_DST_FRST_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+isl20_a_wb <- as.data.table(mds(sdmx_code))
+setnames(isl20_a_wb, "REF_AREA", "geo")
+
+# Poverty headcount ratio at $3.00 a day (2021 PPP) (% of population)
+sdmx_code <- "WB/WDI/A.SI_POV_DDAY.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+povhc3_a_wb <- as.data.table(mds(sdmx_code))
+setnames(povhc3_a_wb, "REF_AREA", "geo")
+
+# Poverty headcount ratio at $4.20 a day (2021 PPP) (% of population)
+sdmx_code <- "WB/WDI/A.SI_POV_LMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+povhc42_a_wb <- as.data.table(mds(sdmx_code))
+setnames(povhc42_a_wb, "REF_AREA", "geo")
+
+# Poverty headcount ratio at $8.30 a day (2021 PPP) (% of population)
+sdmx_code <- "WB/WDI/A.SI_POV_UMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+povhc83_a_wb <- as.data.table(mds(sdmx_code))
+setnames(povhc83_a_wb, "REF_AREA", "geo")
+
+# Poverty gap at $3.00 a day (2021 PPP) (%)
+sdmx_code <- "WB/WDI/A.SI_POV_GAPS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+povgap3_a_wb <- as.data.table(mds(sdmx_code))
+setnames(povgap3_a_wb, "REF_AREA", "geo")
+
+# Poverty gap at $4.20 a day (2021 PPP) (%)
+sdmx_code <- "WB/WDI/A.SI_POV_LMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+povgap42_a_wb <- as.data.table(mds(sdmx_code))
+setnames(povgap42_a_wb, "REF_AREA", "geo")
+
+# Poverty gap at $8.30 a day (2021 PPP) (%)
+sdmx_code <- "WB/WDI/A.SI_POV_UMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+povgap83_a_wb <- as.data.table(mds(sdmx_code))
+setnames(povgap83_a_wb, "REF_AREA", "geo")
+
+
+
 ### Organisation for economic cooperation and development ###
 # Government debt
 # Government deficit
@@ -436,7 +539,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "reermip_a_estat" =
-      list("title" = "real effective exchange rate (against 42 advanced economies)",
+      list("title" = "Real effective exchange rate (against 42 advanced economies)",
            "data" = reermip_a_estat,
            "unit" = "3-year average",
            "source" = "Eurostat",
@@ -466,6 +569,26 @@ raw_data_list <- list(
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/687ce2e8-9c27-4660-aad0-896b206a973e?lang=en",
            "geo" = unique(infl_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "infdiff_a_estat" =
+      list("title" = "Core inflation differential vis-à-vis the euro area",
+           "data" = infdiff_a_estat,
+           "unit" = "pps",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(infdiff_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "infl_a_wb" =
+      list("title" = "Annual inflation",
+           "data" = infl_a_wb,
+           "unit" = "1-year % change",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(infl_a_wb$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
       )
@@ -576,8 +699,79 @@ raw_data_list <- list(
            "geo" = unique(gdp_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
-      )
+      ),
+    "gdpcap_a_estat" =
+      list("title" = "Real GDP per capita",
+           "data" = gdpcap_a_estat,
+           "unit" = "EUR",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(gdpcap_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
     
+    "gfcf_a_estat" =
+      list("title" = "Investments (gross fixed capital formation)",
+           "data" = gfcf_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(gfcf_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "gerd_a_estat" =
+      list("title" = "Gross expenditure on research and development",
+           "data" = gerd_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(gerd_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gdpg_a_wb" =
+      list("title" = "Real GDP growth (constant 2015 prices)",
+           "data" = gdpg_a_wb,
+           "unit" = "1-year % change",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(gdpg_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gdpcg_a_wb" =
+      list("title" = "Real GDP per capita growth (constant 2015 prices)",
+           "data" = gdpcg_a_wb,
+           "unit" = "1-year % change",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(gdpcg_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gdp_a_wb" =
+      list("title" = "Real GDP (constant 2015 prices)",
+           "data" = gdp_a_wb,
+           "unit" = "2015 USD",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(gdp_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "gdpc_a_wb" =
+      list("title" = "Real GDP per capita (constant 2015 prices)",
+           "data" = gdpc_a_wb,
+           "unit" = "2015 USD",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(gdpc_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      )
   ),
   
   "Housing" = list(
@@ -639,6 +833,26 @@ raw_data_list <- list(
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/fe2ee660-986b-4752-aac6-b7b31f6f9eab?lang=en&createdAt=2025-09-21T16:40:14Z",
            "geo" = unique(hpimip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "ptimip_a_estat" =
+      list("title" = "Standardised house price-to-income ratio",
+           "data" = ptimip_a_estat,
+           "unit" = "% deviation from long term average",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(ptimip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "buildp_a_estat" =
+      list("title" = "Building permits",
+           "data" = buildp_a_estat,
+           "unit" = "m2 per 1000 inh",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(buildp_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
       )
@@ -789,6 +1003,96 @@ raw_data_list <- list(
            "geo" = unique(niipmip_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
+      ),
+    "epmip_a_estat" =
+      list("title" = "Export performance against advanced economies",
+           "data" = epmip_a_estat,
+           "unit" = "3-year % change",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/8dedfe26-4809-4601-9934-3c9b5fcd69e6?lang=en&createdAt=2025-09-21T16:18:52Z",
+           "geo" = unique(epmip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "ems_a_estat" =
+      list("title" = "Export market shares - % of world exports",
+           "data" = ems_a_estat,
+           "unit" = "3 year % change",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(ems_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "nendi_a_estat" =
+      list("title" = "Annual net international investment position excluding non-defaultable instruments",
+           "data" = nendi_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(nendi_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "ntbe_a_estat" =
+      list("title" = "Net trade balance in energy",
+           "data" = ntbe_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(ntbe_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "ca_a_wb" =
+      list("title" = "Annual current account",
+           "data" = ca_a_wb,
+           "unit" = "% of GDP",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(ca_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "exp_a_wb" =
+      list("title" = "Exports of goods and services",
+           "data" = exp_a_wb,
+           "unit" = "% of GDP",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(exp_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "imp_a_wb" =
+      list("title" = "Imports of goods and services",
+           "data" = imp_a_wb,
+           "unit" = "% of GDP",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(imp_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "fdiin_a_wb" =
+      list("title" = "Net inflows of foreign direct investment",
+           "data" = fdiin_a_wb,
+           "unit" = "% of GDP",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(fdiin_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "fdiout_a_wb" =
+      list("title" = "Net outflows of foreign direct investment",
+           "data" = fdiout_a_wb,
+           "unit" = "% of GDP",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(fdiout_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
       )
   ),
   
@@ -846,6 +1150,83 @@ raw_data_list <- list(
       )
   ),
   
+  "Private sector debt" = list(
+    
+    "hhdmip_a_estat" =
+      list("title" = "Household debt (including non-profit institutions serving households)",
+           "data" = hhdmip_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/1940440a-1984-4b65-97e3-371dec4d0e87?lang=en&createdAt=2025-09-21T16:27:41Z",
+           "geo" = unique(hhdmip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "nfcdmip_a_estat" =
+      list("title" = "Non-financial corporations debt",
+           "data" = nfcdmip_a_estat,
+           "unit" = "% of GDP",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/ab981ab0-e651-444d-9624-46889928e66c?lang=en&createdAt=2025-09-21T16:33:58Z",
+           "geo" = unique(nfcdmip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "hhcfmip_a_estat" =
+      list("title" = "Household credit flow (including non-profit institutions serving households)",
+           "data" = hhcfmip_a_estat,
+           "unit" = "% of debt stock t-1",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/29d5be5e-9383-45be-831b-2222a51aef47?lang=en&createdAt=2025-09-21T16:35:29Z",
+           "geo" = unique(hhcfmip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "nfccfmip_a_estat" =
+      list("title" = "Non-financial corporations credit flow (excluding foreign direct investments)",
+           "data" = nfccfmip_a_estat,
+           "unit" = "% of debt stock t-1 (excluding foreign direct investments)",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/66eff95d-3eb9-40cf-8542-297ab2c67196?lang=en&createdAt=2025-09-21T16:38:00Z",
+           "geo" = unique(nfccfmip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "hhdgdi_a_estat" =
+      list("title" = "Household debt (including non-profit institutions serving households)",
+           "data" = hhdgdi_a_estat,
+           "unit" = "% of GDI",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(hhdgdi_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      )
+  ),
+  
+  "Productivity" = list(
+    "nulcmip_a_estat" =
+      list("title" = "Annual nominal unit labour cost",
+           "data" = nulcmip_a_estat,
+           "unit" = "3-year % change",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/ad85fa14-15d3-4b1e-935b-8ce36daa37fc?lang=en&createdAt=2025-09-21T16:22:16Z",
+           "geo" = unique(nulcmip_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "lpr_a_estat" =
+      list("title" = "Annual labour productivity",
+           "data" = lpr_a_estat,
+           "unit" = "1 year % change",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/032a1933-cf5f-4007-bedf-4febd4c495f6?lang=en&createdAt=2025-09-14T09:47:13Z",
+           "geo" = unique(lpr_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      )
+  ),
+  
   "Labour market" = list(
     "une_m_estat" =
       list("title" = "Monthly unemployment rate, seasonally adjusted",
@@ -896,8 +1277,192 @@ raw_data_list <- list(
            "geo" = unique(lfprmip_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
+      ),
+    "ltunem_a_estat" =
+      list("title" = "Long-term unemployment rate",
+           "data" = ltunem_a_estat,
+           "unit" = "% of total population aged 15-74",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(ltunem_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "yunem_a_estat" =
+      list("title" = "Youth unemployment rate",
+           "data" = yunem_a_estat,
+           "unit" = "% of total population aged 15-24",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(yunem_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "emp_a_estat" =
+      list("title" = "Employment rate",
+           "data" = emp_a_estat,
+           "unit" = "% of total population aged 20-64",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(emp_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    
+    "neet_a_estat" =
+      list("title" = "Young people neither in employment nor in education or training",
+           "data" = neet_a_estat,
+           "unit" = "% of total population aged 15-29",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(neet_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
       )
     
+  ),
+  
+  "Social and poverty" = list(
+    "arope_a_estat" =
+      list("title" = "People at risk of poverty or social exclusion",
+           "data" = arope_a_estat,
+           "unit" = "% of total population",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(arope_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "arope1_a_estat" =
+      list("title" = "People at risk of poverty after social transfers",
+           "data" = arope1_a_estat,
+           "unit" = "% of total population",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(arope1_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "arope2_a_estat" =
+      list("title" = "Severely materially and socially deprived people",
+           "data" = arope2_a_estat,
+           "unit" = "% of total population",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(arope2_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "arope3_a_estat" =
+      list("title" = "People living in households with very low work intensity",
+           "data" = arope3_a_estat,
+           "unit" = "% of total population aged 0-64",
+           "source" = "Eurostat",
+           "link" = "https://ec.europa.eu/eurostat/databrowser/bookmark/d721d559-eafc-4acf-96e8-ba6400fd10b2?lang=en&createdAt=2025-09-14T09:48:59Z",
+           "geo" = unique(arope3_a_estat$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "ist10_a_wb" =
+      list("title" = "Income share held by top 10 %",
+           "data" = ist10_a_wb,
+           "unit" = "%",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(ist10_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "ist20_a_wb" =
+      list("title" = "Income share held by top 20 %",
+           "data" = ist20_a_wb,
+           "unit" = "%",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(ist20_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "isl10_a_wb" =
+      list("title" = "Income share held by lowest 10 %",
+           "data" = isl10_a_wb,
+           "unit" = "%",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(isl10_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "isl20_a_wb" =
+      list("title" = "Income share held by lowest 20 %",
+           "data" = isl20_a_wb,
+           "unit" = "%",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(isl20_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "povhc3_a_wb" =
+      list("title" = "Poverty headcount ratio at $3.00 a day (2021 PPP)",
+           "data" = povhc3_a_wb,
+           "unit" = "% of population",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(povhc3_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "povhc42_a_wb" =
+      list("title" = "Poverty headcount ratio at $4.20 a day (2021 PPP)",
+           "data" = povhc42_a_wb,
+           "unit" = "% of population",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(povhc42_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "povhc83_a_wb" =
+      list("title" = "Poverty headcount ratio at $8.30 a day (2021 PPP)",
+           "data" = povhc83_a_wb,
+           "unit" = "% of population",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(povhc83_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "povgap3_a_wb" =
+      list("title" = "Poverty gap at $3.00 a day (2021 PPP)",
+           "data" = povgap3_a_wb,
+           "unit" = "%",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(povgap3_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "povgap42_a_wb" =
+      list("title" = "Poverty gap at $4.20 a day (2021 PPP)",
+           "data" = povgap42_a_wb,
+           "unit" = "%",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(povgap42_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      ),
+    "povgap83_a_wb" =
+      list("title" = "Poverty gap at $8.30 a day (2021 PPP)",
+           "data" = povgap83_a_wb,
+           "unit" = "%",
+           "source" = "World Bank",
+           "link" = "To be added",
+           "geo" = unique(povgap83_a_wb$geo),
+           "dropdown" = "geo",
+           "contains_geo" = TRUE
+      )
   ),
   
   "MIP Scoreboard indicators" = list(
@@ -1103,7 +1668,7 @@ raw_data_list <- list(
       ),
     
     "ems_a_estat" =
-      list("title" = "Export market shares",
+      list("title" = "Export market shares - % of world exports",
            "data" = ems_a_estat,
            "unit" = "3 year % change",
            "source" = "Eurostat",
