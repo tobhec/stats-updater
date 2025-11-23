@@ -1,10 +1,5 @@
 setwd("C:/Users/Tobia/raspberry_pi/stats-updater")
 
-# Delete vintages for T-180
-if (dir.exists(paste0("./vintages/", format(Sys.Date() - 180, "%Y-%m-%d")))) {
-  unlink(paste0("./vintages/", format(Sys.Date() - 180)), recursive = TRUE, force = TRUE)
-}
-
 # Create a new folder for todays date
 if (!dir.exists(paste0("./vintages/", format(Sys.Date(), "%Y-%m-%d")))) {
   dir.create(paste0("./vintages/", format(Sys.Date(), "%Y-%m-%d")), recursive = TRUE)
@@ -25,3 +20,12 @@ for(table in tables_list) {
          sep = ";",
          col.names = TRUE)
 }
+
+# Delete vintages for T-180
+cutoff <- as.Date(format(Sys.Date() - 180))
+folders <- list.dirs("./vintages", recursive = FALSE, full.names = FALSE)
+folder_dates <- as.Date(folders, format = "%Y-%m-%d")
+old_folders <- folders[folder_dates < cutoff]
+old_paths <- file.path("./vintages", old_folders)
+unlink(old_paths, recursive = TRUE, force = TRUE)
+
