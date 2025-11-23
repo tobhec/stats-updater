@@ -1,11 +1,20 @@
 setwd("C:/Users/Tobia/raspberry_pi/stats-updater")
 
-if (!dir.exists(paste0("./vintages/", per))) {
-  dir.create(paste0("./vintages/", per), recursive = TRUE)
+if (!dir.exists(paste0("./vintages/", format(Sys.Date(), "%Y-%m-%d")))) {
+  dir.create(paste0("./vintages/", format(Sys.Date(), "%Y-%m-%d")), recursive = TRUE)
 }
 
 index <- 0
-for(i in i_temp) {
+for(table in tables_list) {
   index <- index + 1
-  fwrite(i, paste0(paste0("./vintages/", per, "/"), names(i_temp)[index]), sep = ";", col.names = TRUE)
+  
+  # Make a copy to avoid modifying the original
+  tmp <- copy(table)
+  tmp[, TIME := as.character(TIME)]
+  
+  # Save as vintage
+  fwrite(tmp,
+         file = paste0("./vintages/", format(Sys.Date(), "%Y-%m-%d"), "/", names(tables_list)[index]),
+         sep = ";",
+         col.names = TRUE)
 }

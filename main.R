@@ -2,6 +2,7 @@ setwd("C:/Users/Tobia/raspberry_pi/stats-updater")
 
 source("./dependencies.R")
 source("./data_loader.R")
+source("./data_processor.R")
 source("./config.R")
 
 for (per in names(pref_list)) {
@@ -51,6 +52,25 @@ for (per in names(pref_list)) {
       return(NA)
     }
   )
+  
+  # Change the country code to the real name, for all tables used in the visualisation
+  tryCatch(
+    {
+      for (code in i_codes) {
+        if(dropdowns_list[[code]] == "geo") {
+          i_temp[[code]]$Country <- ccode(i_temp[[code]]$Country, "iso2c", "name.en")
+          diff_list[[code]]$Country <- ccode(diff_list[[code]]$Country, "iso2c", "name.en")
+          revision_list[[code]]$Country <- ccode(revision_list[[code]]$Country, "iso2c", "name.en")
+          vintages[[code]]$Country <- ccode(vintages[[code]]$Country, "iso2c", "name.en")
+        }
+      }
+    },
+    error = function(e) {
+      cat("Error converting country codes for: ", per, "\n", e$message)
+      return(NA)
+    }
+  )
+
   
   # Try to generate the mail for the current subscriber
   tryCatch(

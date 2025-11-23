@@ -1,3 +1,9 @@
+#install.packages("remotes")
+#install.packages("bit64")
+#install.packages("zoo")
+#install.packages("XML")
+#install.packages("rsdmx")
+#install.packages("data.table")
 #remotes::install_github('zeugner/MDcountrycode'); 
 #remotes::install_github('zeugner/MD3'); #bit64 #zoo
 #remotes::install_github('zeugner/MDstats') #XML #rsdmx
@@ -347,101 +353,122 @@ setnames(cbl_a_ecb, "REF_AREA", "geo")
 sdmx_code <- "WB/WDI/A.FP_CPI_TOTL_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 infl_a_wb <- as.data.table(mds(sdmx_code))
 setnames(infl_a_wb, "REF_AREA", "geo")
+infl_a_wb$geo <- ccode(infl_a_wb$geo, "iso3c", "iso2c")
 
 # Current account as percentage of GDP
 sdmx_code <- "WB/WDI/A.BN_CAB_XOKA_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 ca_a_wb <- as.data.table(mds(sdmx_code))
 setnames(ca_a_wb, "REF_AREA", "geo")
+ca_a_wb$geo <- ccode(ca_a_wb$geo, "iso3c", "iso2c")
 
 # Exports of goods and services as percentage of GDP
 sdmx_code <- "WB/WDI/A.NE_EXP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 exp_a_wb <- as.data.table(mds(sdmx_code))
 setnames(exp_a_wb, "REF_AREA", "geo")
+exp_a_wb$geo <- ccode(exp_a_wb$geo, "iso3c", "iso2c")
 
 # Imports of goods and services as percentage of GDP
 sdmx_code <- "WB/WDI/A.NE_IMP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 imp_a_wb <- as.data.table(mds(sdmx_code))
 setnames(imp_a_wb, "REF_AREA", "geo")
+imp_a_wb$geo <- ccode(imp_a_wb$geo, "iso3c", "iso2c")
 
 # Net inflows of FDI as percentage of GDP
 sdmx_code <- "WB/WDI/A.BX_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 fdiin_a_wb <- as.data.table(mds(sdmx_code))
 setnames(fdiin_a_wb, "REF_AREA", "geo")
+fdiin_a_wb$geo <- ccode(fdiin_a_wb$geo, "iso3c", "iso2c")
 
 # Net outflows of FDI as percentage of GDP
 sdmx_code <- "WB/WDI/A.BM_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 fdiout_a_wb <- as.data.table(mds(sdmx_code))
 setnames(fdiout_a_wb, "REF_AREA", "geo")
+fdiout_a_wb$geo <- ccode(fdiout_a_wb$geo, "iso3c", "iso2c")
 
 # Real GDP growth (constant 2015 prices)
 sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 gdpg_a_wb <- as.data.table(mds(sdmx_code))
 setnames(gdpg_a_wb, "REF_AREA", "geo")
+gdpg_a_wb$geo <- ccode(gdpg_a_wb$geo, "iso3c", "iso2c")
 
 # Real GDP per capita growth (constant 2015 prices)
 sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 gdpcg_a_wb <- as.data.table(mds(sdmx_code))
 setnames(gdpcg_a_wb, "REF_AREA", "geo")
+gdpcg_a_wb$geo <- ccode(gdpcg_a_wb$geo, "iso3c", "iso2c")
 
 # Real GDP per capita (constant 2015 prices)
 sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 gdpc_a_wb <- as.data.table(mds(sdmx_code))
 setnames(gdpc_a_wb, "REF_AREA", "geo")
+gdpc_a_wb$geo <- ccode(gdpc_a_wb$geo, "iso3c", "iso2c")
 
 # Real GDP (constant 2015 prices)
 sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 gdp_a_wb <- as.data.table(mds(sdmx_code))
 setnames(gdp_a_wb, "REF_AREA", "geo")
+gdp_a_wb$geo <- ccode(gdp_a_wb$geo, "iso3c", "iso2c")
 
 # Income share held by top 10 %
 sdmx_code <- "WB/WDI/A.SI_DST_10TH_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 ist10_a_wb <- as.data.table(mds(sdmx_code))
 setnames(ist10_a_wb, "REF_AREA", "geo")
+ist10_a_wb$geo <- ccode(ist10_a_wb$geo, "iso3c", "iso2c")
 
 # Income share held by top 20 %
 sdmx_code <- "WB/WDI/A.SI_DST_05TH_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 ist20_a_wb <- as.data.table(mds(sdmx_code))
 setnames(ist20_a_wb, "REF_AREA", "geo")
+ist20_a_wb$geo <- ccode(ist20_a_wb$geo, "iso3c", "iso2c")
 
 # Income share held by lowest 10 %
 sdmx_code <- "WB/WDI/A.SI_DST_FRST_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 isl10_a_wb <- as.data.table(mds(sdmx_code))
 setnames(isl10_a_wb, "REF_AREA", "geo")
+isl10_a_wb$geo <- ccode(isl10_a_wb$geo, "iso3c", "iso2c")
 
 # Income share held by lowest 20 %
 sdmx_code <- "WB/WDI/A.SI_DST_FRST_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 isl20_a_wb <- as.data.table(mds(sdmx_code))
 setnames(isl20_a_wb, "REF_AREA", "geo")
+isl20_a_wb$geo <- ccode(isl20_a_wb$geo, "iso3c", "iso2c")
 
 # Poverty headcount ratio at $3.00 a day (2021 PPP) (% of population)
 sdmx_code <- "WB/WDI/A.SI_POV_DDAY.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 povhc3_a_wb <- as.data.table(mds(sdmx_code))
 setnames(povhc3_a_wb, "REF_AREA", "geo")
+povhc3_a_wb$geo <- ccode(povhc3_a_wb$geo, "iso3c", "iso2c")
 
 # Poverty headcount ratio at $4.20 a day (2021 PPP) (% of population)
 sdmx_code <- "WB/WDI/A.SI_POV_LMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 povhc42_a_wb <- as.data.table(mds(sdmx_code))
 setnames(povhc42_a_wb, "REF_AREA", "geo")
+povhc42_a_wb$geo <- ccode(povhc42_a_wb$geo, "iso3c", "iso2c")
 
 # Poverty headcount ratio at $8.30 a day (2021 PPP) (% of population)
 sdmx_code <- "WB/WDI/A.SI_POV_UMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 povhc83_a_wb <- as.data.table(mds(sdmx_code))
 setnames(povhc83_a_wb, "REF_AREA", "geo")
+povhc83_a_wb$geo <- ccode(povhc83_a_wb$geo, "iso3c", "iso2c")
 
 # Poverty gap at $3.00 a day (2021 PPP) (%)
 sdmx_code <- "WB/WDI/A.SI_POV_GAPS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 povgap3_a_wb <- as.data.table(mds(sdmx_code))
 setnames(povgap3_a_wb, "REF_AREA", "geo")
+povgap3_a_wb$geo <- ccode(povgap3_a_wb$geo, "iso3c", "iso2c")
 
 # Poverty gap at $4.20 a day (2021 PPP) (%)
 sdmx_code <- "WB/WDI/A.SI_POV_LMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 povgap42_a_wb <- as.data.table(mds(sdmx_code))
 setnames(povgap42_a_wb, "REF_AREA", "geo")
+povgap42_a_wb$geo <- ccode(povgap42_a_wb$geo, "iso3c", "iso2c")
 
 # Poverty gap at $8.30 a day (2021 PPP) (%)
 sdmx_code <- "WB/WDI/A.SI_POV_UMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
 povgap83_a_wb <- as.data.table(mds(sdmx_code))
 setnames(povgap83_a_wb, "REF_AREA", "geo")
+povgap83_a_wb$geo <- ccode(povgap83_a_wb$geo, "iso3c", "iso2c")
+
 
 
 
@@ -1807,90 +1834,3 @@ raw_data_list <- list(
       )
   )
 )
-
-# Create a vector with the themes
-themes <- names(raw_data_list)
-
-# Create a list of all titles
-themes_and_titles_list <- lapply(raw_data_list, function(theme) {
-  lapply(theme, function(indicator) {
-    indicator[["title"]]
-  })
-})
-titles_list <- unlist(themes_and_titles_list, recursive = FALSE)
-names(titles_list) <- sub(".*\\.", "", names(titles_list))
-
-# Create a list of all data tables
-themes_and_tables_list <- lapply(raw_data_list, function(theme) {
-  lapply(theme, function(indicator) {
-    indicator[["data"]]
-  })
-})
-tables_list <- unlist(themes_and_tables_list, recursive = FALSE)
-names(tables_list) <- sub(".*\\.", "", names(tables_list))
-
-# Create a list of all links
-themes_and_links_list <- lapply(raw_data_list, function(theme) {
-  lapply(theme, function(indicator) {
-    indicator[["link"]]
-  })
-})
-links_list <- unlist(themes_and_links_list, recursive = FALSE)
-names(links_list) <- sub(".*\\.", "", names(links_list))
-
-# Create a list of all units
-themes_and_units_list <- lapply(raw_data_list, function(theme) {
-  lapply(theme, function(indicator) {
-    indicator[["unit"]]
-  })
-})
-units_list <- unlist(themes_and_units_list, recursive = FALSE)
-names(units_list) <- sub(".*\\.", "", names(units_list))
-
-# Create a list of all units
-themes_and_sources_list <- lapply(raw_data_list, function(theme) {
-  lapply(theme, function(indicator) {
-    indicator[["source"]]
-  })
-})
-sources_list <- unlist(themes_and_sources_list, recursive = FALSE)
-names(sources_list) <- sub(".*\\.", "", names(sources_list))
-
-# Create a list of all units
-themes_and_con_geos_list <- lapply(raw_data_list, function(theme) {
-  lapply(theme, function(indicator) {
-    indicator[["contains_geo"]]
-  })
-})
-con_geos_list <- unlist(themes_and_con_geos_list, recursive = FALSE)
-names(con_geos_list) <- sub(".*\\.", "", names(con_geos_list))
-
-# Create a list of which dropdown the indicators have
-themes_and_dropdowns_list <- lapply(raw_data_list, function(theme) {
-  lapply(theme, function(indicator) {
-    indicator[["dropdown"]]
-  })
-})
-dropdowns_list <- unlist(themes_and_dropdowns_list, recursive = FALSE)
-names(dropdowns_list) <- sub(".*\\.", "", names(dropdowns_list))
-
-
-
-# How to nest through the new structure
-#themes <- names(indic_list)
-#for(theme in themes) {
-#  indicators <- names(indic_list[[theme]])
-#  print(names(indic_list[[theme]]))
-#  
-#  for(indic in indicators){
-#    properties <- names(indic_list[[theme]][[indic]])
-#    print(properties)
-#    
-#    for(prop in properties) {
-#      property <- indic_list[[theme]][[indic]][[prop]]
-#      print(property)
-#      
-#    }
-#    
-#  }
-#}

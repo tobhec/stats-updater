@@ -1,18 +1,9 @@
-# Filter out the unnecessary data from the data table
-if("obs_status" %in% names(i_temp[[code]])) {
-  i_temp[[code]] <- i_temp[[code]][, obs_status := NULL]
-}
-if("obs_conf" %in% names(i_temp[[code]])) {
-  i_temp[[code]] <- i_temp[[code]][, obs_conf := NULL]
-}
 
+# Filter for the subscribers selections
 if(dropdowns_list[[code]] == "geo") {
   
   # Filter out for the subscriber choices
   i_temp[[code]] <- i_temp[[code]][geo %in% cross_section_filters & TIME >= as.numeric(period)]
-  
-  # Change the country code to the real name 
-  i_temp[[code]]$geo <- ccode(i_temp[[code]]$geo, "iso2c", "name.en")
   
   # Make the column name more clean
   setnames(i_temp[[code]], old = c("geo", "TIME", "obs_value"), new = c("Country", "Time", "Value"))
