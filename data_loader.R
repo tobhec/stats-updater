@@ -11,21 +11,53 @@ library(MDstats)
 
 ### Eurostat ###
 
-# Monthly year-on-year inflation
-sdmx_code <- "ESTAT/prc_hicp_manr/M.RCH_A.CP00."
-infl_m_estat <- as.data.table(mds(sdmx_code))
+# Monthly year on year inflation
+infl_m_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/prc_hicp_manr/M.RCH_A.CP00."
+    as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading infl_m_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Yearly average inflation
-sdmx_code <- "ESTAT/prc_hicp_aind/A.RCH_A_AVG.CP00."
-infl_a_estat <- as.data.table(mds(sdmx_code))
+infl_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/prc_hicp_aind/A.RCH_A_AVG.CP00."
+    infl_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading infl_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # GDP growth quarter-on-quarter, seasonally and calendar adjusted
-sdmx_code <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
-gdp_q_estat <- as.data.table(mds(sdmx_code))
+gdp_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
+    gdp_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gdp_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # GDP growth year-on-year
-sdmx_code <- "ESTAT/nama_10_gdp/A.CLV_PCH_PRE.B1GQ."
-gdp_a_estat <- as.data.table(mds(sdmx_code))
+gdp_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/nama_10_gdp/A.CLV_PCH_PRE.B1GQ."
+    gdp_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gdp_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Monthly unemployment rate, seasonally adjusted
 sdmx_code <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
