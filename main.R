@@ -1,4 +1,4 @@
-#setwd("")
+setwd("C:/Users/Tobia/raspberry_pi/stats-updater")
 
 source("./dependencies.R")
 source("./data_loader.R")

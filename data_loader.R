@@ -322,59 +322,22 @@ setnames(cbl_a_ecb, "REF_AREA", "geo")
 
 ### International Monetary Fund ###
 
-# Annual inflation https://www.imf.org/external/datamapper/PCPIPCH@WEO/OEMDC/ADVEC/WEOWORLD
-#sdmx_code <- "IMFWEO/WEO/.PCPIPCH"
-#infl_a_imf <- as.data.table(mds(sdmx_code))
-#setnames(infl_a_imf, "COUNTRY", "geo")
+#HICP
+### year on year inflation, monthly
+### year on year inflation, quarterly
+### year on year inflation, annual
 
-# 
-#sdmx_code <- "IMFWEO/WEO/.TM_RPCH"
-#imgs_a_imf <- as.data.table(mds(sdmx_code)) # IMPORT VOLUME GS
-#setnames(imgs_a_imf, "COUNTRY", "geo")
+# WEO - ANNUAL
+# UNEMPLOYMENT RATE
+# CURRENT ACCOUNT BALANCE 
+# REAL GDP GROWTH ANNUAL
 
-#sdmx_code <- "IMFWEO/WEO/.TMG_RPCH"
-#img_a_imf <- as.data.table(mds(sdmx_code)) # im VOLUME G
-#setnames(img_a_imf, "COUNTRY", "geo")
+# FISCAL MONITOR - ANNUAL
+# STRUCTURAL GOVERNMENT BALANCE
+# General government gross debt 
+# NLB
 
-#sdmx_code <- "IMFWEO/WEO/.TX_RPCH"
-#exgs_a_imf <- as.data.table(mds(sdmx_code)) #  ex VOLUME GS
-#setnames(exgs_a_imf, "COUNTRY", "geo")
 
-#sdmx_code <- "IMFWEO/WEO/.TXG_RPCH"
-#exg_a_imf <- as.data.table(mds(sdmx_code)) #  EXPORT VOLUME G
-#setnames(exg_a_imf, "COUNTRY", "geo")
-
-#sdmx_code <- "IMFWEO/WEO/.GGR_NGDP"
-#ggr_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT REVENUE
-#setnames(ggr_a_imf, "COUNTRY", "geo")
-
-###sdmx_code <- "IMFWEO/WEO/.GGX_NGDP"
-#ggx_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT TOTAL EXPENDITURE
-#setnames(ggx_a_imf, "COUNTRY", "geo")
-
-##sdmx_code <- "IMFWEO/WEO/.GGXCNL_NGDP"
-#ggdef_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT DEFICIT (NLB)
-#setnames(ggdef_a_imf, "COUNTRY", "geo")
-
-#sdmx_code <- "IMFWEO/WEO/.GGSB_NPGDP"
-#ggsb_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT STRUCTUAL BALANCE
-#setnames(ggsb_a_imf, "COUNTRY", "geo")
-
-#sdmx_code <- "IMFWEO/WEO/.GGXONLB_NGDP"
-#ggpd_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT PRIMARY DEFICIT
-#setnames(ggpd_a_imf, "COUNTRY", "geo")
-
-#sdmx_code <- "IMFWEO/WEO/.GGXWDN_NGDP"
-#ggnd_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT NET DEBT
-#setnames(ggnd_a_imf, "COUNTRY", "geo")
-
-#sdmx_code <- "IMFWEO/WEO/.GGXWDG_NGDP"
-#ggdeb_a_imf <- as.data.table(mds(sdmx_code)) # GOVERNMENT GROSS DEBT
-#setnames(ggdeb_a_imf, "COUNTRY", "geo")
-
-#sdmx_code <- "IMFWEO/WEO/.BCA_NGDPD"
-#ca_a_imf <- as.data.table(mds(sdmx_code)) # CURRENT ACCOUNT
-#setnames(ca_a_imf, "COUNTRY", "geo")
 
 ### United Nations Statistics Division ###
 
