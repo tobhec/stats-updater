@@ -20,10 +20,10 @@ library(glue)
 library(knitr)
 library(MDstats)
 
-source("./functions.R")
-source("./data_loader.R")
-source("./data_processor.R")
-source("./config.R")
+source("./R/functions.R")
+source("./R/data_loader.R")
+source("./R/data_processor.R")
+source("./R/config.R")
 
 for (per in names(pref_list)) {
   
@@ -53,7 +53,7 @@ for (per in names(pref_list)) {
       for (code in i_codes) {
           cross_section_filters <- i_selection[[code]]$Filter
           period   <- i_selection[[code]]$Period
-          source("./data_filterer.R")
+          source("./R/data_filterer.R")
       }
     },
     error = function(e) {
@@ -65,7 +65,7 @@ for (per in names(pref_list)) {
   # Try to compare the data against the vintages to check for revisions
   tryCatch(
     {
-      source("./revision_checker.R")
+      source("./R/revision_checker.R")
     },
     error = function(e) {
       cat("Error performing the revision check for:", per, "\n", e$message)
@@ -96,7 +96,7 @@ for (per in names(pref_list)) {
   tryCatch(
     {
       # Generate the mail
-      source("./mail_generator.R")
+      source("./R/mail_generator.R")
     },
     error = function(e) {
       cat("Error generating the mail for:", per, "\n", e$message)
@@ -108,8 +108,8 @@ for (per in names(pref_list)) {
   tryCatch(
     {
       # Send the mail
-      #source("./email_sender.R")
-      #source("./vintage_saver.R")
+      #source("./R/email_sender.R")
+      #source("./R/vintage_saver.R")
     },
     error = function(e) {
       cat("Error sending the mail or saving as vintage for:", per, "\n", e$message)
