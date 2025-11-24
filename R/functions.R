@@ -45,3 +45,15 @@ check_for_revisions <- function(dt) {
   
   return(revision_table)
 }
+
+# Days in a year
+YEAR <- 365
+
+# Days in a quarter
+QUARTER <- 91
+
+# Days in a month
+MONTH <- 30
+
+# Days in a month
+MONTH <- 30

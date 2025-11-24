@@ -1,10 +1,11 @@
 ### Eurostat ###
 
+
 # Monthly year on year inflation
 infl_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hicp_manr/M.RCH_A.CP00."
-    as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading infl_m_estat:", e$message, "\n")
@@ -16,7 +17,7 @@ infl_m_estat <- tryCatch(
 infl_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hicp_aind/A.RCH_A_AVG.CP00."
-    infl_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading infl_a_estat:", e$message, "\n")
@@ -28,7 +29,7 @@ infl_a_estat <- tryCatch(
 gdp_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
-    gdp_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y")))
   },
   error = function(e) {
     cat("Error loading gdp_q_estat:", e$message, "\n")
@@ -40,7 +41,7 @@ gdp_q_estat <- tryCatch(
 gdp_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/nama_10_gdp/A.CLV_PCH_PRE.B1GQ."
-    gdp_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading gdp_a_estat:", e$message, "\n")
@@ -52,7 +53,7 @@ gdp_a_estat <- tryCatch(
 une_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
-    une_m_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading une_m_estat:", e$message, "\n")
@@ -64,7 +65,7 @@ une_m_estat <- tryCatch(
 une_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/une_rt_q/Q.SA.Y15-74.PC_ACT.T."
-    une_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading une_q_estat:", e$message, "\n")
@@ -76,7 +77,7 @@ une_q_estat <- tryCatch(
 une_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/une_rt_a/A.Y15-74.PC_ACT.T."
-    une_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading une_a_estat:", e$message, "\n")
@@ -88,7 +89,7 @@ une_a_estat <- tryCatch(
 expi_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
-    expi_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading expi_a_estat:", e$message, "\n")
@@ -100,7 +101,7 @@ expi_a_estat <- tryCatch(
 ggdef_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
-    ggdef_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y")))
   },
   error = function(e) {
     cat("Error loading ggdef_q_estat:", e$message, "\n")
@@ -112,7 +113,7 @@ ggdef_q_estat <- tryCatch(
 ggdef_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.B9."
-    ggdef_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading ggdef_a_estat:", e$message, "\n")
@@ -124,7 +125,7 @@ ggdef_a_estat <- tryCatch(
 ggdeb_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
-    ggdeb_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading ggdeb_q_estat:", e$message, "\n")
@@ -136,7 +137,7 @@ ggdeb_q_estat <- tryCatch(
 ggdeb_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.GD."
-    ggdeb_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading ggdeb_a_estat:", e$message, "\n")
@@ -148,7 +149,7 @@ ggdeb_a_estat <- tryCatch(
 hpi_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
-    hpi_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading hpi_q_estat:", e$message, "\n")
@@ -160,7 +161,7 @@ hpi_q_estat <- tryCatch(
 hpc_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
-    hpc_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading hpc_q_estat:", e$message, "\n")
@@ -172,7 +173,7 @@ hpc_q_estat <- tryCatch(
 hpca_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
-    hpca_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading hpca_q_estat:", e$message, "\n")
@@ -184,7 +185,7 @@ hpca_q_estat <- tryCatch(
 hpi_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.I15_A_AVG."
-    hpi_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading hpi_a_estat:", e$message, "\n")
@@ -196,7 +197,7 @@ hpi_a_estat <- tryCatch(
 hpc_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.RCH_A_AVG."
-    hpc_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading hpc_a_estat:", e$message, "\n")
@@ -208,7 +209,7 @@ hpc_a_estat <- tryCatch(
 ca_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CA.BAL.WRL_REST."
-    ca_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading ca_q_estat:", e$message, "\n")
@@ -220,7 +221,7 @@ ca_q_estat <- tryCatch(
 ca_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CA.BAL.WRL_REST."
-    ca_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading ca_a_estat:", e$message, "\n")
@@ -232,7 +233,7 @@ ca_a_estat <- tryCatch(
 nlb_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CKA.BAL.WRL_REST."
-    nlb_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading nlb_q_estat:", e$message, "\n")
@@ -244,7 +245,7 @@ nlb_q_estat <- tryCatch(
 nlb_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CKA.BAL.WRL_REST."
-    nlb_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading nlb_a_estat:", e$message, "\n")
@@ -256,7 +257,7 @@ nlb_a_estat <- tryCatch(
 niip_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.FA.N_LE.WRL_REST."
-    niip_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading niip_q_estat:", e$message, "\n")
@@ -268,7 +269,7 @@ niip_q_estat <- tryCatch(
 niip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
-    niip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading niip_a_estat:", e$message, "\n")
@@ -284,7 +285,7 @@ niip_a_estat <- tryCatch(
 reer_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/ert_eff_ic_m/M.REER_IC42_CPI.I15."
-    reer_m_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading reer_m_estat:", e$message, "\n")
@@ -296,7 +297,7 @@ reer_m_estat <- tryCatch(
 reer_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/ert_eff_ic_q/Q.REER_IC42_CPI.I15."
-    reer_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading reer_q_estat:", e$message, "\n")
@@ -308,7 +309,7 @@ reer_q_estat <- tryCatch(
 reer_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/ert_eff_ic_a/A.REER_IC42_CPI.I15."
-    reer_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading reer_a_estat:", e$message, "\n")
@@ -320,7 +321,7 @@ reer_a_estat <- tryCatch(
 gby_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_lt_gby10_m/M.Y10."
-    gby_m_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading gby_m_estat:", e$message, "\n")
@@ -332,7 +333,7 @@ gby_m_estat <- tryCatch(
 gby_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_lt_gby10_a/A.Y10."
-    gby_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading gby_a_estat:", e$message, "\n")
@@ -344,7 +345,7 @@ gby_a_estat <- tryCatch(
 gbyemu_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_lt_mcby_m/M.MCBY."
-    gbyemu_m_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading gbyemu_m_estat:", e$message, "\n")
@@ -356,7 +357,7 @@ gbyemu_m_estat <- tryCatch(
 gbyemu_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_lt_mcby_q/Q.MCBY."
-    gbyemu_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading gbyemu_q_estat:", e$message, "\n")
@@ -368,7 +369,7 @@ gbyemu_q_estat <- tryCatch(
 gbyemu_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_lt_mcby_a/A.MCBY."
-    gbyemu_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading gbyemu_a_estat:", e$message, "\n")
@@ -380,7 +381,7 @@ gbyemu_a_estat <- tryCatch(
 mmir_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_st_m/M.IRT_M3."
-    mmir_m_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading mmir_m_estat:", e$message, "\n")
@@ -392,7 +393,7 @@ mmir_m_estat <- tryCatch(
 mmir_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_st_q/Q.IRT_M3."
-    mmir_q_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
   },
   error = function(e) {
     cat("Error loading mmir_q_estat:", e$message, "\n")
@@ -404,7 +405,7 @@ mmir_q_estat <- tryCatch(
 mmir_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_st_a/A.IRT_M3."
-    mmir_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading mmir_a_estat:", e$message, "\n")
@@ -416,7 +417,7 @@ mmir_a_estat <- tryCatch(
 tfsl_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/nasa_10_f_bs/A.PC_GDP.NCO.S12.LIAB.F."
-    tfsl_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading tfsl_a_estat:", e$message, "\n")
@@ -428,7 +429,7 @@ tfsl_a_estat <- tryCatch(
 nendi_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSII50/A.PC_GDP.NSA.FA__NENDI.N_LE.WRL_REST."
-    nendi_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading nendi_a_estat:", e$message, "\n")
@@ -440,7 +441,7 @@ nendi_a_estat <- tryCatch(
 nlb_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSBP70/A.PC_GDP.CKA.S1.S1.BAL.WRL_REST.NSA."
-    nlb_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading nlb_a_estat:", e$message, "\n")
@@ -452,7 +453,7 @@ nlb_a_estat <- tryCatch(
 ntbe_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSEN10/A.MIO_BAL_VAL.SITC3.WORLD."
-    ntbe_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading ntbe_a_estat:", e$message, "\n")
@@ -464,7 +465,7 @@ ntbe_a_estat <- tryCatch(
 gdpcap_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSNA40/A.CLV15_EUR_HAB.B1GQ."
-    gdpcap_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading gdpcap_a_estat:", e$message, "\n")
@@ -476,7 +477,7 @@ gdpcap_a_estat <- tryCatch(
 gfcf_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSNA20/A.P51G.PC_GDP."
-    gfcf_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading gfcf_a_estat:", e$message, "\n")
@@ -488,7 +489,7 @@ gfcf_a_estat <- tryCatch(
 gerd_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSST10/A.TOTAL.PC_GDP."
-    gerd_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading gerd_a_estat:", e$message, "\n")
@@ -500,7 +501,7 @@ gerd_a_estat <- tryCatch(
 ems_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSEX10/A.PCH_WRL_3Y.GS.CRE.WRL_REST."
-    ems_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading ems_a_estat:", e$message, "\n")
@@ -512,7 +513,7 @@ ems_a_estat <- tryCatch(
 lpr_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSNA70/A.RLPR_HW.PCH_PRE."
-    lpr_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading lpr_a_estat:", e$message, "\n")
@@ -524,7 +525,7 @@ lpr_a_estat <- tryCatch(
 infdiff_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSCP10/A.TOT_X_NRG_FOOD.CID_EA."
-    infdiff_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading infdiff_a_estat:", e$message, "\n")
@@ -536,7 +537,7 @@ infdiff_a_estat <- tryCatch(
 hhdgdi_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSPD40/A.PC_GADI.CO.S14_S15.LIAB.F3_F4."
-    hhdgdi_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading hhdgdi_a_estat:", e$message, "\n")
@@ -548,7 +549,7 @@ hhdgdi_a_estat <- tryCatch(
 gnpls_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSBD10/A.PC."
-    gnpls_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading gnpls_a_estat:", e$message, "\n")
@@ -560,7 +561,7 @@ gnpls_a_estat <- tryCatch(
 t1cr_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSBD30/A.PC_RWA."
-    t1cr_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading t1cr_a_estat:", e$message, "\n")
@@ -572,7 +573,7 @@ t1cr_a_estat <- tryCatch(
 roeb_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSBD40/A.PC."
-    roeb_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading roeb_a_estat:", e$message, "\n")
@@ -584,7 +585,7 @@ roeb_a_estat <- tryCatch(
 ptimip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSHO60/A.PTIR_LT_AVG."
-    ptimip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading ptimip_a_estat:", e$message, "\n")
@@ -596,7 +597,7 @@ ptimip_a_estat <- tryCatch(
 buildp_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSHO50/A.NSA.M2_THAB.BPRM_SQM.CPA_F41001."
-    buildp_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading buildp_a_estat:", e$message, "\n")
@@ -608,7 +609,7 @@ buildp_a_estat <- tryCatch(
 ltunem_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLM70/A.T.Y15-74.PC_ACT."
-    ltunem_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading ltunem_a_estat:", e$message, "\n")
@@ -620,7 +621,7 @@ ltunem_a_estat <- tryCatch(
 yunem_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLM80/A.Y15-24.T.PC_ACT."
-    yunem_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading yunem_a_estat:", e$message, "\n")
@@ -632,7 +633,7 @@ yunem_a_estat <- tryCatch(
 emp_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLM100/A.EMP_LFS.T.Y20-64.PC_POP."
-    emp_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading emp_a_estat:", e$message, "\n")
@@ -644,7 +645,7 @@ emp_a_estat <- tryCatch(
 neet_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLM90/A.T.Y15-29.PC_POP."
-    neet_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading neet_a_estat:", e$message, "\n")
@@ -656,7 +657,7 @@ neet_a_estat <- tryCatch(
 arope_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLC10/A.T.PC.TOTAL."
-    arope_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading arope_a_estat:", e$message, "\n")
@@ -668,7 +669,7 @@ arope_a_estat <- tryCatch(
 arope1_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLC20/A.T.PC.LI_R_MD60.TOTAL."
-    arope1_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading arope1_a_estat:", e$message, "\n")
@@ -680,7 +681,7 @@ arope1_a_estat <- tryCatch(
 arope2_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLC30/A.T.PC.TOTAL."
-    arope2_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading arope2_a_estat:", e$message, "\n")
@@ -692,7 +693,7 @@ arope2_a_estat <- tryCatch(
 arope3_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLC40/A.T.Y_LT65.PC."
-    arope3_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading arope3_a_estat:", e$message, "\n")
@@ -704,7 +705,7 @@ arope3_a_estat <- tryCatch(
 camip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSBP10/A.PC_GDP_3Y.NSA.CA.BAL.WRL_REST."
-    camip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading camip_a_estat:", e$message, "\n")
@@ -716,7 +717,7 @@ camip_a_estat <- tryCatch(
 niipmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSII10/A.NSA.FA.S1.S1.N_LE.WRL_REST.PC_GDP."
-    niipmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading niipmip_a_estat:", e$message, "\n")
@@ -728,7 +729,7 @@ niipmip_a_estat <- tryCatch(
 reermip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSER10/A.PCH_3Y."
-    reermip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading reermip_a_estat:", e$message, "\n")
@@ -740,7 +741,7 @@ reermip_a_estat <- tryCatch(
 epmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSBP60/A.PCH_OECD_EU_3Y.GS.CRE.WRL_REST."
-    epmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading epmip_a_estat:", e$message, "\n")
@@ -752,7 +753,7 @@ epmip_a_estat <- tryCatch(
 nulcmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLM10/A.NULC_HW.PCH_3Y."
-    nulcmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading nulcmip_a_estat:", e$message, "\n")
@@ -764,7 +765,7 @@ nulcmip_a_estat <- tryCatch(
 ggdmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSGO10/A.GD.S13.PC_GDP."
-    ggdmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading ggdmip_a_estat:", e$message, "\n")
@@ -776,7 +777,7 @@ ggdmip_a_estat <- tryCatch(
 hhdmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSPD22/A.PC_GDP.CO.S14_S15.LIAB.F3_F4."
-    hhdmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading hhdmip_a_estat:", e$message, "\n")
@@ -788,7 +789,7 @@ hhdmip_a_estat <- tryCatch(
 nfcdmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSPD30/A.PC_GDP.CO.S11.LIAB.F3_F4."
-    nfcdmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading nfcdmip_a_estat:", e$message, "\n")
@@ -800,7 +801,7 @@ nfcdmip_a_estat <- tryCatch(
 hhcfmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSPC40/A.F3_F4.CO.S14_S15.LIAB.PC_LE."
-    hhcfmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading hhcfmip_a_estat:", e$message, "\n")
@@ -812,7 +813,7 @@ hhcfmip_a_estat <- tryCatch(
 nfccfmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSPC30/A.PC_LE.CO.S11.LIAB.F3_F4_X_FDI."
-    nfccfmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading nfccfmip_a_estat:", e$message, "\n")
@@ -824,7 +825,7 @@ nfccfmip_a_estat <- tryCatch(
 hpimip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSHO20/A.RCH_A_AVG."
-    hpimip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading hpimip_a_estat:", e$message, "\n")
@@ -836,7 +837,7 @@ hpimip_a_estat <- tryCatch(
 unemip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSUN20/A.T.Y15-74.PC_ACT."
-    unemip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading unemip_a_estat:", e$message, "\n")
@@ -848,7 +849,7 @@ unemip_a_estat <- tryCatch(
 lfprmip_a_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/TIPSLM60/A.PPCH_3Y.Y15-64.T."
-    lfprmip_a_estat <- as.data.table(mds(sdmx_code))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
   },
   error = function(e) {
     cat("Error loading lfprmip_a_estat:", e$message, "\n")
@@ -863,7 +864,7 @@ lfprmip_a_estat <- tryCatch(
 exreur_d_ecb <- tryCatch(
   {
     sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
-    exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 15))
+    exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 20))
   },
   error = function(e) {
     cat("Error loading exreur_d_ecb:", e$message, "\n")
@@ -875,7 +876,7 @@ exreur_d_ecb <- tryCatch(
 gnpls_a_ecb <- tryCatch(
   {
     sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.F.I3632._Z._Z._Z._Z._Z._Z.PC"
-    gnpls_a_ecb <- as.data.table(mds(sdmx_code))
+    gnpls_a_ecb <- as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
     setnames(gnpls_a_ecb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -888,7 +889,7 @@ gnpls_a_ecb <- tryCatch(
 t1cr_a_ecb <- tryCatch(
   {
     sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I4002._Z._Z._Z._Z._Z._Z.PC"
-    t1cr_a_ecb <- as.data.table(mds(sdmx_code))
+    t1cr_a_ecb <- as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
     setnames(t1cr_a_ecb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -901,7 +902,8 @@ t1cr_a_ecb <- tryCatch(
 roeb_a_ecb <- tryCatch(
   {
     sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I2003._Z._Z._Z._Z._Z._Z.PC"
-    roeb_a_ecb <- as.data.table(mds(sdmx_code))
+    roeb_a_ecb <- as.data.table(mds(sdmx_code, 
+                                    startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
     setnames(roeb_a_ecb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -914,7 +916,8 @@ roeb_a_ecb <- tryCatch(
 cbl_a_ecb <- tryCatch(
   {
     sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I3400._Z._Z._Z._Z._Z._Z.PN"
-    cbl_a_ecb <- as.data.table(mds(sdmx_code))
+    cbl_a_ecb <- as.data.table(mds(sdmx_code, 
+                                   startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
     setnames(cbl_a_ecb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -950,7 +953,9 @@ cbl_a_ecb <- tryCatch(
 infl_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.FP_CPI_TOTL_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    infl_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    infl_a_wb <- as.data.table(mds(sdmx_code, 
+                                   #startPeriod = 2024, 
+                                   ccode = "iso2c"))
     setnames(infl_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -963,7 +968,9 @@ infl_a_wb <- tryCatch(
 ca_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.BN_CAB_XOKA_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    ca_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    ca_a_wb <- as.data.table(mds(sdmx_code, 
+                                 #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                 ccode = "iso2c"))
     setnames(ca_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -976,7 +983,9 @@ ca_a_wb <- tryCatch(
 exp_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.NE_EXP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    exp_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    exp_a_wb <- as.data.table(mds(sdmx_code, 
+                                  #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                  ccode = "iso2c"))
     setnames(exp_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -989,7 +998,9 @@ exp_a_wb <- tryCatch(
 imp_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.NE_IMP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    imp_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    imp_a_wb <- as.data.table(mds(sdmx_code, 
+                                  #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                  ccode = "iso2c"))
     setnames(imp_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1002,7 +1013,9 @@ imp_a_wb <- tryCatch(
 fdiin_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.BX_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    fdiin_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    fdiin_a_wb <- as.data.table(mds(sdmx_code, 
+                                    #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                    ccode = "iso2c"))
     setnames(fdiin_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1015,7 +1028,9 @@ fdiin_a_wb <- tryCatch(
 fdiout_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.BM_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    fdiout_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    fdiout_a_wb <- as.data.table(mds(sdmx_code, 
+                                     #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                     ccode = "iso2c"))
     setnames(fdiout_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1028,7 +1043,9 @@ fdiout_a_wb <- tryCatch(
 gdpg_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    gdpg_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    gdpg_a_wb <- as.data.table(mds(sdmx_code, 
+                                   #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                   ccode = "iso2c"))
     setnames(gdpg_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1041,7 +1058,9 @@ gdpg_a_wb <- tryCatch(
 gdpcg_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    gdpcg_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    gdpcg_a_wb <- as.data.table(mds(sdmx_code, 
+                                    #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                    ccode = "iso2c"))
     setnames(gdpcg_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1054,7 +1073,9 @@ gdpcg_a_wb <- tryCatch(
 gdpc_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    gdpc_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    gdpc_a_wb <- as.data.table(mds(sdmx_code, 
+                                   #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                   ccode = "iso2c"))
     setnames(gdpc_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1067,7 +1088,9 @@ gdpc_a_wb <- tryCatch(
 gdp_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    gdp_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    gdp_a_wb <- as.data.table(mds(sdmx_code, 
+                                  #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                  ccode = "iso2c"))
     setnames(gdp_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1080,7 +1103,9 @@ gdp_a_wb <- tryCatch(
 ist10_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_DST_10TH_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    ist10_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    ist10_a_wb <- as.data.table(mds(sdmx_code, 
+                                    #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                    ccode = "iso2c"))
     setnames(ist10_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1093,7 +1118,9 @@ ist10_a_wb <- tryCatch(
 ist20_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_DST_05TH_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    ist20_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    ist20_a_wb <- as.data.table(mds(sdmx_code, 
+                                    #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                    ccode = "iso2c"))
     setnames(ist20_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1106,7 +1133,9 @@ ist20_a_wb <- tryCatch(
 isl10_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_DST_FRST_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    isl10_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    isl10_a_wb <- as.data.table(mds(sdmx_code, 
+                                    #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                    ccode = "iso2c"))
     setnames(isl10_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1119,7 +1148,9 @@ isl10_a_wb <- tryCatch(
 isl20_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_DST_FRST_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    isl20_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    isl20_a_wb <- as.data.table(mds(sdmx_code, 
+                                    #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                    ccode = "iso2c"))
     setnames(isl20_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1132,7 +1163,9 @@ isl20_a_wb <- tryCatch(
 povhc3_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_POV_DDAY.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    povhc3_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    povhc3_a_wb <- as.data.table(mds(sdmx_code, 
+                                     #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                     ccode = "iso2c"))
     setnames(povhc3_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1145,7 +1178,9 @@ povhc3_a_wb <- tryCatch(
 povhc42_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_POV_LMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    povhc42_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    povhc42_a_wb <- as.data.table(mds(sdmx_code, 
+                                      #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                      ccode = "iso2c"))
     setnames(povhc42_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1158,7 +1193,9 @@ povhc42_a_wb <- tryCatch(
 povhc83_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_POV_UMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    povhc83_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    povhc83_a_wb <- as.data.table(mds(sdmx_code, 
+                                      #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                      ccode = "iso2c"))
     setnames(povhc83_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1171,7 +1208,9 @@ povhc83_a_wb <- tryCatch(
 povgap3_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_POV_GAPS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    povgap3_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    povgap3_a_wb <- as.data.table(mds(sdmx_code, 
+                                      #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                      ccode = "iso2c"))
     setnames(povgap3_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1184,7 +1223,9 @@ povgap3_a_wb <- tryCatch(
 povgap42_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_POV_LMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    povgap42_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    povgap42_a_wb <- as.data.table(mds(sdmx_code, 
+                                       #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                       ccode = "iso2c"))
     setnames(povgap42_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
@@ -1197,7 +1238,9 @@ povgap42_a_wb <- tryCatch(
 povgap83_a_wb <- tryCatch(
   {
     sdmx_code <- "WB/WDI/A.SI_POV_UMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-    povgap83_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    povgap83_a_wb <- as.data.table(mds(sdmx_code, 
+                                       #startPeriod = format(Sys.Date() - 365, "%Y"), 
+                                       ccode = "iso2c"))
     setnames(povgap83_a_wb, "REF_AREA", "geo")
   },
   error = function(e) {
