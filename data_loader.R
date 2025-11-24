@@ -60,303 +60,879 @@ gdp_a_estat <- tryCatch(
 )
 
 # Monthly unemployment rate, seasonally adjusted
-sdmx_code <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
-une_m_estat <- as.data.table(mds(sdmx_code))
+une_m_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/une_rt_m/M.SA.TOTAL.PC_ACT.T."
+    une_m_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading une_m_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Quarterly unemployment rate, seasonally adjusted
-sdmx_code <- "ESTAT/une_rt_q/Q.SA.Y15-74.PC_ACT.T."
-une_q_estat <- as.data.table(mds(sdmx_code))
+une_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/une_rt_q/Q.SA.Y15-74.PC_ACT.T."
+    une_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading une_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Annual unemployment rate
-sdmx_code <- "ESTAT/une_rt_a/A.Y15-74.PC_ACT.T."
-une_a_estat <- as.data.table(mds(sdmx_code))
+une_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/une_rt_a/A.Y15-74.PC_ACT.T."
+    une_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading une_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Export volume indices
-sdmx_code <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
-expi_a_estat <- as.data.table(mds(sdmx_code))
+expi_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/tet00001/A.IVOL_EXP.TOTAL.WORLD."
+    expi_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading expi_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Quarterly general government deficit
-sdmx_code <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
-ggdef_q_estat <- as.data.table(mds(sdmx_code))
+ggdef_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
+    ggdef_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ggdef_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Annual general government deficit
-sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.B9."
-ggdef_a_estat <- as.data.table(mds(sdmx_code))
+ggdef_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.B9."
+    ggdef_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ggdef_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Quarterly general government debt
-sdmx_code <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
-ggdeb_q_estat <- as.data.table(mds(sdmx_code))
+ggdeb_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
+    ggdeb_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ggdeb_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Annual general government debt
-sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.GD."
-ggdeb_a_estat <- as.data.table(mds(sdmx_code))
+ggdeb_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/gov_10dd_edpt1/A.PC_GDP.S13.GD."
+    ggdeb_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ggdeb_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # House price index, quarterly data
-sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
-hpi_q_estat <- as.data.table(mds(sdmx_code))
+hpi_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
+    hpi_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hpi_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # House price quarter-on-quarter change, quarterly data
-sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
-hpc_q_estat <- as.data.table(mds(sdmx_code))
+hpc_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
+    hpc_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hpc_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # House price year-on-year change, quarterly data
-sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
-hpca_q_estat <- as.data.table(mds(sdmx_code))
+hpca_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
+    hpca_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hpca_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # House price index, annual data
-sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.I15_A_AVG."
-hpi_a_estat <- as.data.table(mds(sdmx_code))
+hpi_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.I15_A_AVG."
+    hpi_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hpi_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Average year-on-year house price change, annual data
-sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.RCH_A_AVG."
-hpc_a_estat <- as.data.table(mds(sdmx_code))
+hpc_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/prc_hpi_a/A.TOTAL.RCH_A_AVG."
+    hpc_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hpc_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Quarterly current account
-sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CA.BAL.WRL_REST."
-ca_q_estat <- as.data.table(mds(sdmx_code))
+ca_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CA.BAL.WRL_REST."
+    ca_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ca_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Annual current account
-sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CA.BAL.WRL_REST."
-ca_a_estat <- as.data.table(mds(sdmx_code))
+ca_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CA.BAL.WRL_REST."
+    ca_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ca_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Quarterly net lending-borrowing (CA+KA)
-sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CKA.BAL.WRL_REST."
-nlb_q_estat <- as.data.table(mds(sdmx_code))
+nlb_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CKA.BAL.WRL_REST."
+    nlb_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading nlb_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Annual net lending-borrowing (CA+KA)
-sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CKA.BAL.WRL_REST."
-nlb_a_estat <- as.data.table(mds(sdmx_code))
+nlb_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.CKA.BAL.WRL_REST."
+    nlb_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading nlb_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Quarterly net international investment position
-sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.FA.N_LE.WRL_REST."
-niip_q_estat <- as.data.table(mds(sdmx_code))
+niip_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.FA.N_LE.WRL_REST."
+    niip_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading niip_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Annual net international investment position
-sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
-niip_a_estat <- as.data.table(mds(sdmx_code))
+niip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/bop_gdp6_q/A.PC_GDP.NSA.FA.N_LE.WRL_REST."
+    niip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading niip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Daily exchange rates in Euro
 #sdmx_code <- "ESTAT/ert_bil_eur_d/D.AVG.NAC.ALL"
 #exr_d_estat <- as.data.table(mds(sdmx_code))
 
 # Monthly real effective exchange rate
-sdmx_code <- "ESTAT/ert_eff_ic_m/M.REER_IC42_CPI.I15."
-reer_m_estat <- as.data.table(mds(sdmx_code))
+reer_m_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/ert_eff_ic_m/M.REER_IC42_CPI.I15."
+    reer_m_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading reer_m_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Quarterly real effective exchange rate
-sdmx_code <- "ESTAT/ert_eff_ic_q/Q.REER_IC42_CPI.I15."
-reer_q_estat <- as.data.table(mds(sdmx_code))
+reer_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/ert_eff_ic_q/Q.REER_IC42_CPI.I15."
+    reer_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading reer_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Annual real effective exchange rate
-sdmx_code <- "ESTAT/ert_eff_ic_a/A.REER_IC42_CPI.I15."
-reer_a_estat <- as.data.table(mds(sdmx_code))
+reer_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/ert_eff_ic_a/A.REER_IC42_CPI.I15."
+    reer_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading reer_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Government bond yields - 10 year maturity, monthly data
-sdmx_code <- "ESTAT/irt_lt_gby10_m/M.Y10."
-gby_m_estat <- as.data.table(mds(sdmx_code))
+gby_m_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/irt_lt_gby10_m/M.Y10."
+    gby_m_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gby_m_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Government bond yields - 10 year maturity, annual data
-sdmx_code <- "ESTAT/irt_lt_gby10_a/A.Y10."
-gby_a_estat <- as.data.table(mds(sdmx_code))
+gby_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/irt_lt_gby10_a/A.Y10."
+    gby_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gby_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Government bond yields (EMU convergence data) - 10 year maturity, monthly data
-sdmx_code <- "ESTAT/irt_lt_mcby_m/M.MCBY."
-gbyemu_m_estat <- as.data.table(mds(sdmx_code))
+gbyemu_m_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/irt_lt_mcby_m/M.MCBY."
+    gbyemu_m_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gbyemu_m_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Government bond yields (EMU convergence data) - 10 year maturity, quarterly data
-sdmx_code <- "ESTAT/irt_lt_mcby_q/Q.MCBY."
-gbyemu_q_estat <- as.data.table(mds(sdmx_code))
+gbyemu_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/irt_lt_mcby_q/Q.MCBY."
+    gbyemu_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gbyemu_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Government bond yields (EMU convergence data) - 10 year maturity, annual data
-sdmx_code <- "ESTAT/irt_lt_mcby_a/A.MCBY."
-gbyemu_a_estat <- as.data.table(mds(sdmx_code))
+gbyemu_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/irt_lt_mcby_a/A.MCBY."
+    gbyemu_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gbyemu_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Money market interest rates (3-month rate), monthly data
-sdmx_code <- "ESTAT/irt_st_m/M.IRT_M3."
-mmir_m_estat <- as.data.table(mds(sdmx_code))
+mmir_m_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/irt_st_m/M.IRT_M3."
+    mmir_m_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading mmir_m_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Money market interest rates (3-month rate), quarterly data
-sdmx_code <- "ESTAT/irt_st_q/Q.IRT_M3."
-mmir_q_estat <- as.data.table(mds(sdmx_code))
+mmir_q_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/irt_st_q/Q.IRT_M3."
+    mmir_q_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading mmir_q_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Money market interest rates (3-month rate), annual data
-sdmx_code <- "ESTAT/irt_st_a/A.IRT_M3."
-mmir_a_estat <- as.data.table(mds(sdmx_code))
+mmir_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/irt_st_a/A.IRT_M3."
+    mmir_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading mmir_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Total financial sector liabilites (non-consolidated)
-sdmx_code <- "ESTAT/nasa_10_f_bs/A.PC_GDP.NCO.S12.LIAB.F."
-tfsl_a_estat <- as.data.table(mds(sdmx_code))
+tfsl_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/nasa_10_f_bs/A.PC_GDP.NCO.S12.LIAB.F."
+    tfsl_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading tfsl_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Net international investment position excluding non-defaultable instruments
-sdmx_code <- "ESTAT/TIPSII50/A.PC_GDP.NSA.FA__NENDI.N_LE.WRL_REST."
-nendi_a_estat <- as.data.table(mds(sdmx_code))
+nendi_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSII50/A.PC_GDP.NSA.FA__NENDI.N_LE.WRL_REST."
+    nendi_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading nendi_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Net lending-borrowing (current plus capital account)
-sdmx_code <- "ESTAT/TIPSBP70/A.PC_GDP.CKA.S1.S1.BAL.WRL_REST.NSA."
-nlb_a_estat <- as.data.table(mds(sdmx_code))
+nlb_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSBP70/A.PC_GDP.CKA.S1.S1.BAL.WRL_REST.NSA."
+    nlb_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading nlb_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Net trade balance in energy
-sdmx_code <- "ESTAT/TIPSEN10/A.MIO_BAL_VAL.SITC3.WORLD."
-ntbe_a_estat <- as.data.table(mds(sdmx_code))
+ntbe_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSEN10/A.MIO_BAL_VAL.SITC3.WORLD."
+    ntbe_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ntbe_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Real GDP per capita
-sdmx_code <- "ESTAT/TIPSNA40/A.CLV15_EUR_HAB.B1GQ."
-gdpcap_a_estat <- as.data.table(mds(sdmx_code))
+gdpcap_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSNA40/A.CLV15_EUR_HAB.B1GQ."
+    gdpcap_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gdpcap_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Gross fixed capital formation
-sdmx_code <- "ESTAT/TIPSNA20/A.P51G.PC_GDP."
-gfcf_a_estat <- as.data.table(mds(sdmx_code))
+gfcf_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSNA20/A.P51G.PC_GDP."
+    gfcf_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gfcf_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Gross expenditure on research and development
-sdmx_code <- "ESTAT/TIPSST10/A.TOTAL.PC_GDP."
-gerd_a_estat <- as.data.table(mds(sdmx_code))
+gerd_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSST10/A.TOTAL.PC_GDP."
+    gerd_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gerd_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Export market shares
-sdmx_code <- "ESTAT/TIPSEX10/A.PCH_WRL_3Y.GS.CRE.WRL_REST."
-ems_a_estat <- as.data.table(mds(sdmx_code))
+ems_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSEX10/A.PCH_WRL_3Y.GS.CRE.WRL_REST."
+    ems_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ems_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Labour productivity
-sdmx_code <- "ESTAT/TIPSNA70/A.RLPR_HW.PCH_PRE."
-lpr_a_estat <- as.data.table(mds(sdmx_code))
+lpr_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSNA70/A.RLPR_HW.PCH_PRE."
+    lpr_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading lpr_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Core inflation differential vis-à-vis the euro area
-sdmx_code <- "ESTAT/TIPSCP10/A.TOT_X_NRG_FOOD.CID_EA."
-infdiff_a_estat <- as.data.table(mds(sdmx_code))
+infdiff_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSCP10/A.TOT_X_NRG_FOOD.CID_EA."
+    infdiff_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading infdiff_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Household debt (including non-profit institutions serving households)
-sdmx_code <- "ESTAT/TIPSPD40/A.PC_GADI.CO.S14_S15.LIAB.F3_F4."
-hhdgdi_a_estat <- as.data.table(mds(sdmx_code))
+hhdgdi_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSPD40/A.PC_GADI.CO.S14_S15.LIAB.F3_F4."
+    hhdgdi_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hhdgdi_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Gross non-performing loans
-sdmx_code <- "ESTAT/TIPSBD10/A.PC."
-gnpls_a_estat <- as.data.table(mds(sdmx_code))
+gnpls_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSBD10/A.PC."
+    gnpls_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading gnpls_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Tier-1 capital ratio
-sdmx_code <- "ESTAT/TIPSBD30/A.PC_RWA."
-t1cr_a_estat <- as.data.table(mds(sdmx_code))
+t1cr_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSBD30/A.PC_RWA."
+    t1cr_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading t1cr_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Return on equity of banks
-sdmx_code <- "ESTAT/TIPSBD40/A.PC."
-roeb_a_estat <- as.data.table(mds(sdmx_code))
+roeb_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSBD40/A.PC."
+    roeb_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading roeb_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Standardised house price-to-income ratio
-sdmx_code <- "ESTAT/TIPSHO60/A.PTIR_LT_AVG."
-ptimip_a_estat <- as.data.table(mds(sdmx_code))
+ptimip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSHO60/A.PTIR_LT_AVG."
+    ptimip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ptimip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Building permits
-sdmx_code <- "ESTAT/TIPSHO50/A.NSA.M2_THAB.BPRM_SQM.CPA_F41001."
-buildp_a_estat <- as.data.table(mds(sdmx_code))
+buildp_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSHO50/A.NSA.M2_THAB.BPRM_SQM.CPA_F41001."
+    buildp_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading buildp_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Long-term unemployment rate
-sdmx_code <- "ESTAT/TIPSLM70/A.T.Y15-74.PC_ACT."
-ltunem_a_estat <- as.data.table(mds(sdmx_code))
+ltunem_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLM70/A.T.Y15-74.PC_ACT."
+    ltunem_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ltunem_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Youth unemployment rate
-sdmx_code <- "ESTAT/TIPSLM80/A.Y15-24.T.PC_ACT."
-yunem_a_estat <- as.data.table(mds(sdmx_code))
+yunem_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLM80/A.Y15-24.T.PC_ACT."
+    yunem_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading yunem_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Employment rate
-sdmx_code <- "ESTAT/TIPSLM100/A.EMP_LFS.T.Y20-64.PC_POP."
-emp_a_estat <- as.data.table(mds(sdmx_code))
+emp_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLM100/A.EMP_LFS.T.Y20-64.PC_POP."
+    emp_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading emp_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Young people neither in employment nor in education or training
-sdmx_code <- "ESTAT/TIPSLM90/A.T.Y15-29.PC_POP."
-neet_a_estat <- as.data.table(mds(sdmx_code))
+neet_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLM90/A.T.Y15-29.PC_POP."
+    neet_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading neet_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # People at risk of poverty or social exclusion
-sdmx_code <- "ESTAT/TIPSLC10/A.T.PC.TOTAL."
-arope_a_estat <- as.data.table(mds(sdmx_code))
+arope_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLC10/A.T.PC.TOTAL."
+    arope_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading arope_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # People at risk of poverty after social transfers
-sdmx_code <- "ESTAT/TIPSLC20/A.T.PC.LI_R_MD60.TOTAL."
-arope1_a_estat <- as.data.table(mds(sdmx_code))
+arope1_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLC20/A.T.PC.LI_R_MD60.TOTAL."
+    arope1_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading arope1_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Severely materially and socially deprived people
-sdmx_code <- "ESTAT/TIPSLC30/A.T.PC.TOTAL."
-arope2_a_estat <- as.data.table(mds(sdmx_code))
+arope2_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLC30/A.T.PC.TOTAL."
+    arope2_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading arope2_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 # People living in households with very low work intensity
-sdmx_code <- "ESTAT/TIPSLC40/A.T.Y_LT65.PC."
-arope3_a_estat <- as.data.table(mds(sdmx_code))
+arope3_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLC40/A.T.Y_LT65.PC."
+    arope3_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading arope3_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Current account balance 3 year average (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/f91d993f-81ca-44c1-a860-9b31a01fa0ad?lang=en&createdAt=2025-09-21T16:09:06Z
-sdmx_code <- "ESTAT/TIPSBP10/A.PC_GDP_3Y.NSA.CA.BAL.WRL_REST."
-camip_a_estat <- as.data.table(mds(sdmx_code))
+# Current account balance 3 year average (MIP)
+camip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSBP10/A.PC_GDP_3Y.NSA.CA.BAL.WRL_REST."
+    camip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading camip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Net international investment position (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/f52b89d2-eb1b-4ead-a1ba-e944f2c246cb?lang=en&createdAt=2025-09-21T16:11:37Z
-sdmx_code <- "ESTAT/TIPSII10/A.NSA.FA.S1.S1.N_LE.WRL_REST.PC_GDP."
-niipmip_a_estat <- as.data.table(mds(sdmx_code))
+# Net international investment position (MIP)
+niipmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSII10/A.NSA.FA.S1.S1.N_LE.WRL_REST.PC_GDP."
+    niipmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading niipmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Real effective exchange rate (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/4e50129c-5c3a-434b-8365-45292de5b035?lang=en&createdAt=2025-09-21T16:15:07Z
-sdmx_code <- "ESTAT/TIPSER10/A.PCH_3Y."
-reermip_a_estat <- as.data.table(mds(sdmx_code))
+# Real effective exchange rate (MIP)
+reermip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSER10/A.PCH_3Y."
+    reermip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading reermip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Export performance against advanced economies (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/8dedfe26-4809-4601-9934-3c9b5fcd69e6?lang=en&createdAt=2025-09-21T16:18:52Z
-sdmx_code <- "ESTAT/TIPSBP60/A.PCH_OECD_EU_3Y.GS.CRE.WRL_REST."
-epmip_a_estat <- as.data.table(mds(sdmx_code))
+# Export performance against advanced economies (MIP)
+epmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSBP60/A.PCH_OECD_EU_3Y.GS.CRE.WRL_REST."
+    epmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading epmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Nominal unit labour cost (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/ad85fa14-15d3-4b1e-935b-8ce36daa37fc?lang=en&createdAt=2025-09-21T16:22:16Z
-sdmx_code <- "ESTAT/TIPSLM10/A.NULC_HW.PCH_3Y."
-nulcmip_a_estat <- as.data.table(mds(sdmx_code))
+# Nominal unit labour cost (MIP)
+nulcmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLM10/A.NULC_HW.PCH_3Y."
+    nulcmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading nulcmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# General government gross debt (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/a3adf2a9-d3d1-4d76-93ac-00588358a887?lang=en&createdAt=2025-09-21T16:25:35Z
-sdmx_code <- "ESTAT/TIPSGO10/A.GD.S13.PC_GDP."
-ggdmip_a_estat <- as.data.table(mds(sdmx_code))
+# General government gross debt (MIP)
+ggdmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSGO10/A.GD.S13.PC_GDP."
+    ggdmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading ggdmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Household debt (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/1940440a-1984-4b65-97e3-371dec4d0e87?lang=en&createdAt=2025-09-21T16:27:41Z
-sdmx_code <- "ESTAT/TIPSPD22/A.PC_GDP.CO.S14_S15.LIAB.F3_F4."
-hhdmip_a_estat <- as.data.table(mds(sdmx_code))
+# Household debt (MIP)
+hhdmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSPD22/A.PC_GDP.CO.S14_S15.LIAB.F3_F4."
+    hhdmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hhdmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# NFC debt (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/ab981ab0-e651-444d-9624-46889928e66c?lang=en&createdAt=2025-09-21T16:33:58Z
-sdmx_code <- "ESTAT/TIPSPD30/A.PC_GDP.CO.S11.LIAB.F3_F4."
-nfcdmip_a_estat <- as.data.table(mds(sdmx_code))
+# NFC debt (MIP)
+nfcdmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSPD30/A.PC_GDP.CO.S11.LIAB.F3_F4."
+    nfcdmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading nfcdmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Household credit flow (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/29d5be5e-9383-45be-831b-2222a51aef47?lang=en&createdAt=2025-09-21T16:35:29Z
-sdmx_code <- "ESTAT/TIPSPC40/A.F3_F4.CO.S14_S15.LIAB.PC_LE."
-hhcfmip_a_estat <- as.data.table(mds(sdmx_code))
+# Household credit flow (MIP)
+hhcfmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSPC40/A.F3_F4.CO.S14_S15.LIAB.PC_LE."
+    hhcfmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hhcfmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# NFC credit flow excluding FDI (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/66eff95d-3eb9-40cf-8542-297ab2c67196?lang=en&createdAt=2025-09-21T16:38:00Z
-sdmx_code <- "ESTAT/TIPSPC30/A.PC_LE.CO.S11.LIAB.F3_F4_X_FDI."
-nfccfmip_a_estat <- as.data.table(mds(sdmx_code))
+# NFC credit flow excluding FDI (MIP)
+nfccfmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSPC30/A.PC_LE.CO.S11.LIAB.F3_F4_X_FDI."
+    nfccfmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading nfccfmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Nominal house price index (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/fe2ee660-986b-4752-aac6-b7b31f6f9eab?lang=en&createdAt=2025-09-21T16:40:14Z
-sdmx_code <- "ESTAT/TIPSHO20/A.RCH_A_AVG."
-hpimip_a_estat <- as.data.table(mds(sdmx_code))
+# Nominal house price index (MIP)
+hpimip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSHO20/A.RCH_A_AVG."
+    hpimip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading hpimip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Unemployment rate (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/b42204e9-faea-4951-9283-c7dcde960601?lang=en&createdAt=2025-09-21T16:41:25Z
-sdmx_code <- "ESTAT/TIPSUN20/A.T.Y15-74.PC_ACT."
-unemip_a_estat <- as.data.table(mds(sdmx_code))
+# Unemployment rate (MIP)
+unemip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSUN20/A.T.Y15-74.PC_ACT."
+    unemip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading unemip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
-# Labour force participation rate (MIP) https://ec.europa.eu/eurostat/databrowser/bookmark/b3f002f5-16c7-49cd-8b8e-18ab4610abb1?lang=en&createdAt=2025-09-21T16:43:31Z
-sdmx_code <- "ESTAT/TIPSLM60/A.PPCH_3Y.Y15-64.T."
-lfprmip_a_estat <- as.data.table(mds(sdmx_code))
+# Labour force participation rate (MIP)
+lfprmip_a_estat <- tryCatch(
+  {
+    sdmx_code <- "ESTAT/TIPSLM60/A.PPCH_3Y.Y15-64.T."
+    lfprmip_a_estat <- as.data.table(mds(sdmx_code))
+  },
+  error = function(e) {
+    cat("Error loading lfprmip_a_estat:", e$message, "\n")
+    data.table()
+  }
+)
 
 
 ### European Central Bank ###
 
 # Daily exchange rates in Euro
-sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
-exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 15))
+exreur_d_ecb <- tryCatch(
+  {
+    sdmx_code <- "ECB/EXR/D..EUR.SP00.A"
+    exreur_d_ecb <- as.data.table(mds(sdmx_code, startPeriod = Sys.Date() - 15))
+  },
+  error = function(e) {
+    cat("Error loading exreur_d_ecb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Gross non-performing loans
-sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.F.I3632._Z._Z._Z._Z._Z._Z.PC"
-gnpls_a_ecb <- as.data.table(mds(sdmx_code))
-setnames(gnpls_a_ecb, "REF_AREA", "geo")
+gnpls_a_ecb <- tryCatch(
+  {
+    sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.F.I3632._Z._Z._Z._Z._Z._Z.PC"
+    gnpls_a_ecb <- as.data.table(mds(sdmx_code))
+    setnames(gnpls_a_ecb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading gnpls_a_ecb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Tier-1 capital ratio
-sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I4002._Z._Z._Z._Z._Z._Z.PC"
-t1cr_a_ecb <- as.data.table(mds(sdmx_code))
-setnames(t1cr_a_ecb, "REF_AREA", "geo")
+t1cr_a_ecb <- tryCatch(
+  {
+    sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I4002._Z._Z._Z._Z._Z._Z.PC"
+    t1cr_a_ecb <- as.data.table(mds(sdmx_code))
+    setnames(t1cr_a_ecb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading t1cr_a_ecb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Return on equity of banks
-sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I2003._Z._Z._Z._Z._Z._Z.PC"
-roeb_a_ecb <- as.data.table(mds(sdmx_code))
-setnames(roeb_a_ecb, "REF_AREA", "geo")
+roeb_a_ecb <- tryCatch(
+  {
+    sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I2003._Z._Z._Z._Z._Z._Z.PC"
+    roeb_a_ecb <- as.data.table(mds(sdmx_code))
+    setnames(roeb_a_ecb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading roeb_a_ecb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Consolidated banking leverage
-sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I3400._Z._Z._Z._Z._Z._Z.PN"
-cbl_a_ecb <- as.data.table(mds(sdmx_code))
-setnames(cbl_a_ecb, "REF_AREA", "geo")
+cbl_a_ecb <- tryCatch(
+  {
+    sdmx_code <- "ECB/CBD2/A..W0.67._Z._Z.A.A.I3400._Z._Z._Z._Z._Z._Z.PN"
+    cbl_a_ecb <- as.data.table(mds(sdmx_code))
+    setnames(cbl_a_ecb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading cbl_a_ecb:", e$message, "\n")
+    data.table()
+  }
+)
 
 ### International Monetary Fund ###
 
@@ -382,124 +958,264 @@ setnames(cbl_a_ecb, "REF_AREA", "geo")
 ### World Bank ###
 
 # Annual inflation
-sdmx_code <- "WB/WDI/A.FP_CPI_TOTL_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-infl_a_wb <- as.data.table(mds(sdmx_code))
-setnames(infl_a_wb, "REF_AREA", "geo")
-infl_a_wb$geo <- ccode(infl_a_wb$geo, "iso3c", "iso2c")
+infl_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.FP_CPI_TOTL_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    infl_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(infl_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading infl_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Current account as percentage of GDP
-sdmx_code <- "WB/WDI/A.BN_CAB_XOKA_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-ca_a_wb <- as.data.table(mds(sdmx_code))
-setnames(ca_a_wb, "REF_AREA", "geo")
-ca_a_wb$geo <- ccode(ca_a_wb$geo, "iso3c", "iso2c")
+ca_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.BN_CAB_XOKA_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    ca_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(ca_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading ca_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Exports of goods and services as percentage of GDP
-sdmx_code <- "WB/WDI/A.NE_EXP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-exp_a_wb <- as.data.table(mds(sdmx_code))
-setnames(exp_a_wb, "REF_AREA", "geo")
-exp_a_wb$geo <- ccode(exp_a_wb$geo, "iso3c", "iso2c")
+exp_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.NE_EXP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    exp_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(exp_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading exp_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Imports of goods and services as percentage of GDP
-sdmx_code <- "WB/WDI/A.NE_IMP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-imp_a_wb <- as.data.table(mds(sdmx_code))
-setnames(imp_a_wb, "REF_AREA", "geo")
-imp_a_wb$geo <- ccode(imp_a_wb$geo, "iso3c", "iso2c")
+imp_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.NE_IMP_GNFS_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    imp_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(imp_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading imp_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Net inflows of FDI as percentage of GDP
-sdmx_code <- "WB/WDI/A.BX_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-fdiin_a_wb <- as.data.table(mds(sdmx_code))
-setnames(fdiin_a_wb, "REF_AREA", "geo")
-fdiin_a_wb$geo <- ccode(fdiin_a_wb$geo, "iso3c", "iso2c")
+fdiin_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.BX_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    fdiin_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(fdiin_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading fdiin_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Net outflows of FDI as percentage of GDP
-sdmx_code <- "WB/WDI/A.BM_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-fdiout_a_wb <- as.data.table(mds(sdmx_code))
-setnames(fdiout_a_wb, "REF_AREA", "geo")
-fdiout_a_wb$geo <- ccode(fdiout_a_wb$geo, "iso3c", "iso2c")
+fdiout_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.BM_KLT_DINV_WD_GD_ZS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    fdiout_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(fdiout_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading fdiout_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Real GDP growth (constant 2015 prices)
-sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-gdpg_a_wb <- as.data.table(mds(sdmx_code))
-setnames(gdpg_a_wb, "REF_AREA", "geo")
-gdpg_a_wb$geo <- ccode(gdpg_a_wb$geo, "iso3c", "iso2c")
+gdpg_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    gdpg_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(gdpg_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading gdpg_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Real GDP per capita growth (constant 2015 prices)
-sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-gdpcg_a_wb <- as.data.table(mds(sdmx_code))
-setnames(gdpcg_a_wb, "REF_AREA", "geo")
-gdpcg_a_wb$geo <- ccode(gdpcg_a_wb$geo, "iso3c", "iso2c")
+gdpcg_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD_ZG.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    gdpcg_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(gdpcg_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading gdpcg_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Real GDP per capita (constant 2015 prices)
-sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-gdpc_a_wb <- as.data.table(mds(sdmx_code))
-setnames(gdpc_a_wb, "REF_AREA", "geo")
-gdpc_a_wb$geo <- ccode(gdpc_a_wb$geo, "iso3c", "iso2c")
+gdpc_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.NY_GDP_PCAP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    gdpc_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(gdpc_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading gdpc_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Real GDP (constant 2015 prices)
-sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-gdp_a_wb <- as.data.table(mds(sdmx_code))
-setnames(gdp_a_wb, "REF_AREA", "geo")
-gdp_a_wb$geo <- ccode(gdp_a_wb$geo, "iso3c", "iso2c")
+gdp_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.NY_GDP_MKTP_KD.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    gdp_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(gdp_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading gdp_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Income share held by top 10 %
-sdmx_code <- "WB/WDI/A.SI_DST_10TH_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-ist10_a_wb <- as.data.table(mds(sdmx_code))
-setnames(ist10_a_wb, "REF_AREA", "geo")
-ist10_a_wb$geo <- ccode(ist10_a_wb$geo, "iso3c", "iso2c")
+ist10_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_DST_10TH_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    ist10_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(ist10_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading ist10_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Income share held by top 20 %
-sdmx_code <- "WB/WDI/A.SI_DST_05TH_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-ist20_a_wb <- as.data.table(mds(sdmx_code))
-setnames(ist20_a_wb, "REF_AREA", "geo")
-ist20_a_wb$geo <- ccode(ist20_a_wb$geo, "iso3c", "iso2c")
+ist20_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_DST_05TH_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    ist20_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(ist20_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading ist20_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Income share held by lowest 10 %
-sdmx_code <- "WB/WDI/A.SI_DST_FRST_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-isl10_a_wb <- as.data.table(mds(sdmx_code))
-setnames(isl10_a_wb, "REF_AREA", "geo")
-isl10_a_wb$geo <- ccode(isl10_a_wb$geo, "iso3c", "iso2c")
+isl10_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_DST_FRST_10.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    isl10_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(isl10_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading isl10_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Income share held by lowest 20 %
-sdmx_code <- "WB/WDI/A.SI_DST_FRST_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-isl20_a_wb <- as.data.table(mds(sdmx_code))
-setnames(isl20_a_wb, "REF_AREA", "geo")
-isl20_a_wb$geo <- ccode(isl20_a_wb$geo, "iso3c", "iso2c")
+isl20_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_DST_FRST_20.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    isl20_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(isl20_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading isl20_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Poverty headcount ratio at $3.00 a day (2021 PPP) (% of population)
-sdmx_code <- "WB/WDI/A.SI_POV_DDAY.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-povhc3_a_wb <- as.data.table(mds(sdmx_code))
-setnames(povhc3_a_wb, "REF_AREA", "geo")
-povhc3_a_wb$geo <- ccode(povhc3_a_wb$geo, "iso3c", "iso2c")
+povhc3_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_POV_DDAY.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    povhc3_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(povhc3_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading povhc3_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Poverty headcount ratio at $4.20 a day (2021 PPP) (% of population)
-sdmx_code <- "WB/WDI/A.SI_POV_LMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-povhc42_a_wb <- as.data.table(mds(sdmx_code))
-setnames(povhc42_a_wb, "REF_AREA", "geo")
-povhc42_a_wb$geo <- ccode(povhc42_a_wb$geo, "iso3c", "iso2c")
+povhc42_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_POV_LMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    povhc42_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(povhc42_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading povhc42_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Poverty headcount ratio at $8.30 a day (2021 PPP) (% of population)
-sdmx_code <- "WB/WDI/A.SI_POV_UMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-povhc83_a_wb <- as.data.table(mds(sdmx_code))
-setnames(povhc83_a_wb, "REF_AREA", "geo")
-povhc83_a_wb$geo <- ccode(povhc83_a_wb$geo, "iso3c", "iso2c")
+povhc83_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_POV_UMIC.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    povhc83_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(povhc83_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading povhc83_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Poverty gap at $3.00 a day (2021 PPP) (%)
-sdmx_code <- "WB/WDI/A.SI_POV_GAPS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-povgap3_a_wb <- as.data.table(mds(sdmx_code))
-setnames(povgap3_a_wb, "REF_AREA", "geo")
-povgap3_a_wb$geo <- ccode(povgap3_a_wb$geo, "iso3c", "iso2c")
+povgap3_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_POV_GAPS.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    povgap3_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(povgap3_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading povgap3_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Poverty gap at $4.20 a day (2021 PPP) (%)
-sdmx_code <- "WB/WDI/A.SI_POV_LMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-povgap42_a_wb <- as.data.table(mds(sdmx_code))
-setnames(povgap42_a_wb, "REF_AREA", "geo")
-povgap42_a_wb$geo <- ccode(povgap42_a_wb$geo, "iso3c", "iso2c")
+povgap42_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_POV_LMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    povgap42_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(povgap42_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading povgap42_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 # Poverty gap at $8.30 a day (2021 PPP) (%)
-sdmx_code <- "WB/WDI/A.SI_POV_UMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
-povgap83_a_wb <- as.data.table(mds(sdmx_code))
-setnames(povgap83_a_wb, "REF_AREA", "geo")
-povgap83_a_wb$geo <- ccode(povgap83_a_wb$geo, "iso3c", "iso2c")
+povgap83_a_wb <- tryCatch(
+  {
+    sdmx_code <- "WB/WDI/A.SI_POV_UMIC_GP.USA+JPN+CHN+RUS+EUU+EMU+GBR+CAN+KOR+MEX+SWE+FRA+PLN+DNK+HRV+CYP+CZE+EST+FIN+ESP+DEU+GRC+ITA+NLD+HUN+LVA+LTU+IRL+LUX+BEL+MLT+SVK+SVN+AUT+BGR+PRT+ROU+NOR+ISL+CHE+SRB+AUS+NZL+ARG"
+    povgap83_a_wb <- as.data.table(mds(sdmx_code, ccode = "iso2c"))
+    setnames(povgap83_a_wb, "REF_AREA", "geo")
+  },
+  error = function(e) {
+    cat("Error loading povgap83_a_wb:", e$message, "\n")
+    data.table()
+  }
+)
 
 
 
@@ -1866,3 +2582,4 @@ raw_data_list <- list(
       )
   )
 )
+
