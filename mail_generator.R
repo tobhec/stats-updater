@@ -1,13 +1,3 @@
-#install.packages("blastula")
-#install.packages("glue")
-#install.packages("knitr")
-#install.packages("digest")
-#install.packages("blastula")
-#writeLines('PATH="${RTOOLS45_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")
-library(blastula)
-library(glue)
-library(knitr)
-
 body_text <- paste0(
   "## Daily Data Update - ", format(Sys.Date(), "%B %d, %Y"), "\n",
   
