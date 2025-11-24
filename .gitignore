@@ -1,9 +1,15 @@
 # RStudio / R files
-config.R
-email_sender.R
+R/config.R
+R/email_sender.R
 
 # Folders
 vintages
 
 # Authentication
 gmail_creds
+
+# R session files
+.Rhistory
+
+# Project dependencies
+renv/library/
