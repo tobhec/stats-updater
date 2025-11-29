@@ -5,7 +5,7 @@
 infl_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hicp_manr/M.RCH_A.CP00."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*YEAR), "%Y")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading infl_m_estat:", e$message, "\n")
@@ -29,7 +29,7 @@ infl_a_estat <- tryCatch(
 gdp_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/namq_10_gdp/Q.CLV_PCH_PRE.SCA.B1GQ."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading gdp_q_estat:", e$message, "\n")
@@ -101,7 +101,7 @@ expi_a_estat <- tryCatch(
 ggdef_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/gov_10q_ggnfa/Q.PC_GDP.NSA.S13.B9."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading ggdef_q_estat:", e$message, "\n")
@@ -125,7 +125,7 @@ ggdef_a_estat <- tryCatch(
 ggdeb_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/gov_10q_ggdebt/Q.GD.S13.PC_GDP."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading ggdeb_q_estat:", e$message, "\n")
@@ -149,7 +149,7 @@ ggdeb_a_estat <- tryCatch(
 hpi_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.I15_Q."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading hpi_q_estat:", e$message, "\n")
@@ -161,7 +161,7 @@ hpi_q_estat <- tryCatch(
 hpc_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_Q."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading hpc_q_estat:", e$message, "\n")
@@ -173,7 +173,7 @@ hpc_q_estat <- tryCatch(
 hpca_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/prc_hpi_q/Q.TOTAL.RCH_A."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading hpca_q_estat:", e$message, "\n")
@@ -209,7 +209,7 @@ hpc_a_estat <- tryCatch(
 ca_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CA.BAL.WRL_REST."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading ca_q_estat:", e$message, "\n")
@@ -233,7 +233,7 @@ ca_a_estat <- tryCatch(
 nlb_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.CKA.BAL.WRL_REST."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading nlb_q_estat:", e$message, "\n")
@@ -257,7 +257,7 @@ nlb_a_estat <- tryCatch(
 niip_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/bop_gdp6_q/Q.PC_GDP.NSA.FA.N_LE.WRL_REST."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading niip_q_estat:", e$message, "\n")
@@ -285,7 +285,7 @@ niip_a_estat <- tryCatch(
 reer_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/ert_eff_ic_m/M.REER_IC42_CPI.I15."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading reer_m_estat:", e$message, "\n")
@@ -297,7 +297,7 @@ reer_m_estat <- tryCatch(
 reer_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/ert_eff_ic_q/Q.REER_IC42_CPI.I15."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading reer_q_estat:", e$message, "\n")
@@ -321,7 +321,7 @@ reer_a_estat <- tryCatch(
 gby_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_lt_gby10_m/M.Y10."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading gby_m_estat:", e$message, "\n")
@@ -345,7 +345,7 @@ gby_a_estat <- tryCatch(
 gbyemu_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_lt_mcby_m/M.MCBY."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading gbyemu_m_estat:", e$message, "\n")
@@ -357,7 +357,7 @@ gbyemu_m_estat <- tryCatch(
 gbyemu_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_lt_mcby_q/Q.MCBY."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading gbyemu_q_estat:", e$message, "\n")
@@ -381,7 +381,7 @@ gbyemu_a_estat <- tryCatch(
 mmir_m_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_st_m/M.IRT_M3."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading mmir_m_estat:", e$message, "\n")
@@ -393,7 +393,7 @@ mmir_m_estat <- tryCatch(
 mmir_q_estat <- tryCatch(
   {
     sdmx_code <- "ESTAT/irt_st_q/Q.IRT_M3."
-    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%M")))
+    as.data.table(mds(sdmx_code, startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m")))
   },
   error = function(e) {
     cat("Error loading mmir_q_estat:", e$message, "\n")
@@ -930,8 +930,15 @@ cbl_a_ecb <- tryCatch(
 
 #HICP
 ### year on year inflation, monthly
+infl_m_imf <- as.data.table(mds("IMF_DATA/CPI/.HICP._T.YOY_PCH_PA_PT.M", startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%m")))
+ccode(infl_m_imf$COUNTRY, "iso3c", "iso2c")
+setnames(infl_m_imf, "COUNTRY", "geo")
+infl_m_imf[TIME == "2025-10-01"]
+
 ### year on year inflation, quarterly
+mds("IMF_DATA/CPI/.HICP._T.YOY_PCH_PA_PT.Q", startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m"))
 ### year on year inflation, annual
+mds("IMF_DATA/CPI/.HICP._T.YOY_PCH_PA_PT.A", startPeriod = format(Sys.Date() - (20*YEAR), "%Y"))
 
 # WEO - ANNUAL
 # UNEMPLOYMENT RATE
@@ -942,6 +949,9 @@ cbl_a_ecb <- tryCatch(
 # STRUCTURAL GOVERNMENT BALANCE
 # General government gross debt 
 # NLB
+
+# BALANCE OF PAYMENTS-IIP
+# ANNUAL CURRENT ACCOUNT
 
 
 
