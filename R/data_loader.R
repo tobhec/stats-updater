@@ -931,9 +931,8 @@ cbl_a_ecb <- tryCatch(
 #HICP
 ### year on year inflation, monthly
 infl_m_imf <- as.data.table(mds("IMF_DATA/CPI/.HICP._T.YOY_PCH_PA_PT.M", startPeriod = format(Sys.Date() - (20*MONTH), "%Y-%m")))
-ccode(infl_m_imf$COUNTRY, "iso3c", "iso2c")
+#ccode(infl_m_imf$COUNTRY, "iso3c", "iso2c")
 setnames(infl_m_imf, "COUNTRY", "geo")
-infl_m_imf[TIME == "2025-10-01"]
 
 ### year on year inflation, quarterly
 mds("IMF_DATA/CPI/.HICP._T.YOY_PCH_PA_PT.Q", startPeriod = format(Sys.Date() - (20*QUARTER), "%Y-%m"))
