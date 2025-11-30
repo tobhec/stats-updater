@@ -1343,8 +1343,6 @@ raw_data_list <- list(
       ),
     "infl_a_estat" = 
       list("title" = "Inflation, annual data",
-           #"Annual average inflation"
-           #"Average inflation, annual data"
            "data" = infl_a_estat,
            "unit" = "Average 1-year % change",
            "source" = "Eurostat",
@@ -1620,7 +1618,7 @@ raw_data_list <- list(
     "buildp_a_estat_mip_2" =
       list("title" = "Building permits, annual data",
            "data" = buildp_a_estat_mip,
-           "unit" = "m2 per 1000 inh",
+           "unit" = "m2 per 1000 inhabitants",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsho50__custom_19122160/default/table",
            "geo" = unique(buildp_a_estat_mip$geo),
@@ -1914,7 +1912,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nfcdmip_a_estat_2" =
-      list("title" = "Non-financial corporations debt, annual data",
+      list("title" = "Non-financial corporation debt, annual data",
            "data" = nfcdmip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1934,7 +1932,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nfccfmip_a_estat_2" =
-      list("title" = "Non-financial corporations credit flow (excluding foreign direct investments), annual data",
+      list("title" = "Non-financial corporation credit flow (excluding foreign direct investments), annual data",
            "data" = nfccfmip_a_estat,
            "unit" = "% of debt stock t-1 (excluding foreign direct investments)",
            "source" = "Eurostat",
@@ -2279,7 +2277,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nfcdmip_a_estat" =
-      list("title" = "Non-financial corporations debt, annual data",
+      list("title" = "Non-financial corporation debt, annual data",
            "data" = nfcdmip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2299,7 +2297,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nfccfmip_a_estat" =
-      list("title" = "Non-financial corporations credit flow (excluding foreign direct investments), annual data",
+      list("title" = "Non-financial corporation credit flow (excluding foreign direct investments), annual data",
            "data" = nfccfmip_a_estat,
            "unit" = "% of debt stock t-1 (excluding foreign direct investments)",
            "source" = "Eurostat",
@@ -2495,7 +2493,7 @@ raw_data_list <- list(
     "buildp_a_estat_mip" =
       list("title" = "Building permits, annual data",
            "data" = buildp_a_estat_mip,
-           "unit" = "m2 per 1000 inh",
+           "unit" = "m2 per 1000 inhabitants",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsho50__custom_19122160/default/table",
            "geo" = unique(buildp_a_estat_mip$geo),
