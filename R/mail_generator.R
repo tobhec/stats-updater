@@ -117,7 +117,7 @@ for(theme in themes) {
       # Add mail graphics for the indicator
       indic_part <- glue("
   <span style='color:blue; font-weight:bold;'>{titles_temp[indic]} - {sources_list[indic]}\n\n</span>
-  <span style='font-size:0.9em; color:black;'>({units_temp[indic]})</span><br><br>
+  <span style='font-size:0.9em; color:black; font-style: italic;'>({units_temp[indic]})</span><br><br>
   {table}
   {revision_sentences}
   

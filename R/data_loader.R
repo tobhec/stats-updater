@@ -1278,7 +1278,7 @@ raw_data_list <- list(
   "Exchange rates" = list(
     
     "exreur_d_ecb" = 
-      list("title" = "Daily exchange rates in Euro",
+      list("title" = "Exchange rates in Euro, daily data",
            "data" = exreur_d_ecb,
            "unit" = "Currency per Euro",
            "source" = "European Central Bank",
@@ -1288,9 +1288,9 @@ raw_data_list <- list(
            "contains_geo" = FALSE
       ),
     "reer_m_estat" = 
-      list("title" = "Monthly real effective exchange rate (against 42 advanced economies)",
+      list("title" = "Real effective exchange rate (against 42 advanced economies), monthly data",
            "data" = reer_m_estat,
-           "unit" = "Index (2015 = 100)",
+           "unit" = "Index - 2015 = 100",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/ert_eff_ic_m__custom_19121885/default/table",
            "geo" = unique(reer_m_estat$geo),
@@ -1298,9 +1298,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "reer_q_estat" = 
-      list("title" = "Quarterly real effective exchange rate (against 42 advanced economies)",
+      list("title" = "Real effective exchange rate (against 42 advanced economies), quarterly data",
            "data" = reer_q_estat,
-           "unit" = "Index (2015 = 100)",
+           "unit" = "Index - 2015 = 100",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/ert_eff_ic_q__custom_19121891/default/table",
            "geo" = unique(reer_q_estat$geo),
@@ -1308,9 +1308,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "reer_a_estat" = 
-      list("title" = "Annual real effective exchange rate (against 42 advanced economies)",
+      list("title" = "Real effective exchange rate (against 42 advanced economies), annual data",
            "data" = reer_a_estat,
-           "unit" = "Index (2015 = 100)",
+           "unit" = "Index - 2015 = 100",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/ert_eff_ic_a__custom_19121899/default/table",
            "geo" = unique(reer_a_estat$geo),
@@ -1318,9 +1318,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "reermip_a_estat_2" =
-      list("title" = "Real effective exchange rate (against 42 advanced economies)",
+      list("title" = "Real effective exchange rate (against 42 advanced economies), annual data",
            "data" = reermip_a_estat,
-           "unit" = "3-year average",
+           "unit" = "3-year % change",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipser10__custom_19122344/default/table",
            "geo" = unique(reermip_a_estat$geo),
@@ -1332,7 +1332,7 @@ raw_data_list <- list(
   "Inflation" = list(
     
     "infl_m_estat" = 
-      list("title" = "Monthly year-on-year inflation",
+      list("title" = "Inflation, monthly data",
            "data" = infl_m_estat,
            "unit" = "1-year % change",
            "source" = "Eurostat",
@@ -1342,7 +1342,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "infl_a_estat" = 
-      list("title" = "Yearly average inflation",
+      list("title" = "Inflation, annual data",
+           #"Annual average inflation"
+           #"Average inflation, annual data"
            "data" = infl_a_estat,
            "unit" = "Average 1-year % change",
            "source" = "Eurostat",
@@ -1352,9 +1354,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "infdiff_a_estat_mip_2" =
-      list("title" = "Core inflation differential vis-à-vis the euro area",
+      list("title" = "Core inflation differential vis-à-vis the euro area, annual data",
            "data" = infdiff_a_estat_mip,
-           "unit" = "pps",
+           "unit" = "Percentage points",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipscp10__custom_19122112/default/table",
            "geo" = unique(infdiff_a_estat_mip$geo),
@@ -1362,7 +1364,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "infl_a_wb" =
-      list("title" = "Annual inflation",
+      list("title" = "Inflation, annual data",
            "data" = infl_a_wb,
            "unit" = "1-year % change",
            "source" = "World Bank",
@@ -1460,7 +1462,7 @@ raw_data_list <- list(
   "Economic growth" = list(
     
     "gdp_q_estat" =
-      list("title" = "GDP growth quarter-on-quarter, seasonally and calendar adjusted",
+      list("title" = "Real GDP growth (seasonally and calendar adjusted), quarterly data",
            "data" = gdp_q_estat,
            "unit" = "1-quarter % change",
            "source" = "Eurostat",
@@ -1470,7 +1472,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "gdp_a_estat" =
-      list("title" = "GDP growth year-on-year",
+      list("title" = "Real GDP growth, annual data",
            "data" = gdp_a_estat,
            "unit" = "1-year % change",
            "source" = "Eurostat",
@@ -1480,7 +1482,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "gdpcap_a_estat_mip_2" =
-      list("title" = "Real GDP per capita",
+      list("title" = "Real GDP per capita, annual data",
            "data" = gdpcap_a_estat_mip,
            "unit" = "EUR",
            "source" = "Eurostat",
@@ -1491,7 +1493,7 @@ raw_data_list <- list(
       ),
     
     "gfcf_a_estat_mip_2" =
-      list("title" = "Investments (gross fixed capital formation)",
+      list("title" = "Investment in fixed assets (gross fixed capital formation), annual data",
            "data" = gfcf_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1502,7 +1504,7 @@ raw_data_list <- list(
       ),
     
     "gerd_a_estat_mip_2" =
-      list("title" = "Gross expenditure on research and development",
+      list("title" = "Gross expenditure on research and development, annual data",
            "data" = gerd_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1512,7 +1514,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "gdpg_a_wb" =
-      list("title" = "Real GDP growth (constant 2015 prices)",
+      list("title" = "Real GDP growth (constant 2015 prices), annual data",
            "data" = gdpg_a_wb,
            "unit" = "1-year % change",
            "source" = "World Bank",
@@ -1522,7 +1524,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "gdpcg_a_wb" =
-      list("title" = "Real GDP per capita growth (constant 2015 prices)",
+      list("title" = "Real GDP per capita growth (constant 2015 prices), annual data",
            "data" = gdpcg_a_wb,
            "unit" = "1-year % change",
            "source" = "World Bank",
@@ -1532,7 +1534,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "gdp_a_wb" =
-      list("title" = "Real GDP (constant 2015 prices)",
+      list("title" = "Real GDP, annual data",
            "data" = gdp_a_wb,
            "unit" = "2015 USD",
            "source" = "World Bank",
@@ -1542,7 +1544,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "gdpc_a_wb" =
-      list("title" = "Real GDP per capita (constant 2015 prices)",
+      list("title" = "Real GDP per capita, annual data",
            "data" = gdpc_a_wb,
            "unit" = "2015 USD",
            "source" = "World Bank",
@@ -1556,9 +1558,9 @@ raw_data_list <- list(
   "Housing" = list(
     
     "hpi_q_estat" =
-      list("title" = "House price index, quarterly data",
+      list("title" = "Nominal house price index, quarterly data",
            "data" = hpi_q_estat,
-           "unit" = "Index (2015 = 100)",
+           "unit" = "Index - 2015 = 100",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/prc_hpi_q__custom_19121612/default/table",
            "geo" = unique(hpi_q_estat$geo),
@@ -1566,7 +1568,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hpc_q_estat" =
-      list("title" = "House price quarter-on-quarter change, quarterly data",
+      list("title" = "Nominal house price index, quarterly data",
            "data" = hpc_q_estat,
            "unit" = "1-quarter % change",
            "source" = "Eurostat",
@@ -1576,7 +1578,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hpca_q_estat" =
-      list("title" = "House price year-on-year change, quarterly data",
+      list("title" = "Nominal house price index, quarterly data",
            "data" = hpca_q_estat,
            "unit" = "1-year % change",
            "source" = "Eurostat",
@@ -1586,9 +1588,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hpi_a_estat" =
-      list("title" = "House price index, annual data",
+      list("title" = "Nomnal house price index, annual data",
            "data" = hpi_a_estat,
-           "unit" = "Annual average 1-year % change",
+           "unit" = "Annual average index - 2015 = 100",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/prc_hpi_a__custom_19121643/default/table",
            "geo" = unique(hpi_a_estat$geo),
@@ -1596,27 +1598,17 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hpc_a_estat" =
-      list("title" = "Average year-on-year house price change, annual data",
+      list("title" = "Nominal house price index, annual data",
            "data" = hpc_a_estat,
-           "unit" = "Annual average 1-year % change",
+           "unit" = "Average 1-year % change",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/prc_hpi_a__custom_19121646/default/table",
            "geo" = unique(hpc_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
       ),
-    "hpimip_a_estat_2" =
-      list("title" = "Nominal house price index",
-           "data" = hpimip_a_estat,
-           "unit" = "1-year % change",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsho20__custom_19122378/default/table",
-           "geo" = unique(hpimip_a_estat$geo),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
     "pti_a_estat_mip_2" =
-      list("title" = "Standardised house price-to-income ratio",
+      list("title" = "Standardised house price-to-income ratio, annual data",
            "data" = pti_a_estat_mip,
            "unit" = "% deviation from long term average",
            "source" = "Eurostat",
@@ -1626,7 +1618,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "buildp_a_estat_mip_2" =
-      list("title" = "Building permits",
+      list("title" = "Building permits, annual data",
            "data" = buildp_a_estat_mip,
            "unit" = "m2 per 1000 inh",
            "source" = "Eurostat",
@@ -1640,7 +1632,7 @@ raw_data_list <- list(
   "Financial sector" = list(
     
     "tfsl_a_estat" =
-      list("title" = "Total financial sector liabilites (non-consolidated)",
+      list("title" = "Total financial sector liabilites (non-consolidated), annual data",
            "data" = tfsl_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1650,7 +1642,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "gnpls_a_ecb" =
-      list("title" = "Gross non-performing loans, domestic and foreign entities",
+      list("title" = "Gross non-performing loans, domestic and foreign entities, annual data",
            "data" = gnpls_a_ecb,
            "unit" = "% of gross loans",
            "source" = "European Central Bank",
@@ -1660,7 +1652,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "t1cr_a_ecb" =
-      list("title" = "Tier-1 capital ratio banking sector",
+      list("title" = "Tier-1 capital ratio banking sector, annual data",
            "data" = t1cr_a_ecb,
            "unit" = "% of risk-weighted assets",
            "source" = "European Central Bank",
@@ -1670,7 +1662,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "roeb_a_ecb" =
-      list("title" = "Return on equity of banks",
+      list("title" = "Return on equity of banks, annual data",
            "data" = roeb_a_ecb,
            "unit" = "%",
            "source" = "European Central Bank",
@@ -1680,7 +1672,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "cbl_a_ecb" =
-      list("title" = "Consolidated banking leverage, domestic and foreign entities (asset-to-equity multiple)",
+      list("title" = "Consolidated banking leverage, domestic and foreign entities (asset-to-equity multiple), annual data",
            "data" = cbl_a_ecb,
            "unit" = "% of GDP",
            "source" = "European Central Bank",
@@ -1694,9 +1686,9 @@ raw_data_list <- list(
   "External sector" = list(
     
     "expi_a_estat" =
-      list("title" = "Export volume indices",
+      list("title" = "Export volume index, annual data",
            "data" = expi_a_estat,
-           "unit" = "Index (2021 = 100)",
+           "unit" = "Index - 2021 = 100",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tet00001__custom_19121579/default/table",
            "geo" = unique(expi_a_estat$geo),
@@ -1704,7 +1696,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ca_q_estat" =
-      list("title" = "Quarterly current account",
+      list("title" = "Current account balance, quarterly data",
            "data" = ca_q_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1714,7 +1706,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ca_a_estat" =
-      list("title" = "Annual current account",
+      list("title" = "Current account balance, annual data",
            "data" = ca_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1724,7 +1716,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nlb_q_estat" =
-      list("title" = "Quarterly net-lending borrowing (current plus capital account)",
+      list("title" = "Net-lending borrowing (current plus capital account), quarterly data",
            "data" = nlb_q_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1734,7 +1726,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nlb_a_estat" =
-      list("title" = "Annual net-lending borrowing (current plus capital account)",
+      list("title" = "Net-lending borrowing (current plus capital account), annual data",
            "data" = nlb_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1744,7 +1736,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "niip_q_estat" =
-      list("title" = "Quarterly net international investment position",
+      list("title" = "Net international investment position, quarterly data",
            "data" = niip_q_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1754,7 +1746,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "niip_a_estat" =
-      list("title" = "Annual net international investment position",
+      list("title" = "Net international investment position, annual data",
            "data" = niip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1764,7 +1756,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "camip_a_estat_2" =
-      list("title" = "Current account balance",
+      list("title" = "Current account balance, annual data",
            "data" = camip_a_estat,
            "unit" = "% of GDP - 3-year average",
            "source" = "Eurostat",
@@ -1773,18 +1765,8 @@ raw_data_list <- list(
            "dropdown" = "geo",
            "contains_geo" = TRUE
       ),
-    "niipmip_a_estat_2" =
-      list("title" = "Net international investment position",
-           "data" = niipmip_a_estat,
-           "unit" = "% of GDP",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsii10__custom_19122341/default/table",
-           "geo" = unique(niipmip_a_estat$geo),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
     "epmip_a_estat_2" =
-      list("title" = "Export performance against advanced economies",
+      list("title" = "Export performance against advanced economies, annual data",
            "data" = epmip_a_estat,
            "unit" = "3-year % change",
            "source" = "Eurostat",
@@ -1794,9 +1776,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ems_a_estat_mip_2" =
-      list("title" = "Export market shares - % of world exports",
+      list("title" = "Export market shares of world exports, annual data",
            "data" = ems_a_estat_mip,
-           "unit" = "3 year % change",
+           "unit" = "3-year % change",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsex10__custom_19122105/default/table",
            "geo" = unique(ems_a_estat_mip$geo),
@@ -1804,7 +1786,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nendi_a_estat_mip_2" =
-      list("title" = "Annual net international investment position excluding non-defaultable instruments",
+      list("title" = "Net international investment position excluding non-defaultable instruments, annual data",
            "data" = nendi_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1814,7 +1796,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ntbe_a_estat_mip_2" =
-      list("title" = "Net trade balance in energy",
+      list("title" = "Trade balance in energy, annual data",
            "data" = ntbe_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1824,7 +1806,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ca_a_wb" =
-      list("title" = "Annual current account",
+      list("title" = "Current account balance, annual data",
            "data" = ca_a_wb,
            "unit" = "% of GDP",
            "source" = "World Bank",
@@ -1834,7 +1816,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "exp_a_wb" =
-      list("title" = "Exports of goods and services",
+      list("title" = "Exports of goods and services, annual data",
            "data" = exp_a_wb,
            "unit" = "% of GDP",
            "source" = "World Bank",
@@ -1844,7 +1826,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "imp_a_wb" =
-      list("title" = "Imports of goods and services",
+      list("title" = "Imports of goods and services, annual data",
            "data" = imp_a_wb,
            "unit" = "% of GDP",
            "source" = "World Bank",
@@ -1854,7 +1836,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "fdiin_a_wb" =
-      list("title" = "Net inflows of foreign direct investment",
+      list("title" = "Net inflows of foreign direct investment, annual data",
            "data" = fdiin_a_wb,
            "unit" = "% of GDP",
            "source" = "World Bank",
@@ -1864,7 +1846,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "fdiout_a_wb" =
-      list("title" = "Net outflows of foreign direct investment",
+      list("title" = "Net outflows of foreign direct investment, annual data",
            "data" = fdiout_a_wb,
            "unit" = "% of GDP",
            "source" = "World Bank",
@@ -1878,7 +1860,7 @@ raw_data_list <- list(
   "Fiscal" = list(
     
     "ggdef_q_estat" =
-      list("title" = "Quarterly general government deficit (Net lending-borrowing)",
+      list("title" = "General government balance (net lending-borrowing), quarterly data",
            "data" = ggdef_q_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1888,7 +1870,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ggdef_a_estat" =
-      list("title" = "Annual general government deficit (Net lending-borrowing)",
+      list("title" = "General government balance (net lending-borrowing), annual data",
            "data" = ggdef_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1898,7 +1880,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ggdeb_q_estat" =
-      list("title" = "Quarterly general government gross debt",
+      list("title" = "General government gross debt, quarterly data",
            "data" = ggdeb_q_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1908,22 +1890,12 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ggdeb_a_estat" =
-      list("title" = "Annual general government gross debt",
+      list("title" = "General government gross debt, annual data",
            "data" = ggdeb_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/gov_10dd_edpt1__custom_19121604/default/table",
            "geo" = unique(ggdeb_a_estat$geo),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
-    "ggdmip_a_estat_2" =
-      list("title" = "General government gross debt",
-           "data" = ggdmip_a_estat,
-           "unit" = "% of GDP",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsgo10__custom_19122357/default/table",
-           "geo" = unique(ggdmip_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
       )
@@ -1932,7 +1904,7 @@ raw_data_list <- list(
   "Private sector debt" = list(
     
     "hhdmip_a_estat_2" =
-      list("title" = "Household debt (including non-profit institutions serving households)",
+      list("title" = "Household debt (including non-profit institutions serving households), annual data",
            "data" = hhdmip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1942,7 +1914,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nfcdmip_a_estat_2" =
-      list("title" = "Non-financial corporations debt",
+      list("title" = "Non-financial corporations debt, annual data",
            "data" = nfcdmip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -1952,7 +1924,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hhcfmip_a_estat_2" =
-      list("title" = "Household credit flow (including non-profit institutions serving households)",
+      list("title" = "Household credit flow (including non-profit institutions serving households), annual data",
            "data" = hhcfmip_a_estat,
            "unit" = "% of debt stock t-1",
            "source" = "Eurostat",
@@ -1962,7 +1934,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nfccfmip_a_estat_2" =
-      list("title" = "Non-financial corporations credit flow (excluding foreign direct investments)",
+      list("title" = "Non-financial corporations credit flow (excluding foreign direct investments), annual data",
            "data" = nfccfmip_a_estat,
            "unit" = "% of debt stock t-1 (excluding foreign direct investments)",
            "source" = "Eurostat",
@@ -1972,7 +1944,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hhdgdi_a_estat_mip_2" =
-      list("title" = "Household debt (including non-profit institutions serving households)",
+      list("title" = "Household debt (including non-profit institutions serving households), annual data",
            "data" = hhdgdi_a_estat_mip,
            "unit" = "% of GDI",
            "source" = "Eurostat",
@@ -1985,7 +1957,7 @@ raw_data_list <- list(
   
   "Productivity" = list(
     "nulcmip_a_estat_2" =
-      list("title" = "Annual nominal unit labour cost",
+      list("title" = "Nominal unit labour cost per hour worked, annual data",
            "data" = nulcmip_a_estat,
            "unit" = "3-year % change",
            "source" = "Eurostat",
@@ -1995,9 +1967,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "lpr_a_estat_mip_2" =
-      list("title" = "Annual labour productivity",
+      list("title" = "Real labour productivity per hour worked, annual data",
            "data" = lpr_a_estat_mip,
-           "unit" = "1 year % change",
+           "unit" = "1-year % change",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsna70__custom_19122109/default/table",
            "geo" = unique(lpr_a_estat_mip$geo),
@@ -2008,7 +1980,7 @@ raw_data_list <- list(
   
   "Labour market" = list(
     "une_m_estat" =
-      list("title" = "Monthly unemployment rate, seasonally adjusted",
+      list("title" = "Unemployment rate (seasonally adjusted), monthly data",
            "data" = une_m_estat,
            "unit" = "% of total labour force",
            "source" = "Eurostat",
@@ -2018,7 +1990,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "une_q_estat" =
-      list("title" = "Quarterly unemployment rate, seasonally adjusted",
+      list("title" = "Unemployment rate (seasonally adjusted), quarterly data",
            "data" = une_q_estat,
            "unit" = "% of labour force aged 15-74",
            "source" = "Eurostat",
@@ -2028,7 +2000,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "une_a_estat" =
-      list("title" = "Annual unemployment rate",
+      list("title" = "Unemployment rate, annual data",
            "data" = une_a_estat,
            "unit" = "% of labour force aged 15-74",
            "source" = "Eurostat",
@@ -2036,19 +2008,9 @@ raw_data_list <- list(
            "geo" = unique(une_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
-      ),
-    "unemip_a_estat_2" =
-      list("title" = "Unemployment rate",
-           "data" = unemip_a_estat,
-           "unit" = "% of labour force",
-           "source" = "Eurostat",
-           "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsun20__custom_19122382/default/table",
-           "geo" = unique(unemip_a_estat$geo),
-           "dropdown" = "geo",
-           "contains_geo" = TRUE
-      ),
+      )
     "lfprmip_a_estat_2" =
-      list("title" = "Labour force participation rate",
+      list("title" = "Labour force participation rate, annual data",
            "data" = lfprmip_a_estat,
            "unit" = "3-year % change",
            "source" = "Eurostat",
@@ -2058,7 +2020,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ltunem_a_estat_mip_2" =
-      list("title" = "Long-term unemployment rate",
+      list("title" = "Long-term unemployment rate, annual data",
            "data" = ltunem_a_estat_mip,
            "unit" = "% of total population aged 15-74",
            "source" = "Eurostat",
@@ -2068,7 +2030,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "yunem_a_estat_mip_2" =
-      list("title" = "Youth unemployment rate",
+      list("title" = "Youth unemployment rate, annual data",
            "data" = yunem_a_estat_mip,
            "unit" = "% of total population aged 15-24",
            "source" = "Eurostat",
@@ -2078,7 +2040,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "emp_a_estat_mip_2" =
-      list("title" = "Employment rate",
+      list("title" = "Employment rate, annual data",
            "data" = emp_a_estat_mip,
            "unit" = "% of total population aged 20-64",
            "source" = "Eurostat",
@@ -2089,7 +2051,7 @@ raw_data_list <- list(
       ),
     
     "neet_a_estat_mip_2" =
-      list("title" = "Young people neither in employment nor in education or training",
+      list("title" = "Young people neither in employment nor in education or training, annual data",
            "data" = neet_a_estat_mip,
            "unit" = "% of total population aged 15-29",
            "source" = "Eurostat",
@@ -2103,7 +2065,7 @@ raw_data_list <- list(
   
   "Social and poverty" = list(
     "arope_a_estat_mip_2" =
-      list("title" = "People at risk of poverty or social exclusion",
+      list("title" = "People at risk of poverty or social exclusion, annual data",
            "data" = arope_a_estat_mip,
            "unit" = "% of total population",
            "source" = "Eurostat",
@@ -2113,7 +2075,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope1_a_estat_mip_2" =
-      list("title" = "People at risk of poverty after social transfers",
+      list("title" = "People at risk of poverty after social transfers, annual data",
            "data" = arope1_a_estat_mip,
            "unit" = "% of total population",
            "source" = "Eurostat",
@@ -2123,7 +2085,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope2_a_estat_mip_2" =
-      list("title" = "Severely materially and socially deprived people",
+      list("title" = "Severely materially and socially deprived people, annual data",
            "data" = arope2_a_estat_mip,
            "unit" = "% of total population",
            "source" = "Eurostat",
@@ -2133,7 +2095,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope3_a_estat_mip_2" =
-      list("title" = "People living in households with very low work intensity",
+      list("title" = "People living in households with very low work intensity, annual data",
            "data" = arope3_a_estat_mip,
            "unit" = "% of total population aged 0-64",
            "source" = "Eurostat",
@@ -2143,7 +2105,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ist10_a_wb" =
-      list("title" = "Income share held by top 10 %",
+      list("title" = "Income share held by top 10%, annual data",
            "data" = ist10_a_wb,
            "unit" = "%",
            "source" = "World Bank",
@@ -2153,7 +2115,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ist20_a_wb" =
-      list("title" = "Income share held by top 20 %",
+      list("title" = "Income share held by top 20%, annual data",
            "data" = ist20_a_wb,
            "unit" = "%",
            "source" = "World Bank",
@@ -2163,7 +2125,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "isl10_a_wb" =
-      list("title" = "Income share held by lowest 10 %",
+      list("title" = "Income share held by lowest 10%, annual data",
            "data" = isl10_a_wb,
            "unit" = "%",
            "source" = "World Bank",
@@ -2173,7 +2135,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "isl20_a_wb" =
-      list("title" = "Income share held by lowest 20 %",
+      list("title" = "Income share held by lowest 20%, annual data",
            "data" = isl20_a_wb,
            "unit" = "%",
            "source" = "World Bank",
@@ -2183,7 +2145,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "povhc3_a_wb" =
-      list("title" = "Poverty headcount ratio at $3.00 a day (2021 PPP)",
+      list("title" = "Poverty headcount ratio at $3.00 a day (2021 PPP), annual data",
            "data" = povhc3_a_wb,
            "unit" = "% of population",
            "source" = "World Bank",
@@ -2193,7 +2155,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "povhc42_a_wb" =
-      list("title" = "Poverty headcount ratio at $4.20 a day (2021 PPP)",
+      list("title" = "Poverty headcount ratio at $4.20 a day (2021 PPP), annual data",
            "data" = povhc42_a_wb,
            "unit" = "% of population",
            "source" = "World Bank",
@@ -2203,7 +2165,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "povhc83_a_wb" =
-      list("title" = "Poverty headcount ratio at $8.30 a day (2021 PPP)",
+      list("title" = "Poverty headcount ratio at $8.30 a day (2021 PPP), annual data",
            "data" = povhc83_a_wb,
            "unit" = "% of population",
            "source" = "World Bank",
@@ -2213,9 +2175,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "povgap3_a_wb" =
-      list("title" = "Poverty gap at $3.00 a day (2021 PPP)",
+      list("title" = "Poverty gap at $3.00 a day (2021 PPP), annual data",
            "data" = povgap3_a_wb,
-           "unit" = "%",
+           "unit" = "% of poverty line",
            "source" = "World Bank",
            "link" = "https://databank.worldbank.org/source/world-development-indicators",
            "geo" = unique(povgap3_a_wb$geo),
@@ -2223,9 +2185,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "povgap42_a_wb" =
-      list("title" = "Poverty gap at $4.20 a day (2021 PPP)",
+      list("title" = "Poverty gap at $4.20 a day (2021 PPP), annual data",
            "data" = povgap42_a_wb,
-           "unit" = "%",
+           "unit" = "% of poverty line",
            "source" = "World Bank",
            "link" = "https://databank.worldbank.org/source/world-development-indicators",
            "geo" = unique(povgap42_a_wb$geo),
@@ -2233,9 +2195,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "povgap83_a_wb" =
-      list("title" = "Poverty gap at $8.30 a day (2021 PPP)",
+      list("title" = "Poverty gap at $8.30 a day (2021 PPP), annual data",
            "data" = povgap83_a_wb,
-           "unit" = "%",
+           "unit" = "% of poverty line",
            "source" = "World Bank",
            "link" = "https://databank.worldbank.org/source/world-development-indicators",
            "geo" = unique(povgap83_a_wb$geo),
@@ -2247,7 +2209,7 @@ raw_data_list <- list(
   "MIP Scoreboard indicators" = list(
     
     "camip_a_estat" =
-      list("title" = "Current account balance",
+      list("title" = "Current account balance, annual data",
            "data" = camip_a_estat,
            "unit" = "% of GDP - 3-year average",
            "source" = "Eurostat",
@@ -2257,7 +2219,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "niipmip_a_estat" =
-      list("title" = "Net international investment position",
+      list("title" = "Net international investment position, annual data",
            "data" = niipmip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2267,9 +2229,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "reermip_a_estat" =
-      list("title" = "real effective exchange rate (against 42 advanced economies)",
+      list("title" = "Real effective exchange rate (against 42 advanced economies), annual data",
            "data" = reermip_a_estat,
-           "unit" = "3-year average",
+           "unit" = "3-year % change",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipser10__custom_19122344/default/table",
            "geo" = unique(reermip_a_estat$geo),
@@ -2277,7 +2239,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "epmip_a_estat" =
-      list("title" = "Export performance against advanced economies",
+      list("title" = "Export performance against advanced economies, annual data",
            "data" = epmip_a_estat,
            "unit" = "3-year % change",
            "source" = "Eurostat",
@@ -2287,7 +2249,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nulcmip_a_estat" =
-      list("title" = "Nominal unit labour cost",
+      list("title" = "Nominal unit labour cost per hour worked, annual data",
            "data" = nulcmip_a_estat,
            "unit" = "3-year % change",
            "source" = "Eurostat",
@@ -2297,7 +2259,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ggdmip_a_estat" =
-      list("title" = "General government gross debt",
+      list("title" = "General government gross debt, annual data",
            "data" = ggdmip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2307,7 +2269,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hhdmip_a_estat" =
-      list("title" = "Household debt (including non-profit institutions serving households)",
+      list("title" = "Household debt (including non-profit institutions serving households), annual data",
            "data" = hhdmip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2317,7 +2279,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nfcdmip_a_estat" =
-      list("title" = "Non-financial corporations debt",
+      list("title" = "Non-financial corporations debt, annual data",
            "data" = nfcdmip_a_estat,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2327,7 +2289,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hhcfmip_a_estat" =
-      list("title" = "Household credit flow (including non-profit institutions serving households)",
+      list("title" = "Household credit flow (including non-profit institutions serving households), annual data",
            "data" = hhcfmip_a_estat,
            "unit" = "% of debt stock t-1",
            "source" = "Eurostat",
@@ -2337,7 +2299,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "nfccfmip_a_estat" =
-      list("title" = "Non-financial corporations credit flow (excluding foreign direct investments)",
+      list("title" = "Non-financial corporations credit flow (excluding foreign direct investments), annual data",
            "data" = nfccfmip_a_estat,
            "unit" = "% of debt stock t-1 (excluding foreign direct investments)",
            "source" = "Eurostat",
@@ -2347,7 +2309,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "hpimip_a_estat" =
-      list("title" = "Nominal house price index",
+      list("title" = "Nominal house price index, annual data",
            "data" = hpimip_a_estat,
            "unit" = "1-year % change",
            "source" = "Eurostat",
@@ -2357,9 +2319,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "unemip_a_estat" =
-      list("title" = "Unemployment rate",
+      list("title" = "Unemployment rate, annual data",
            "data" = unemip_a_estat,
-           "unit" = "% of labour force",
+           "unit" = "% of labour force aged 15-74",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsun20__custom_19122382/default/table",
            "geo" = unique(unemip_a_estat$geo),
@@ -2367,9 +2329,9 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "lfprmip_a_estat" =
-      list("title" = "Labour force participation rate",
+      list("title" = "Labour force participation rate, annual data",
            "data" = lfprmip_a_estat,
-           "unit" = "3-year % change - % of total population aged 15-64",
+           "unit" = "% of total population aged 15-64 - 3-year % change",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipslm60__custom_19122385/default/table",
            "geo" = unique(lfprmip_a_estat$geo),
@@ -2381,7 +2343,7 @@ raw_data_list <- list(
   "MIP Auxiliary indicators" = list(
     
     "nendi_a_estat_mip" =
-      list("title" = "Net international investment position excluding non-defaultable instruments",
+      list("title" = "Net international investment position excluding non-defaultable instruments, annual data",
            "data" = nendi_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2392,7 +2354,7 @@ raw_data_list <- list(
       ),
     
     "nlb_a_estat_mip" =
-      list("title" = "Net lending-borrowing (current plus capital account)",
+      list("title" = "Net lending-borrowing (current plus capital account), annual data",
            "data" = nlb_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2403,7 +2365,7 @@ raw_data_list <- list(
       ),
     
     "ntbe_a_estat_mip" =
-      list("title" = "Net trade balance in energy",
+      list("title" = "Trade balance in energy, annual data",
            "data" = ntbe_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2414,7 +2376,7 @@ raw_data_list <- list(
       ),
     
     "gdpcap_a_estat_mip" =
-      list("title" = "Real GDP per capita",
+      list("title" = "Real GDP per capita, annual data",
            "data" = gdpcap_a_estat_mip,
            "unit" = "EUR",
            "source" = "Eurostat",
@@ -2425,7 +2387,7 @@ raw_data_list <- list(
       ),
     
     "gfcf_a_estat_mip" =
-      list("title" = "Gross fixed capital formation",
+      list("title" = "Investment in fixed assets (gross fixed capital formation), annual data",
            "data" = gfcf_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2436,7 +2398,7 @@ raw_data_list <- list(
       ),
     
     "gerd_a_estat_mip" =
-      list("title" = "Gross expenditure on research and development",
+      list("title" = "Gross expenditure on research and development, annual data",
            "data" = gerd_a_estat_mip,
            "unit" = "% of GDP",
            "source" = "Eurostat",
@@ -2447,9 +2409,9 @@ raw_data_list <- list(
       ),
     
     "ems_a_estat_mip" =
-      list("title" = "Export market shares - % of world exports",
+      list("title" = "Export market shares of world exports, annual data",
            "data" = ems_a_estat_mip,
-           "unit" = "3 year % change",
+           "unit" = "3-year % change",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsex10__custom_19122105/default/table",
            "geo" = unique(ems_a_estat_mip$geo),
@@ -2458,9 +2420,9 @@ raw_data_list <- list(
       ),
     
     "lpr_a_estat_mip" =
-      list("title" = "Labour productivity",
+      list("title" = "Real labour productivity per hour worked, annual data",
            "data" = lpr_a_estat_mip,
-           "unit" = "1 year % change",
+           "unit" = "1-year % change",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipsna70__custom_19122109/default/table",
            "geo" = unique(lpr_a_estat_mip$geo),
@@ -2469,9 +2431,9 @@ raw_data_list <- list(
       ),
     
     "infdiff_a_estat_mip" =
-      list("title" = "Core inflation differential vis-à-vis the euro area",
+      list("title" = "Core inflation differential vis-à-vis the euro area, annual data",
            "data" = infdiff_a_estat_mip,
-           "unit" = "pps",
+           "unit" = "Percentage points",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipscp10__custom_19122112/default/table",
            "geo" = unique(infdiff_a_estat_mip$geo),
@@ -2480,7 +2442,7 @@ raw_data_list <- list(
       ),
     
     "hhdgdi_a_estat_mip" =
-      list("title" = "Household debt (including non-profit institutions serving households)",
+      list("title" = "Household debt (including non-profit institutions serving households), annual data",
            "data" = hhdgdi_a_estat_mip,
            "unit" = "% of GDI",
            "source" = "Eurostat",
@@ -2491,7 +2453,7 @@ raw_data_list <- list(
       ),
     
     "gnpls_a_estat_mip" =
-      list("title" = "Gross non-performing loans, domestic and foreign entities",
+      list("title" = "Gross non-performing loans, domestic and foreign entities, annual data",
            "data" = gnpls_a_estat_mip,
            "unit" = "% of gross loans",
            "source" = "Eurostat",
@@ -2501,7 +2463,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "t1cr_a_estat_mip" =
-      list("title" = "Tier-1 capital ratio banking sector",
+      list("title" = "Tier-1 capital ratio banking sector, annual data",
            "data" = t1cr_a_estat_mip,
            "unit" = "% of risk-weighted assets",
            "source" = "Eurostat",
@@ -2511,7 +2473,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "roeb_a_estat_mip" =
-      list("title" = "Return on equity of banks",
+      list("title" = "Return on equity of banks, annual data",
            "data" = roeb_a_estat_mip,
            "unit" = "%",
            "source" = "Eurostat",
@@ -2521,7 +2483,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "pti_a_estat_mip" =
-      list("title" = "Standardised house price-to-income ratio",
+      list("title" = "Standardised house price-to-income ratio, annual data",
            "data" = pti_a_estat_mip,
            "unit" = "% deviation from long term average",
            "source" = "Eurostat",
@@ -2531,7 +2493,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "buildp_a_estat_mip" =
-      list("title" = "Building permits",
+      list("title" = "Building permits, annual data",
            "data" = buildp_a_estat_mip,
            "unit" = "m2 per 1000 inh",
            "source" = "Eurostat",
@@ -2541,7 +2503,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "ltunem_a_estat_mip" =
-      list("title" = "Long-term unemployment rate",
+      list("title" = "Long-term unemployment rate, annual data",
            "data" = ltunem_a_estat_mip,
            "unit" = "% of total population aged 15-74",
            "source" = "Eurostat",
@@ -2551,7 +2513,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "yunem_a_estat_mip" =
-      list("title" = "Youth unemployment rate",
+      list("title" = "Youth unemployment rate, annual data",
            "data" = yunem_a_estat_mip,
            "unit" = "% of total population aged 15-24",
            "source" = "Eurostat",
@@ -2561,7 +2523,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "emp_a_estat_mip" =
-      list("title" = "Employment rate",
+      list("title" = "Employment rate, annual data",
            "data" = emp_a_estat_mip,
            "unit" = "% of total population aged 20-64",
            "source" = "Eurostat",
@@ -2572,7 +2534,7 @@ raw_data_list <- list(
       ),
     
     "neet_a_estat_mip" =
-      list("title" = "Young people neither in employment nor in education or training",
+      list("title" = "Young people neither in employment nor in education or training, annual data",
            "data" = neet_a_estat_mip,
            "unit" = "% of total population aged 15-29",
            "source" = "Eurostat",
@@ -2582,7 +2544,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope_a_estat_mip" =
-      list("title" = "People at risk of poverty or social exclusion",
+      list("title" = "People at risk of poverty or social exclusion, annual data",
            "data" = arope_a_estat_mip,
            "unit" = "% of total population",
            "source" = "Eurostat",
@@ -2592,7 +2554,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope1_a_estat_mip" =
-      list("title" = "People at risk of poverty after social transfers",
+      list("title" = "People at risk of poverty after social transfers, annual data",
            "data" = arope1_a_estat_mip,
            "unit" = "% of total population",
            "source" = "Eurostat",
@@ -2602,7 +2564,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope2_a_estat_mip" =
-      list("title" = "Severely materially and socially deprived people",
+      list("title" = "Severely materially and socially deprived people, annual data",
            "data" = arope2_a_estat_mip,
            "unit" = "% of total population",
            "source" = "Eurostat",
@@ -2612,7 +2574,7 @@ raw_data_list <- list(
            "contains_geo" = TRUE
       ),
     "arope3_a_estat_mip" =
-      list("title" = "People living in households with very low work intensity",
+      list("title" = "People living in households with very low work intensity, annual data",
            "data" = arope3_a_estat_mip,
            "unit" = "% of total population aged 0-64",
            "source" = "Eurostat",
