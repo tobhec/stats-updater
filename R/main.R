@@ -8,6 +8,7 @@ library(MDstats)
 source("./R/functions.R")
 source("./R/data_loader.R")
 source("./R/data_processor.R")
+source("./R/vintage_saver.R")
 source("./R/config.R")
 
 for (per in names(pref_list)) {
@@ -89,12 +90,11 @@ for (per in names(pref_list)) {
     }
   )
   
-  # Try to send the mail and save the data as vintage for the current subscriber
+  # Try to send the mail for the current subscriber
   tryCatch(
     {
       # Send the mail
       #source("./R/email_sender.R")
-      source("./R/vintage_saver.R")
     },
     error = function(e) {
       cat("Error sending the mail or saving as vintage for:", per, "\n", e$message)

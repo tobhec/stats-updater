@@ -2006,11 +2006,11 @@ raw_data_list <- list(
            "geo" = unique(une_a_estat$geo),
            "dropdown" = "geo",
            "contains_geo" = TRUE
-      )
+      ),
     "lfprmip_a_estat_2" =
       list("title" = "Labour force participation rate, annual data",
            "data" = lfprmip_a_estat,
-           "unit" = "3-year % change",
+           "unit" = "3-year change in percentage points",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipslm60__custom_19122385/default/table",
            "geo" = unique(lfprmip_a_estat$geo),
@@ -2329,7 +2329,7 @@ raw_data_list <- list(
     "lfprmip_a_estat" =
       list("title" = "Labour force participation rate, annual data",
            "data" = lfprmip_a_estat,
-           "unit" = "% of total population aged 15-64 - 3-year % change",
+           "unit" = "3-year change in percentage points",
            "source" = "Eurostat",
            "link" = "https://ec.europa.eu/eurostat/databrowser/view/tipslm60__custom_19122385/default/table",
            "geo" = unique(lfprmip_a_estat$geo),
